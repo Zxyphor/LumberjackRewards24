@@ -4,27 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/private_account"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@color/purple_339">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/loginToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:background="@android:color/transparent"/>
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_gravity="center"
+        android:src="@drawable/sfa_logo"
         android:layout_marginTop="70dp"
-        android:rotation="46"
-        android:rotationX="-46"
-        android:rotationY="25"
-        android:src="@drawable/sfa_logo" />
+        android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/loginEmail"
@@ -37,7 +34,7 @@
         android:background="@drawable/inputs"
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:drawablePadding="10dp"
-        android:hint="Me when I"
+        android:hint="Enter Email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:padding="10dp"
@@ -51,7 +48,7 @@
         android:background="@drawable/inputs"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
-        android:hint="Wordpass"
+        android:hint="Enter Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"
@@ -61,21 +58,22 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:text="Login"
         android:textAllCaps="false"
+        android:layout_margin="10dp"
         android:textColor="#000"
+        app:backgroundTint="@color/white"
         android:textSize="16sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/notifications" />
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/loginPageQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Don't have an account? Register"
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Don't have an account? Register"
-        android:textColor="@color/white" />
+        />
 </LinearLayout>
