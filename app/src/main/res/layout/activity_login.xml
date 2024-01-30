@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/steamboatwillie"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@color/purple_339">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/loginToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:background="@android:color/transparent"/>
 
     <ImageView
         android:layout_width="150dp"
@@ -70,10 +70,16 @@
         android:id="@+id/loginPageQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Don't have an account? Register"
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Don't have an account? Register"
-        android:textColor="@color/white" />
+        />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="211dp"
+        android:layout_height="98dp"
+        android:text="This does nothing." />
 </LinearLayout>
