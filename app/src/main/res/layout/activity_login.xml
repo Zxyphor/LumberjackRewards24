@@ -17,14 +17,11 @@
         android:background="@android:color/transparent"/>
 
     <ImageView
-        android:layout_width="279dp"
-        android:layout_height="276dp"
-        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/sfa_logo"
         android:layout_marginTop="70dp"
-        android:rotation="58"
-        android:rotationX="37"
-        android:rotationY="41"
-        android:src="@drawable/sfa_logo" />
+        android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/loginEmail"
@@ -61,13 +58,13 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:text="Login"
         android:textAllCaps="false"
+        android:layout_margin="10dp"
         android:textColor="#000"
+        app:backgroundTint="@color/white"
         android:textSize="16sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/white" />
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/loginPageQuestion"
