@@ -32,6 +32,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/inputs"
+        android:backgroundTint="#2C2727"
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:drawablePadding="10dp"
         android:hint="Enter Email"
@@ -46,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/inputs"
+        android:backgroundTint="#2C2727"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
         android:hint="Enter Password"
@@ -58,13 +60,13 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Login"
         android:textAllCaps="false"
-        android:layout_margin="10dp"
         android:textColor="#000"
-        app:backgroundTint="@color/white"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:backgroundTint="@color/white" />
 
     <TextView
         android:id="@+id/loginPageQuestion"
