@@ -18,10 +18,10 @@
 
     <ImageView
         android:layout_width="363dp"
-        android:layout_height="284dp"
+        android:layout_height="166dp"
         android:layout_gravity="center"
         android:layout_marginTop="70dp"
-        android:src="@drawable/sfa_logo"
+        android:src="@drawable/logo_01"
         app:srcCompat="@drawable/logo_01" />
 
     <EditText
@@ -39,7 +39,8 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:padding="10dp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:fontFamily="@font/arboria_bold"/>
 
     <EditText
         android:id="@+id/loginPassword"
@@ -53,19 +54,23 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:fontFamily="@font/arboria_bold"
+        />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Login"
+        android:text="Log In"
         android:textAllCaps="false"
         android:textColor="#000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/white" />
+        android:textSize="20sp"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="30pt"
+        android:fontFamily="@font/arboria_bold"
+        />
 
     <TextView
         android:id="@+id/loginPageQuestion"
