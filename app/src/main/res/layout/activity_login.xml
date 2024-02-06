@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/secondary"
+    android:background="@drawable/background_gradient"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -35,12 +35,12 @@
         android:background="@drawable/inputs"
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:drawablePadding="10dp"
+        android:fontFamily="@font/arboria_bold"
         android:hint="Enter Email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:padding="10dp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/arboria_bold"/>
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/loginPassword"
@@ -50,27 +50,25 @@
         android:background="@drawable/inputs"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
+        android:fontFamily="@font/arboria_bold"
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/arboria_bold"
-        />
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="@font/arboria_bold"
         android:text="Log In"
         android:textAllCaps="false"
         android:textColor="#000"
         android:textSize="20sp"
         app:backgroundTint="@color/white"
-        app:cornerRadius="30pt"
-        android:fontFamily="@font/arboria_bold"
-        />
+        app:cornerRadius="30pt" />
 
     <TextView
         android:id="@+id/loginPageQuestion"
