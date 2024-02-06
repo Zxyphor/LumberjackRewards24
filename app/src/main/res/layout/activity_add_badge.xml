@@ -63,15 +63,17 @@
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/custom_input"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/black"
             android:inputType="textPersonName"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:selectAllOnFocus="true"
             android:text="@string/badge_name"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            android:visibility="visible" />
+            android:visibility="visible"
+
+            />
 
         <EditText
             android:id="@+id/etAddGroupName"
@@ -79,15 +81,17 @@
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/custom_input"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/black"
             android:inputType="textEmailAddress"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:selectAllOnFocus="true"
             android:text="@string/group_name"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:textColorHint="@color/white"
+            />
 
         <EditText
             android:id="@+id/etAddBadgeDescription"
@@ -96,7 +100,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/custom_input"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/black"
             android:gravity="top"
             android:inputType="textMultiLine"
             android:padding="5dp"
@@ -105,7 +109,7 @@
             android:selectAllOnFocus="true"
             android:singleLine="false"
             android:text="@string/badge_completion_requirements"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnAddBadgeSubmit"
