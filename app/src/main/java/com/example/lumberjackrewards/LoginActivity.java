@@ -14,35 +14,33 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText LoginEmail, LoginPwd;
     private Button LoginBtn;
     private TextView LoginQn;
 
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener authStateListener;
+    //private FirebaseAuth mAuth;
+    //private FirebaseAuth.AuthStateListener authStateListener;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
 
 
         // If user is already logged in already go to homepage
-        authStateListener = new FirebaseAuth.AuthStateListener() {
+        //authStateListener = new FirebaseAuth.AuthStateListener() {
+        /*
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = mAuth.getCurrentUser();
+                //FirebaseUser user = mAuth.getCurrentUser();
                 if (user != null){
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
             }
-        };
+        };*/
 
         LoginEmail = findViewById(R.id.loginEmail);
         LoginPwd = findViewById(R.id.loginPassword);
@@ -73,23 +71,24 @@ public class LoginActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(password)){
                     LoginPwd.setError("A valid password is required");
                     return;
-                } else{
-
-                    mAuth.signInWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                finish();
-                            } else{
-                                String error = task.getException().toString();
-                                Toast.makeText(LoginActivity.this, "Login failed: " + error, Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
                 }
+//                else{
+//
+//                    mAuth.signInWithEmailAndPassword(email, password)
+//                            .addOnCompleteListener(new OnCompleteListener<true>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<true> task) {
+//                            if (task.isSuccessful()){
+                                Intent testintent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(testintent);
+                                finish();
+//                            } else{
+//                                String error = task.getException().toString();
+//                                Toast.makeText(LoginActivity.this, "Login failed: " + error, Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                });
+
             }
         });
     }
@@ -97,12 +96,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(authStateListener);
+        //mAuth.addAuthStateListener(authStateListener);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        mAuth.removeAuthStateListener(authStateListener);
+        //mAuth.removeAuthStateListener(authStateListener);
     }
 }
