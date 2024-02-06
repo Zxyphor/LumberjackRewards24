@@ -147,17 +147,17 @@ public class BadgesActivity extends AppCompatActivity {
     }
     private void displayAllBadges(ArrayList<BadgeItemModel> arrBadges) {
         arrBadges.clear();
-//        db.collection("badges")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        for (QueryDocumentSnapshot document : task.getResult()) {
-//                            BadgeItemModel badge = document.toObject(BadgeItemModel.class);
-//                            arrBadges.add(badge);
-//                        }
-//                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
-//
+        db.collection("badges")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            BadgeItemModel badge = document.toObject(BadgeItemModel.class);
+                            arrBadges.add(badge);
+                        }
+                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
+
 
                         //layout manager for badge test
                         GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
@@ -168,9 +168,9 @@ public class BadgesActivity extends AppCompatActivity {
                         //set adapter
                         rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
 
-//                    }
+                    }
 
-//                });
+                });
     }
 
     private void deleteBadge(String badgeName){
