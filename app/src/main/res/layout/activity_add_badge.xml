@@ -51,9 +51,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="48dp"
         android:layout_height="match_parent"
-        android:background="@color/purple_339"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/background_gradient"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -61,17 +61,17 @@
             android:id="@+id/etAddBadgeName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:textColor = "@color/black"
-            android:textSize = "18sp"
-            android:visibility="visible"
-            android:background="@drawable/custom_input"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTint="@color/white"
             android:inputType="textPersonName"
-            android:text="@string/badge_name"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:backgroundTint="@color/white"
-            android:selectAllOnFocus="true"/>
+            android:selectAllOnFocus="true"
+            android:text="@string/badge_name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible" />
 
         <EditText
             android:id="@+id/etAddGroupName"
@@ -98,13 +98,13 @@
             android:background="@drawable/custom_input"
             android:backgroundTint="@color/white"
             android:gravity="top"
-            android:text="@string/badge_completion_requirements"
             android:inputType="textMultiLine"
             android:padding="5dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:selectAllOnFocus="true"
             android:singleLine="false"
+            android:text="@string/badge_completion_requirements"
             android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton
