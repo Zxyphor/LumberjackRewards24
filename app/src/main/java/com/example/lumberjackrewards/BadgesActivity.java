@@ -167,8 +167,7 @@ public class BadgesActivity extends AppCompatActivity {
 
                         //set adapter
                         rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
-
-                    //}
+//                    }
 
 //                });
     }
