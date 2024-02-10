@@ -19,11 +19,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+//import com.google.firebase.firestore.CollectionReference;
+//import com.google.firebase.firestore.FirebaseFirestore;
+//import com.google.firebase.firestore.Query;
+//import com.google.firebase.firestore.QueryDocumentSnapshot;
+//import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,7 +34,7 @@ public class BadgesActivity extends AppCompatActivity {
     private EditText itemEdt;
     private ArrayList<BadgeItemModel> lngList;
     private ArrayAdapter<BadgeItemModel> adapter;
-    private FirebaseFirestore db;
+    //private FirebaseFirestore db;
     private RecyclerView rvBadge;
 
     @Override
@@ -43,7 +43,7 @@ public class BadgesActivity extends AppCompatActivity {
         setContentView(R.layout.page_badges);
 
         // on below line we are accessing Cloud Firestore instance
-        db = FirebaseFirestore.getInstance();
+        //db = FirebaseFirestore.getInstance();
 
         // Initialize and assign variable
         rvBadge = findViewById(R.id.rvBadges);
