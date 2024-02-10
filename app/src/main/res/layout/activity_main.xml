@@ -16,56 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_weight="0" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0" />
-
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/sfa_logo" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="vertical">
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_weight="0" />
-
-                    <TextView
-                        android:id="@+id/welcomeTitleTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0"
-                        android:capitalize="none"
-                        android:text="@string/LumberjackRewards"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="34sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_weight="0" />
 
             <LinearLayout
                 android:layout_width="match_parent"
