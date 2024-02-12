@@ -18,6 +18,8 @@ public class ProfileView extends AppCompatActivity {
 
         back = findViewById(R.id.backBtn);
 
+        //this is the onClickListener for the button in the profileView page,
+        // to move back to the home page.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
