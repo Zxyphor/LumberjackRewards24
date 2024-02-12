@@ -11,8 +11,8 @@
         android:background="@color/purple_339"
         android:orientation="vertical"
         android:padding="16dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="-123dp"
+        tools:layout_editor_absoluteY="-62dp">
 
         <ImageView
             android:id="@+id/imageView"
