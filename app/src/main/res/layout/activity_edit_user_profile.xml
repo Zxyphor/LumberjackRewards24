@@ -65,10 +65,9 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/custom_input"
             android:backgroundTint="@color/white"
-            android:outlineAmbientShadowColor="@color/white"
+            android:hint="@string/first_name"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:text="@string/first_name"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:visibility="visible" />
