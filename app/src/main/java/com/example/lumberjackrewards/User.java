@@ -1,11 +1,25 @@
 package com.example.lumberjackrewards;
+
+import java.util.ArrayList;
+
 public class User {
     private String name;
     private String surname;
 
-    public User(String name, String surname ){
+    private int image;
+    private long Id;
+
+    private boolean pinned;
+
+   //g   private Badges object[] //(pinned and completed)
+
+    public User(String name, String surname){
         this.name = name;
         this.surname = surname;
+        this.image= image;
+        this.Id = Id;
+        this.pinned =pinned;
+
     }
 
     public void setName(String name){
@@ -16,6 +30,14 @@ public class User {
         this.surname = surname;
     }
 
+    public void setImage(int image){
+        this.image = image;
+    }
+
+    public void setId(int Id){
+        this.Id = Id;
+    }
+
     public String getName() {
         return name;
     }
@@ -23,4 +45,13 @@ public class User {
     public String getSurname() {
         return surname;
     }
+
+    public int getImage(){
+        return image;
+    }
+
+    public long getId() {
+        return Id;
+    }
+
 }
