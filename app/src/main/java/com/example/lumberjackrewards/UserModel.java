@@ -1,12 +1,20 @@
 package com.example.lumberjackrewards;
 
 public class UserModel {
+    /*
     private String fName;
     private String lName;
     private String eMail;
     private String role;
     private String fullName;
     private boolean isChecked;
+    */
+    private String fName = "Connor";
+    private String lName = "LaVoie";
+    private String eMail = "lavoiecn@jacks.sfasu.edu";
+    private String role = "Student";
+    private String fullName = "Connor LaVoie";
+    private boolean isChecked = true;
 
     public boolean isChecked() {
         return isChecked;
@@ -53,7 +61,7 @@ public class UserModel {
     public UserModel(String fName, String lName, String fullName, String eMail, String role) {
         this.fName = fName;
         this.lName = lName;
-        this. fullName = fName + " "  + lName;
+        this.fullName = fName + " "  + lName;
         this.eMail = eMail;
         this.role = role;
     }
