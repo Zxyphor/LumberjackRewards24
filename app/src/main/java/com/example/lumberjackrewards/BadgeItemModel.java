@@ -17,12 +17,12 @@ public class BadgeItemModel {
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(long badgeID, String description, String name,String icon) {
+    public BadgeItemModel(long badgeID, String description, String name, String icon) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
         this.icon = icon;
-        this.isPinned = false;
+        this.isPinned = true;
     }
 
     // getters and setters
@@ -67,32 +67,32 @@ public class BadgeItemModel {
                 ", icon='" + icon + '\'' +
                 '}';
     }
-
-    public void addNewBadgeItem(FirebaseFirestore db){
-        String documentID = this.getName().replaceAll("\\s", "");
-
-        // on below line are are adding a new badge to the db
-        db.collection("badges").document(documentID).set(this)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.d("NEW_BADGE", "Successfully added new badge to db: " + this.toString());
-                    }
-                });
-    }
-
-    public void deleteBadgeItem(FirebaseFirestore db){
-        String documentID = this.getName().replaceAll("\\s", "");
-
-        // on below line are are adding a new badge to the db
-        db.collection("badges").document(documentID).delete()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.d("DELETE_BADGE", "Successfully deleted badge from db: " + this.toString());
-                    }
-                });
-    }
+//
+//    public void addNewBadgeItem(FirebaseFirestore db){
+//        String documentID = this.getName().replaceAll("\\s", "");
+//
+//        // on below line are are adding a new badge to the db
+//        db.collection("badges").document(documentID).set(this)
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void unused) {
+//                        Log.d("NEW_BADGE", "Successfully added new badge to db: " + this.toString());
+//                    }
+//                });
+//    }
+//
+//    public void deleteBadgeItem(FirebaseFirestore db){
+//        String documentID = this.getName().replaceAll("\\s", "");
+//
+//        // on below line are are adding a new badge to the db
+//        db.collection("badges").document(documentID).delete()
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void unused) {
+//                        Log.d("DELETE_BADGE", "Successfully deleted badge from db: " + this.toString());
+//                    }
+//                });
+//    }
 
 
 }
