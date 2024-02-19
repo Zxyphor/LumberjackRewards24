@@ -7,7 +7,7 @@ public class User {
     private String surname;
 
     private int image;
-    private long Id;
+    //private long Id;
 
     private boolean pinned;
 
@@ -17,7 +17,7 @@ public class User {
         this.name = name;
         this.surname = surname;
         this.image= image;
-        this.Id = Id;
+        //this.Id = Id;
         this.pinned =pinned;
 
     }
@@ -34,9 +34,9 @@ public class User {
         this.image = image;
     }
 
-    public void setId(int Id){
-        this.Id = Id;
-    }
+//    public void setId(int Id){
+//        this.Id = Id;
+//    }
 
     public String getName() {
         return name;
@@ -50,8 +50,8 @@ public class User {
         return image;
     }
 
-    public long getId() {
-        return Id;
-    }
+//    public long getId() {
+//        return Id;
+//    }
 
 }
