@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import android.util.Log;
@@ -28,10 +29,21 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<BadgeItemModel> adapter;
     private ArrayList<BadgeItemModel> pinnedList;
 
+    private Button move;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        move = findViewById(R.id.Move);
+        move.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,ProfileView.class);
+                startActivity(intent);
+            }
+        });
 
         // Dynamically update welcome msg for current, logged-in user
 //        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
