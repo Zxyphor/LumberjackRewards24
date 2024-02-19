@@ -17,12 +17,12 @@ public class BadgeItemModel {
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(long badgeID, String description, String name,String icon) {
+    public BadgeItemModel(long badgeID, String description, String name, String icon) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
         this.icon = icon;
-        this.isPinned = false;
+        this.isPinned = true;
     }
 
     // getters and setters
