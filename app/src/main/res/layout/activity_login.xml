@@ -33,7 +33,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="48dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/inputs"
+        android:background="@drawable/n_inputs"
         android:paddingStart="@dimen/activity_horizontal_margin"
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:drawablePadding="10dp"
@@ -53,7 +53,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="48dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/inputs"
+        android:background="@drawable/n_inputs"
         android:paddingStart="@dimen/activity_horizontal_margin"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
@@ -74,13 +74,13 @@
         android:layout_marginRight="48dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/arboria_bold"
-        android:text="Log In"
+        android:textSize="20sp"
         android:textAllCaps="false"
         android:textColor="#000"
-        android:textSize="20sp"
-        android:minHeight="48dp"
-        app:backgroundTint="@color/white"
-        app:cornerRadius="30pt" />
+        android:text="Log In"
+        android:background="@drawable/n_btn_default"
+
+         />
 
     <TextView
         android:id="@+id/loginPageQuestion"
@@ -89,6 +89,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Don't have an account? Register"
+        android:text="Don't have an account? Register!"
+        android:fontFamily="@font/arboria_medium"
         android:textColor="@color/white" />
 </LinearLayout>
