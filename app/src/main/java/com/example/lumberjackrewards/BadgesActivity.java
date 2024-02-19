@@ -51,7 +51,7 @@ public class BadgesActivity extends AppCompatActivity {
 
         // manually create 10 badges
         for (int i=0; i<10; i++) {
-            BadgeItemModel bim = new BadgeItemModel(i, "desc", "name", "badge_ex1.png");
+            BadgeItemModel bim = new BadgeItemModel(i, "desc", "name", "badge_ex1.png", 0, 0, "req", 3);
             arrBadges.add(bim);
         }
 
@@ -116,11 +116,11 @@ public class BadgesActivity extends AppCompatActivity {
        /* languageLV.setAdapter(adapter);*/
 
         // on below line we are adding click listener for our button.
-        addBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(BadgesActivity.this, ActivityAddBadge.class);
-            startActivity(intent);
-            finish();
-        });
+//        addBtn.setOnClickListener(v -> {
+//            Intent intent = new Intent(BadgesActivity.this, ActivityAddBadge.class);
+//            startActivity(intent);
+//            finish();
+//        });
 
         btnManage.setOnClickListener(v -> {
             Intent intent = new Intent(BadgesActivity.this, ActivityManage.class);

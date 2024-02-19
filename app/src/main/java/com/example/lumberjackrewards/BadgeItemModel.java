@@ -11,18 +11,30 @@ public class BadgeItemModel {
     private String description;
     private String name;
     private String icon;
-
+    private int completionStatus;
+    // keeps track of steps completed so far per user
+    // referenced for progress bar
+    private int redemptionType;
+    // honor system, automatic, QR code scan
+    private String requirements;
+    private int steps;
+    // number of steps required for badge to be completed
+    // referenced for progress bar
     private boolean isPinned;
 
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(long badgeID, String description, String name, String icon) {
+    public BadgeItemModel(long badgeID, String description, String name, String icon, int completionStatus, int redemptionType, String requirements, int steps) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
         this.icon = icon;
         this.isPinned = true;
+        this.completionStatus = completionStatus;
+        this.redemptionType = redemptionType;
+        this.requirements = requirements;
+        this.steps = steps;
     }
 
     // getters and setters
@@ -57,14 +69,37 @@ public class BadgeItemModel {
     public boolean getIsPinned(){return isPinned;}
 
     public void setIsPinned(boolean isPinned){this.isPinned = isPinned;}
-
+    public int getCompletionStatus(){
+        return completionStatus;
+    }
+    public void setCompletionStatus(int completionStatus){
+        this.completionStatus = completionStatus;
+    }
+    public int getRedemptionType(){
+        return redemptionType;
+    }
+    public void setRedemptionType(int redemptionType){
+        this.redemptionType = redemptionType;
+    }
+    public String getRequirements(){
+        return requirements;
+    }
+    public void setRequirements(String requirements){
+        this.requirements = requirements;
+    }
+    public int getSteps(){
+        return steps;
+    }
+    public void setSteps(int steps){
+        this.steps = steps;
+    }
     @Override
     public String toString() {
         return "BadgeItemModel{" +
-                "badgeID=" + badgeID +
-                ", description='" + description + '\'' +
-                ", name='" + name + '\'' +
-                ", icon='" + icon + '\'' +
+                "badgeID=" + getBadgeID() +
+                ", description='" + getDescription() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", icon='" + getIcon() + '\'' +
                 '}';
     }
 //
