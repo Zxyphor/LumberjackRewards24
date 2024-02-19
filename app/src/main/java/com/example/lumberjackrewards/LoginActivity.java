@@ -49,13 +49,13 @@ public class LoginActivity extends AppCompatActivity {
 
         // Redirect user to registration page if
         // account has not already been created
-        LoginQn.setOnClickListener(new View.OnClickListener() {
+        /*LoginQn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         // Authenticate user and login to home page
         LoginBtn.setOnClickListener(new View.OnClickListener() {
