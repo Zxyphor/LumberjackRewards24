@@ -5,7 +5,7 @@
     android:id="@+id/newsItemView"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_margin="4dp"
+    android:layout_marginLeft="5dp"
     app:cardBackgroundColor="@color/black"
     app:cardCornerRadius="30dp">
 
@@ -47,7 +47,7 @@
 
                 <!-- Pushing pin to the right of the holder -->
                 <Space
-                    android:layout_width="255dp"
+                    android:layout_width="245dp"
                     android:layout_height="25dp"/>
 
                 <!-- Pin button -->
@@ -67,7 +67,7 @@
             <!-- LAYOUT OF NAME PLACEMENT -->
             <TextView
                 android:id="@+id/badgeNameTextView"
-                android:layout_width="285dp"
+                android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/arboria_bold"
                 android:text="Example Badge Name"
@@ -88,7 +88,7 @@
                 <ProgressBar
                     android:id="@+id/progress_bar"
                     style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="285dp"
+                    android:layout_width="275dp"
                     android:layout_height="30dp"
                     android:progressDrawable="@drawable/n_progress_bar"
                     tools:progress="100"/>

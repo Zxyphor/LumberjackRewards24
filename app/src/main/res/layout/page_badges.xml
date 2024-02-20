@@ -63,9 +63,15 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvBadges"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_badge" />
+            tools:listitem="@layout/item_badge"
+
+            android:background="@drawable/n_back"/>
     </LinearLayout>
 
     <!--list view to display list of languages-->
