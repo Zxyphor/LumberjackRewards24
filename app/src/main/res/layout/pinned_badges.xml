@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newsItemView"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_margin="4dp"
+    app:cardBackgroundColor="@color/black"
+    app:cardCornerRadius="30dp">
+
+    <!-- Overarching layout of the badge holder-->
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/badge_IconContainer"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <!-- Image icon location -->
+            <ImageView
+                android:id="@+id/imgBadgeIcon"
+                android:paddingHorizontal="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:srcCompat="@drawable/gold_badge" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:orientation="vertical">
+
+            <!-- Vertically pulling pin down from top of holder -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="5dp"/>
+
+            <!-- LAYOUT OF PIN PLACEMENT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp">
+            </LinearLayout>
+
+            <!-- LAYOUT OF NAME PLACEMENT -->
+            <TextView
+                android:id="@+id/badgeNameTextView"
+                android:layout_width="285dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/arboria_bold"
+                android:text="My Pins"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
