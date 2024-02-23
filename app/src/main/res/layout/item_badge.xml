@@ -23,10 +23,13 @@
             <!-- Image icon location -->
             <ImageView
                 android:id="@+id/imgBadgeIcon"
-                android:paddingHorizontal="10dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                tools:srcCompat="@drawable/bronze_badge" />
+                android:paddingHorizontal="10dp"
+                android:src="@drawable/bronze_badge"
+                app:srcCompat="@drawable/bronze_badge"
+                tools:srcCompat="@drawable/bronze_badge"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -105,6 +108,18 @@
                     android:textSize="20sp" />
 
             </RelativeLayout>
+            <!--<TextView
+                android:id="@+id/itemDescriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Bazinga"
+                android:textColor="@color/mid_grey"/>
+                -->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/progress_layout2"
+                android:layout_width="1dp"
+                android:layout_height="1dp"/>
 
         </LinearLayout>
 
