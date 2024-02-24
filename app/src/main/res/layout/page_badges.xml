@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="@color/purple_339"
     tools:context=".BadgesActivity">
 
     <!--on below line we are creating edit text
@@ -25,8 +25,8 @@
                 android:id="@+id/btnManageUsersAndGroups"
                 android:layout_width="145dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="4dp"
                 android:layout_weight="1"
+                android:layout_marginStart="4dp"
                 android:text="@string/manage_users_and_groups" />
 
             <LinearLayout
@@ -41,8 +41,8 @@
                     android:layout_height="60dp"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="0dp"
                     android:text="@string/remove"
+                    android:layout_marginBottom="0dp"
                     android:textAllCaps="false"
                     tools:ignore="RelativeOverlap" />
 
@@ -63,15 +63,9 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvBadges"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_badge"
-
-            android:background="@drawable/n_back"/>
+            tools:listitem="@layout/item_badge" />
     </LinearLayout>
 
     <!--list view to display list of languages-->

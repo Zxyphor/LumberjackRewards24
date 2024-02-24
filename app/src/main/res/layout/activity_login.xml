@@ -4,42 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@color/purple_339">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/loginToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:background="@android:color/transparent"/>
 
     <ImageView
-        android:layout_width="394dp"
-        android:layout_height="210dp"
-        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/sfa_logo"
         android:layout_marginTop="70dp"
-        android:layout_marginBottom="70dp"
-        android:src="@drawable/logo_01"
-        app:srcCompat="@drawable/logo_01" />
+        android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/loginEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/n_inputs"
-        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:background="@drawable/inputs"
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:drawablePadding="10dp"
-        android:fontFamily="@font/arboria_bold"
         android:hint="Enter Email"
-        android:textColorHint="@color/mid_grey"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:padding="10dp"
@@ -49,17 +44,11 @@
         android:id="@+id/loginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/n_inputs"
-        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:layout_margin="10dp"
+        android:background="@drawable/inputs"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
-        android:fontFamily="@font/arboria_bold"
         android:hint="Enter Password"
-        android:textColorHint="@color/mid_grey"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"
@@ -69,27 +58,22 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/arboria_bold"
-        android:textSize="20sp"
+        android:text="Login"
         android:textAllCaps="false"
+        android:layout_margin="10dp"
         android:textColor="#000"
-        android:text="Log In"
-        android:background="@drawable/n_btn_default"
-
-         />
+        app:backgroundTint="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/loginPageQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Don't have an account? Register"
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Don't have an account? Register!"
-        android:fontFamily="@font/arboria_medium"
-        android:textColor="@color/white" />
+        />
 </LinearLayout>
