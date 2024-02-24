@@ -30,6 +30,7 @@
         <activity android:name=".ActivityAddClass"/>
         <activity android:name=".BadgeInfo" />
         <activity android:name=".BadgesActivity"/>
+        <activity android:name=".BadgeInfoPage"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true">
