@@ -36,7 +36,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //set text
         holder.nameTextView.setText(arrItemBadges.get(position).getName());
-        holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
+        //holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
 
     }
 
@@ -62,7 +62,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.badgeNameTextView);
-            descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
+            //descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
             progressBar = itemView.findViewById(R.id.progress_bar);
             progressTxt = itemView.findViewById(R.id.progress_txt);
@@ -72,7 +72,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
             float scale = itemView.getContext().getResources().getDisplayMetrics().density;
 
             ImageView frontIconDisplay = itemView.findViewById(R.id.imgBadgeIcon);
-            ConstraintLayout backIconDisplay = itemView.findViewById(R.id.progress_layout);
+            ConstraintLayout backIconDisplay = itemView.findViewById(R.id.progress_layout2);
 
             frontIconDisplay.setCameraDistance( 8000 * scale);
             backIconDisplay.setCameraDistance( 8000 * scale);
@@ -84,22 +84,12 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
             // onclick event listener for the container that holds the
             // the badge image and progress circle
             View containerView = itemView.findViewById(R.id.badge_IconContainer);
+
             containerView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v){
 
-                    //JUST A TEST (DELETE OR REPLACE DOWN)
-                    if(getAdapterPosition() % 2 == 0){
-                        progressBar.setProgress(30);
-                        progressTxt.setText("30%");
-                    }
-                    else{
-                        progressBar.setProgress(65);
-                        progressTxt.setText("65%");
-                    }
-                    //DELETE UP FROM HERE
-
-
+                    progressBar.setProgress(progressBar.getProgress() + 10);
                     if (isFrontIcon) {
                         front_animation.setTarget(frontIconDisplay);
                         back_animation.setTarget(backIconDisplay);
@@ -116,6 +106,8 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                     }
                 }
             });
+
+
 
             //pinned badge view button
             View pinBadgeBtn = itemView.findViewById(R.id.pinBadgeButton);

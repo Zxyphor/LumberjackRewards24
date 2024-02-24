@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--deprecated colors-->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,17 +8,26 @@
     <color name="purple_401">#401C73</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-
-    <color name = "primary">#9370DB</color>
-    <color name = "secondary">#FF03DAC5</color>
-
     <color name = "night_mode">#6124B1</color>
     <color name = "notifications">#13B2C3</color>
     <color name = "private_account">#E6A326</color>
     <color name = "security">#095F69</color>
     <color name = "gray">#302F2F</color>
     <color name = "grey">#AFAFAF</color>
-    <color name = "light_grey">#EEECEC</color>
+    <color name = "primary">#9370DB</color>
+    <color name = "secondary">#FF03DAC5</color>
+
+    <!--active colors-->
+    <color name="black">#171717</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple">#B96BFF</color>
+    <color name="green">#B7E1A6</color>
+    <color name="blue">#6BD6FF</color>
+    <color name="mid_grey">#BEBEBE</color>
+    <color name="light_grey">#E9E9E9</color>
+    <color name="dark_grey">#525252</color>
+
+
+
+
 </resources>
