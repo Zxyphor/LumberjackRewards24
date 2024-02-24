@@ -25,12 +25,12 @@ public class BadgeItemModel {
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(long badgeID, String name, String description, String icon, int completionStatus, int redemptionType, String requirements, int steps) {
+    public BadgeItemModel(long badgeID, String name, String description, String icon, int completionStatus, int redemptionType, String requirements, Boolean isPinned, int steps) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
         this.icon = icon;
-        this.isPinned = true;
+        this.isPinned = isPinned;
         this.completionStatus = completionStatus;
         this.redemptionType = redemptionType;
         this.requirements = requirements;

@@ -49,11 +49,17 @@ public class BadgesActivity extends AppCompatActivity {
         rvBadge = findViewById(R.id.rvBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
 
-        // manually create 10 badges
-        for (int i=0; i<10; i++) {
-            BadgeItemModel bim = new BadgeItemModel(i, "name", "desc", "badge_ex1.png", 0, 0, "req", 3);
-            arrBadges.add(bim);
+//        // manually create 10 badges
+//        for (int i=0; i<10; i++) {
+//            BadgeItemModel bim = new BadgeItemModel(i, "name", "desc", "badge_ex1.png", 0, 0, "req", 3);
+//            arrBadges.add(bim);
+//        }
+
+            for (int i =0; i < 3; i++){
+            BadgeInfo badge = new BadgeInfo(i);
+            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRedemptionType(), badge.getRequirements(), badge.getPinned(), badge.getSteps());
         }
+
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
