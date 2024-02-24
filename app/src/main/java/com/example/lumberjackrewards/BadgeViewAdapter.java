@@ -52,7 +52,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
 
 
         //badge icon flip animation variable
-        private boolean isFrontIcon = true;
+        //private boolean isFrontIcon = true;
         ProgressBar progressBar;
         TextView progressTxt;
 
@@ -72,14 +72,11 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
             float scale = itemView.getContext().getResources().getDisplayMetrics().density;
 
             ImageView frontIconDisplay = itemView.findViewById(R.id.imgBadgeIcon);
-            ConstraintLayout backIconDisplay = itemView.findViewById(R.id.progress_layout2);
 
             frontIconDisplay.setCameraDistance( 8000 * scale);
-            backIconDisplay.setCameraDistance( 8000 * scale);
 
             // set the front/back animation
             Animator front_animation = AnimatorInflater.loadAnimator(itemView.getContext(), R.animator.front_animator);
-            Animator back_animation = AnimatorInflater.loadAnimator(itemView.getContext(), R.animator.back_animator);
 
             // onclick event listener for the container that holds the
             // the badge image and progress circle
@@ -89,21 +86,10 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                 @Override
                 public void onClick(View v){
 
-                    progressBar.setProgress(progressBar.getProgress() + 10);
-                    if (isFrontIcon) {
-                        front_animation.setTarget(frontIconDisplay);
-                        back_animation.setTarget(backIconDisplay);
-                        front_animation.start();
-                        back_animation.start();
-                        isFrontIcon = false;
 
-                    } else {
-                        front_animation.setTarget(backIconDisplay);
-                        back_animation.setTarget(frontIconDisplay);
-                        back_animation.start();
-                        front_animation.start();
-                        isFrontIcon = true;
-                    }
+                    front_animation.setTarget(frontIconDisplay);
+                    front_animation.start();
+
                 }
             });
 
