@@ -58,7 +58,7 @@ public class BadgeItemModel {
 
     public void setIsPinned(boolean isPinned){this.isPinned = isPinned;}
 
-    @Override
+    /*@Override
     public String toString() {
         return "BadgeItemModel{" +
                 "badgeID=" + badgeID +
@@ -92,7 +92,7 @@ public class BadgeItemModel {
                         Log.d("DELETE_BADGE", "Successfully deleted badge from db: " + this.toString());
                     }
                 });
-    }
+    }*/
 
 
 }
