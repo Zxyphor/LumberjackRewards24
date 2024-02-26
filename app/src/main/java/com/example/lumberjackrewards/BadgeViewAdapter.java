@@ -86,7 +86,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                 @Override
                 public void onClick(View v){
 
-
+                    progressBar.setProgress(progressBar.getProgress()+(int)(Math.random()*10));
                     front_animation.setTarget(frontIconDisplay);
                     front_animation.start();
 
