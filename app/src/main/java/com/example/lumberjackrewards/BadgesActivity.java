@@ -55,10 +55,9 @@ public class BadgesActivity extends AppCompatActivity {
 //            arrBadges.add(bim);
 //        }
 
-        // populate badges using Framework.java
         for (int i =0; i < 3; i++){
             BadgeInfo badge = new BadgeInfo(i);
-            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRedemptionType(), badge.getRequirements()/*, badge.getPinned()*/, badge.getSteps());
+            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRedemptionType(), badge.getRequirements(), badge.getPinned(), badge.getSteps());
             arrBadges.add(bim);
         }
 
@@ -74,21 +73,21 @@ public class BadgesActivity extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.navigation_home:
-// Pinned badges are long term goal
+
                     //Sends back to main activity what badges are pinned
-//                    ArrayList<BadgeItemModel> pinnedBadges = new ArrayList<>();
-//
-//                    for(int i = 0; i < arrBadges.size(); i++){
-//                        boolean isPinned = arrBadges.get(i).getIsPinned();
-//                        if(isPinned) {
-//                            pinnedBadges.add(arrBadges.get(i));
-//                        }
-//                    }
-//                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-//                    if(!pinnedBadges.isEmpty()) {
-//                        intent.putExtra("pinnedBadges", pinnedBadges);
-//                    }
-//                    startActivity(intent);
+                    ArrayList<BadgeItemModel> pinnedBadges = new ArrayList<>();
+
+                    for(int i = 0; i < arrBadges.size(); i++){
+                        boolean isPinned = arrBadges.get(i).getIsPinned();
+                        if(isPinned) {
+                            pinnedBadges.add(arrBadges.get(i));
+                        }
+                    }
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    if(!pinnedBadges.isEmpty()) {
+                        intent.putExtra("pinnedBadges", pinnedBadges);
+                    }
+                    startActivity(intent);
 
                     //previous startActivity for testing for different branches to revert back
                     //startActivity(new Intent(getApplicationContext(),MainActivity.class));
