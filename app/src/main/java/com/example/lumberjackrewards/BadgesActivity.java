@@ -48,7 +48,6 @@ public class BadgesActivity extends AppCompatActivity {
         // Initialize and assign variable
         rvBadge = findViewById(R.id.rvBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
-
         // manually create 10 badges
         for (int i=0; i<10; i++) {
             BadgeItemModel bim = new BadgeItemModel(i, "desc", "name", "badge_ex1.png");
