@@ -14,50 +14,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/n_back">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="70dp"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnManageUsersAndGroups"
-                android:layout_width="145dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="4dp"
-                android:layout_weight="1"
-                android:text="@string/manage_users_and_groups" />
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/n_inputs"
+                android:backgroundTint="@color/dark_grey"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:drawableLeft="@drawable/baseline_search_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/arboria_bold"
+                android:hint="Search"
+                android:textColorHint="@color/mid_grey"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColor="@color/white" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="120dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btnBadgeRemove"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="0dp"
-                    android:text="@string/remove"
-                    android:textAllCaps="false"
-                    tools:ignore="RelativeOverlap" />
-
-                <Button
-                    android:id="@+id/btnBadgeAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="4dp"
-                    android:text="@string/add"
-                    android:textAllCaps="false"
-                    tools:ignore="RelativeOverlap" />
-
-            </LinearLayout>
+            <Spinner
+                android:id="@+id/sort_Dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:
+                android:background="@drawable/n_inputs"
+                android:backgroundTint="@color/dark_grey"/>
 
         </LinearLayout>
 
@@ -65,12 +64,6 @@
             android:id="@+id/rvBadges"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/n_back"
-
             tools:listitem="@layout/item_badge" />
     </LinearLayout>
 

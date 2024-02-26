@@ -54,7 +54,7 @@
                     android:layout_height="25dp"/>
 
                 <!-- Pin button -->
-                <ImageButton
+                <!--ImageButton
                     android:id="@+id/pinBadgeButton"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -63,7 +63,7 @@
                     android:contentDescription="Button for pinning badges to home page"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/unpinned_badge_icon"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    tools:ignore="TouchTargetSizeCheck" /-->
 
             </LinearLayout>
 
