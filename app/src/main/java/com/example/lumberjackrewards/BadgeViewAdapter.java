@@ -69,7 +69,10 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                 @Override
                 public void onClick(View v) {
                     // BadgeInfo is currently blank
+                    // Left off here added String badgeName and intent.putExtra()
+                    String badgeName = nameTextView.getText().toString();
                     Intent intent = new Intent(itemView.getContext(), BadgeInfoPage.class);
+                    intent.putExtra("nameTextView", badgeName);
                     itemView.getContext().startActivity(intent);
                 }
             });
