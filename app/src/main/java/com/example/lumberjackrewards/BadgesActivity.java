@@ -48,9 +48,14 @@ public class BadgesActivity extends AppCompatActivity {
         // Initialize and assign variable
         rvBadge = findViewById(R.id.rvBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
-        // manually create 10 badges
-        for (int i=0; i<10; i++) {
-            BadgeItemModel bim = new BadgeItemModel(i, "desc", "name", "badge_ex1.png");
+//        // manually create 10 badges
+//        for (int i=0; i<10; i++) {
+//            BadgeItemModel bim = new BadgeItemModel(i, "desc", "name", "badge_ex1.png");
+//            arrBadges.add(bim);
+//        }
+        for (int i =0; i < 3; i++){
+            BadgeInfo badge = new BadgeInfo(i);
+            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRedemptionType(), badge.getRequirements(), badge.getPinned(), badge.getSteps());
             arrBadges.add(bim);
         }
 
@@ -115,11 +120,11 @@ public class BadgesActivity extends AppCompatActivity {
         /* languageLV.setAdapter(adapter);*/
 
         // on below line we are adding click listener for our button.
-        addBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(BadgesActivity.this, ActivityAddBadge.class);
-            startActivity(intent);
-            finish();
-        });
+//        addBtn.setOnClickListener(v -> {
+//            Intent intent = new Intent(BadgesActivity.this, ActivityAddBadge.class);
+//            startActivity(intent);
+//            finish();
+//        });
 
         btnManage.setOnClickListener(v -> {
             Intent intent = new Intent(BadgesActivity.this, ActivityManage.class);
