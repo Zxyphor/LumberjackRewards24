@@ -55,11 +55,11 @@ public class BadgesActivity extends AppCompatActivity {
 //            arrBadges.add(bim);
 //        }
 
-            for (int i =0; i < 3; i++){
+        for (int i =0; i < 3; i++){
             BadgeInfo badge = new BadgeInfo(i);
             BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRedemptionType(), badge.getRequirements(), badge.getPinned(), badge.getSteps());
+            arrBadges.add(bim);
         }
-
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 

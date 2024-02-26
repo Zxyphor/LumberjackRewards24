@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 //structure for storing profile information from DB
 class ProfileInfo{
     //faux-DB
-    final String[][] PROFILEDB = {{"john", "doe", "0", "FALSE"}, {"joe", "momma", "3", "FALSE"}, {"julienne", "doe", "15", "FALSE"}};
+    final String[][] PROFILEDB = {{"john", "doe", "0", "false"}, {"joe", "momma", "3", "false"}, {"julienne", "doe", "15", "false"}};
     int id;
     String firstname;
     String lastname;
