@@ -28,9 +28,12 @@
             android:ems="10"
             android:layout_gravity="right"
             android:inputType="text"
-            android:textColor="@color/white"
+            android:hint="First name"
+            android:fontFamily="@font/arboria_bold"
             android:textSize="20sp"
-            android:hint="Name" />
+            android:textAllCaps="false"
+            android:textColor="#000"
+            />
 
         <EditText
             android:id="@+id/etSurname"
@@ -39,9 +42,12 @@
             android:ems="10"
             android:layout_gravity="right"
             android:inputType="text"
-            android:textColor="@color/white"
+            android:hint="Last name"
+            android:fontFamily="@font/arboria_bold"
             android:textSize="20sp"
-            android:hint="Surname"/>
+            android:textAllCaps="false"
+            android:textColor="#000"
+            />
 
         <TextView
             android:id="@+id/textView"
@@ -52,12 +58,18 @@
 
         <Button
             android:id="@+id/result"
-            android:layout_width="140dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:ems="10"
             android:onClick="btnSave"
-            android:text="Save to file"/>
+            android:text="Save to file"
+            android:fontFamily="@font/arboria_bold"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:background="@drawable/n_btn_default"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPinnedBadges"
@@ -73,7 +85,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="btnAdd"
-            android:text="Add" />
+            android:text="Add"
+            android:fontFamily="@font/arboria_bold"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:background="@drawable/n_btn_default"
+            />
 
         <Button
             android:id="@+id/backBtn"
