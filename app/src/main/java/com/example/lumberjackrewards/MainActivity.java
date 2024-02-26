@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<BadgeItemModel> lngList;
     private ArrayAdapter<BadgeItemModel> adapter;
-    private ArrayList<BadgeItemModel> pinnedList;
+    //private ArrayList<BadgeItemModel> pinnedList;
 
     private Button move;
 
@@ -74,50 +74,51 @@ public class MainActivity extends AppCompatActivity {
         }*/
         //delete above here ---------
 
+        // Pinned badges are long term goal
         //pinned badges
-        Intent intent = getIntent();
-        ArrayList<BadgeItemModel> pinnedBadges = intent.getSerializableExtra("pinnedBadges", new ArrayList<BadgeItemModel>().getClass());
+        //Intent intent = getIntent();
+        //ArrayList<BadgeItemModel> pinnedBadges = intent.getSerializableExtra("pinnedBadges", new ArrayList<BadgeItemModel>().getClass());
+//
+//
+//        //sets variables needed for empty or filled pinnedBadges view
+//        RecyclerView pinnedBadgesView = findViewById(R.id.rvPinnedBadges);
+//        LinearLayout emptyPinnedBadgesView = findViewById(R.id.tvNoPinnedBadges);
+//
+//        float scale = getApplicationContext().getResources().getDisplayMetrics().density;
+//        int pinnedBadgesViewPixels = (int)(355 * scale + 0.5f);
 
-
-        //sets variables needed for empty or filled pinnedBadges view
-        RecyclerView pinnedBadgesView = findViewById(R.id.rvPinnedBadges);
-        LinearLayout emptyPinnedBadgesView = findViewById(R.id.tvNoPinnedBadges);
-
-        float scale = getApplicationContext().getResources().getDisplayMetrics().density;
-        int pinnedBadgesViewPixels = (int)(355 * scale + 0.5f);
-
-        if (pinnedBadges != null) {
-            pinnedList = pinnedBadges;
-
-            //layout manager for badge test
-            GridLayoutManager layoutManager = new GridLayoutManager(this, 1);
-
-            //set layout manager
-            pinnedBadgesView.setLayoutManager(layoutManager);
-
-            //set adapter
-            pinnedBadgesView.setAdapter(new BadgeViewAdapter(pinnedBadges));
-
-            //sets emptyPinnedBadges layout parameters
-            emptyPinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(0,0));
-
-            //sets pinnedBadges layout parameters
-            pinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, pinnedBadgesViewPixels));
-
-            //changes visibility for placeholder
-            emptyPinnedBadgesView.setVisibility(View.INVISIBLE);
-            pinnedBadgesView.setVisibility(View.VISIBLE);
-
-
-        }else{
-            //sets homepage with empty pinned badges
-            emptyPinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, pinnedBadgesViewPixels));
-            pinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(0,0));
-
-            //placeholder visibility change
-            emptyPinnedBadgesView.setVisibility(View.VISIBLE);
-            pinnedBadgesView.setVisibility(View.INVISIBLE);
-        }
+//        if (pinnedBadges != null) {
+//            pinnedList = pinnedBadges;
+//
+//            //layout manager for badge test
+//            GridLayoutManager layoutManager = new GridLayoutManager(this, 1);
+//
+//            //set layout manager
+//            pinnedBadgesView.setLayoutManager(layoutManager);
+//
+//            //set adapter
+//            pinnedBadgesView.setAdapter(new BadgeViewAdapter(pinnedBadges));
+//
+//            //sets emptyPinnedBadges layout parameters
+//            emptyPinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(0,0));
+//
+//            //sets pinnedBadges layout parameters
+//            pinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, pinnedBadgesViewPixels));
+//
+//            //changes visibility for placeholder
+//            emptyPinnedBadgesView.setVisibility(View.INVISIBLE);
+//            pinnedBadgesView.setVisibility(View.VISIBLE);
+//
+//
+//        }else{
+//            //sets homepage with empty pinned badges
+//            emptyPinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, pinnedBadgesViewPixels));
+//            pinnedBadgesView.setLayoutParams(new LinearLayout.LayoutParams(0,0));
+//
+//            //placeholder visibility change
+//            emptyPinnedBadgesView.setVisibility(View.VISIBLE);
+//            pinnedBadgesView.setVisibility(View.INVISIBLE);
+//        }
 
 
 

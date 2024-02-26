@@ -20,17 +20,17 @@ public class BadgeItemModel {
     private int steps;
     // number of steps required for badge to be completed
     // referenced for progress bar
-    private boolean isPinned;
+    //private boolean isPinned;
 
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(long badgeID, String name, String description, String icon, int completionStatus, int redemptionType, String requirements, Boolean isPinned, int steps) {
+    public BadgeItemModel(long badgeID, String name, String description, String icon, int completionStatus, int redemptionType, String requirements, /*Boolean isPinned, */int steps) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
         this.icon = icon;
-        this.isPinned = isPinned;
+        //this.isPinned = isPinned;
         this.completionStatus = completionStatus;
         this.redemptionType = redemptionType;
         this.requirements = requirements;
@@ -66,9 +66,9 @@ public class BadgeItemModel {
 
     public void setIcon(String icon) {this.icon = icon;}
 
-    public boolean getIsPinned(){return isPinned;}
-
-    public void setIsPinned(boolean isPinned){this.isPinned = isPinned;}
+//    public boolean getIsPinned(){return isPinned;}
+//
+//    public void setIsPinned(boolean isPinned){this.isPinned = isPinned;}
     public int getCompletionStatus(){
         return completionStatus;
     }
