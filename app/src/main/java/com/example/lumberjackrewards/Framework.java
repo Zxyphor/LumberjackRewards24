@@ -54,9 +54,9 @@ class ProfileInfo{
 
 class BadgeInfo{
     //faux-DB
-    final String[][] BADGEDB = {{"badge1", "cool badge", "badge_ex1.png", "1", "0", "do a cool thing", "false", "1"},
-                                {"badge2", "description 2", "badge_ex1.png", "1", "0", "description?", "false", "2"},
-                                {"badge3", "a badge", "badge_ex1.png", "1", "0", "no", "false", "1"}};
+    final String[][] BADGEDB = {{"badge1", "cool badge", "badge_ex1.png", "1", "0", "do a cool thing", "1"},
+                                {"badge2", "description 2", "badge_ex1.png", "1", "0", "description?", "2"},
+                                {"badge3", "a badge", "badge_ex1.png", "1", "0", "no", "1"}};
     int id;
     String description;
     String name;
@@ -64,7 +64,7 @@ class BadgeInfo{
     int completionStatus;
     int redemptionType;
     String requirements;
-    boolean pinned;
+    //boolean pinned;
     int steps;
 
     public BadgeInfo(int id){
@@ -75,7 +75,7 @@ class BadgeInfo{
         this.completionStatus = Integer.parseInt(BADGEDB[id][3]);
         this.redemptionType = Integer.parseInt(BADGEDB[id][4]);
         this.requirements = BADGEDB[id][5];
-        this.pinned = Boolean.parseBoolean(BADGEDB[id][6]);
+        //this.pinned = Boolean.parseBoolean(BADGEDB[id][6]);
         this.steps = Integer.parseInt(BADGEDB[id][7]);
     }
 
@@ -100,9 +100,9 @@ class BadgeInfo{
     public String getRequirements(){
         return this.requirements;
     }
-    public boolean getPinned(){
-        return this.pinned;
-    }
+//    public boolean getPinned(){
+//        return this.pinned;
+//    }
     public int getSteps(){
         return this.steps;
     }
