@@ -1,12 +1,16 @@
 package com.example.lumberjackrewards;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,10 +29,15 @@ public class ProfileView extends AppCompatActivity {
     EditText userName, userSurname;
     TextView results;
     ArrayList <User> persons;
+
+    ImageView image;
+    private RecyclerView rvBadge;
+    private ArrayAdapter<BadgeItemModel> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_view);
+
 
         //this Utilizes the UI elements.
         userName = (EditText) findViewById(R.id.etName);
@@ -36,9 +45,23 @@ public class ProfileView extends AppCompatActivity {
         results = (TextView) findViewById(R.id.result);
         back = findViewById(R.id.backBtn);
         TextView resultsTextView = findViewById(R.id.textView);
+        ImageView profImage = findViewById(R.id.imageView);
+        profImage.setImageResource(R.drawable.blank_user);
         persons = new ArrayList<User>();
         loadData(); // this load existing data when the activity starts.
         setTextToTextView();
+
+        // Initialize and assign variable
+        rvBadge = findViewById(R.id.rvPinnedBadges);
+        ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
+
+        for (int i =0; i < 3; i++){
+            BadgeInfo badge = new BadgeInfo(i);
+            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRedemptionType(), badge.getRequirements(), badge.getPinned(), badge.getSteps());
+            arrBadges.add(bim);
+        }
+
+        displayAllBadges(arrBadges);
 
         //this is the onClickListener for the button in the profileView page,
         // to move back to the home page.
@@ -50,6 +73,34 @@ public class ProfileView extends AppCompatActivity {
             }
         });
     }
+
+    private void displayAllBadges(ArrayList<BadgeItemModel> arrBadges) {
+        //arrBadges.clear();
+//        db.collection("badges")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        for (QueryDocumentSnapshot document : task.getResult()) {
+//                            BadgeItemModel badge = document.toObject(BadgeItemModel.class);
+//                            arrBadges.add(badge);
+//                        }
+//                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
+//
+
+        //layout manager for badge test
+        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
+
+        //set layout manager
+        rvBadge.setLayoutManager(layoutManager);
+
+        //set adapter
+        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
+//                    }
+
+//                });
+    }
+
     //This method calls the save method when it is clicked.
     public void btnSave(View v){
         //this would save the data to its internal storage.
@@ -109,7 +160,7 @@ public class ProfileView extends AppCompatActivity {
         String surname = userSurname.getText().toString();
 
         User person = new User(name, surname);
-        persons.add(person);
+        //persons.add(person);
 
         if(!name.isEmpty() && !surname.isEmpty()){ // Check if both name and surname fields are not empty
             // This is for saving one entry
