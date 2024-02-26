@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 //structure for storing profile information from DB
 class ProfileInfo{
     //faux-DB
-    final String[][] PROFILEDB = {{"john", "doe", "0", "FALSE"}, {"joe", "momma", "3", "FALSE"}, {"julienne", "doe", "15", "FALSE"}};
+    final String[][] PROFILEDB = {{"john", "doe", "0", "false"}, {"joe", "momma", "3", "false"}, {"julienne", "doe", "15", "false"}};
     int id;
     String firstname;
     String lastname;
@@ -54,9 +54,9 @@ class ProfileInfo{
 
 class BadgeInfo{
     //faux-DB
-    final String[][] BADGEDB = {{"badge1", "cool badge", "placeholder1.png", "1", "0", "do a cool thing", "FALSE", "1"},
-                                {"badge2", "description 2", "placeholder2.png", "1", "0", "description?", "FALSE", "2"},
-                                {"badge3", "a badge", "placeholder3.png", "1", "0", "no", "FALSE", "1"}};
+    final String[][] BADGEDB = {{"badge1", "cool badge", "placeholder1.png", "1", "0", "do a cool thing", "false", "1"},
+                                {"badge2", "description 2", "placeholder2.png", "1", "0", "description?", "false", "2"},
+                                {"badge3", "a badge", "placeholder3.png", "1", "0", "no", "false", "1"}};
     int id;
     String description;
     String name;
