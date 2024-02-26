@@ -25,8 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //mAuth = FirebaseAuth.getInstance();
 
+        //mAuth = FirebaseAuth.getInstance();
 
         // If user is already logged in already go to homepage
         //authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -49,13 +49,13 @@ public class LoginActivity extends AppCompatActivity {
 
         // Redirect user to registration page if
         // account has not already been created
-        LoginQn.setOnClickListener(new View.OnClickListener() {
+        /*LoginQn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         // Authenticate user and login to home page
         LoginBtn.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
                     LoginPwd.setError("A valid password is required");
                     return;
                 }
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
 //                else{
 //
 //                    mAuth.signInWithEmailAndPassword(email, password)
@@ -79,9 +81,9 @@ public class LoginActivity extends AppCompatActivity {
 //                        @Override
 //                        public void onComplete(@NonNull Task<true> task) {
 //                            if (task.isSuccessful()){
-                                Intent testintent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(testintent);
-                                finish();
+//                                Intent loginintent = new Intent(LoginActivity.this, MainActivity.class);
+//                                startActivity(loginintent);
+//                                finish();
 //                            } else{
 //                                String error = task.getException().toString();
 //                                Toast.makeText(LoginActivity.this, "Login failed: " + error, Toast.LENGTH_SHORT).show();

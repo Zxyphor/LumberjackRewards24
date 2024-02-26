@@ -12,8 +12,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Settings extends AppCompatActivity {
@@ -36,16 +34,16 @@ public class Settings extends AppCompatActivity {
         // Set settings selected
         bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            Bundle parameters = getIntent().getExtras();
-            if (parameters != null) {
-                updateNameText(parameters.getString("fName").trim() + " " + parameters.getString("lName").trim());
-                updateEmailText(parameters.getString("eMail").trim());
-            } else {
-                updateEmailText(user.getEmail());
-                updateNameText(user.getDisplayName());
-            }
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        if (user != null) {
+//            Bundle parameters = getIntent().getExtras();
+//            if (parameters != null) {
+//                updateNameText(parameters.getString("fName").trim() + " " + parameters.getString("lName").trim());
+//                updateEmailText(parameters.getString("eMail").trim());
+//            } else {
+//                updateEmailText(user.getEmail());
+//                updateNameText(user.getDisplayName());
+//            }
 
 
             // Perform item selected listener for settings page
@@ -91,7 +89,7 @@ public class Settings extends AppCompatActivity {
                     builder.setMessage("You are about to sign out.");
                     builder.setTitle("Notice");
                     builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-                        FirebaseAuth.getInstance().signOut();
+                        //FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent(Settings.this, LoginActivity.class);
                         startActivity(intent);
                         finish();
@@ -136,7 +134,7 @@ public class Settings extends AppCompatActivity {
                 }
             });
         }
-    }
+
     private void updateNameText(String name) {
         TextView settingsNameplate = (TextView) findViewById(R.id.settings_nameplate);
         settingsNameplate.setText(name);
