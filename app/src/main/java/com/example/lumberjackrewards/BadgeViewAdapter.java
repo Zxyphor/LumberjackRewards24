@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,15 +30,14 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                 .inflate(R.layout.item_badge, parent, false);
 
         return new ViewHolder(view);
-    }
 
+    }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //set text
         holder.nameTextView.setText(arrItemBadges.get(position).getName());
         holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
-
     }
 
     @Override
@@ -64,9 +64,18 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
             nameTextView = itemView.findViewById(R.id.badgeNameTextView);
             descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
+            //onclick to move to the badges information page when a badge is clicked
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // BadgeInfo is currently blank
+                    Intent intent = new Intent(itemView.getContext(), BadgeInfoPage.class);
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+
             progressBar = itemView.findViewById(R.id.progress_bar);
             progressTxt = itemView.findViewById(R.id.progress_txt);
-
 
             //modifies the camera scale for flip animation
             float scale = itemView.getContext().getResources().getDisplayMetrics().density;

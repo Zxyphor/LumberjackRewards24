@@ -75,22 +75,22 @@ public class BadgesActivity extends AppCompatActivity {
                 case R.id.navigation_home:
 
                     //Sends back to main activity what badges are pinned
-                        ArrayList<BadgeItemModel> pinnedBadges = new ArrayList<>();
+                    ArrayList<BadgeItemModel> pinnedBadges = new ArrayList<>();
 
-                       for(int i = 0; i < arrBadges.size(); i++){
-                          boolean isPinned = arrBadges.get(i).getIsPinned();
-                           if(isPinned) {
-                               pinnedBadges.add(arrBadges.get(i));
-                           }
-                       }
-                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                        if(!pinnedBadges.isEmpty()) {
-                            intent.putExtra("pinnedBadges", pinnedBadges);
+                    for(int i = 0; i < arrBadges.size(); i++){
+                        boolean isPinned = arrBadges.get(i).getIsPinned();
+                        if(isPinned) {
+                            pinnedBadges.add(arrBadges.get(i));
                         }
-                        startActivity(intent);
+                    }
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    if(!pinnedBadges.isEmpty()) {
+                        intent.putExtra("pinnedBadges", pinnedBadges);
+                    }
+                    startActivity(intent);
 
-                        //previous startActivity for testing for different branches to revert back
-                        //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    //previous startActivity for testing for different branches to revert back
+                    //startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
 
                     //overridePendingTransition(0,0);
@@ -119,7 +119,7 @@ public class BadgesActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lngList);
 
         // on below line we are setting adapter for our list view.
-       /* languageLV.setAdapter(adapter);*/
+        /* languageLV.setAdapter(adapter);*/
 
         // on below line we are adding click listener for our button.
 //        addBtn.setOnClickListener(v -> {
@@ -172,14 +172,14 @@ public class BadgesActivity extends AppCompatActivity {
 //                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
 //
 
-                        //layout manager for badge test
-                        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
+        //layout manager for badge test
+        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
 
-                        //set layout manager
-                        rvBadge.setLayoutManager(layoutManager);
+        //set layout manager
+        rvBadge.setLayoutManager(layoutManager);
 
-                        //set adapter
-                        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
+        //set adapter
+        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
 //                    }
 
 //                });
@@ -283,6 +283,5 @@ public class BadgesActivity extends AppCompatActivity {
 //                        }
 //                    }
 //                });
-    
 
 }
