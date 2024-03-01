@@ -12,12 +12,13 @@ import java.util.ArrayList;
 
 public class BadgeInfoPage extends AppCompatActivity{
     private ImageButton returnButton;
+    private TextView badgeNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_badge_info);
-
+        badgeNameTextView = findViewById(R.id.badgeNameTextView);
         returnButton = findViewById(R.id.backButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,5 +27,11 @@ public class BadgeInfoPage extends AppCompatActivity{
                 finish();
             }
         });
+        // Retrieve the badge name from the badge page
+        Intent intent = getIntent();
+        if (intent.hasExtra("nameTextView")) {
+            String badgeName = intent.getStringExtra("nameTextView");
+            badgeNameTextView.setText(badgeName);
+        }
     }
 }

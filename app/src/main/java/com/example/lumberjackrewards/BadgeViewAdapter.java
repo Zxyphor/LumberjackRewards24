@@ -68,10 +68,12 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // BadgeInfo is currently blank
-                    // Left off here added String badgeName and intent.putExtra()
+                    //https://codingwitht.com/how-to-pass-data-from-one-activity-to-another-in-android-studio/
+                    //Stores badge name
                     String badgeName = nameTextView.getText().toString();
+                    //Intent is used to navigate from one page to another, we are sending itemView info to badge info pg
                     Intent intent = new Intent(itemView.getContext(), BadgeInfoPage.class);
+                    //adding extra info to intent, in this case badgeName with a key 'nameTextView'
                     intent.putExtra("nameTextView", badgeName);
                     itemView.getContext().startActivity(intent);
                 }
