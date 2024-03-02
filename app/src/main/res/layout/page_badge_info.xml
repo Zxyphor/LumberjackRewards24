@@ -14,6 +14,34 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
+        <RelativeLayout
+            android:layout_width = "match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_401"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:src="@drawable/back_btn"
+                android:id="@+id/backButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:textColor = "@color/white"
+                android:layout_marginStart="-10dp"
+                />
+            <!-- app:icon="@drawable/back_btn" -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +56,7 @@
                 android:id="@+id/badgeNameTextView"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:text="Example Badge Name"
+                android:hint="Example Badge Name"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
                 android:textSize="25sp"
