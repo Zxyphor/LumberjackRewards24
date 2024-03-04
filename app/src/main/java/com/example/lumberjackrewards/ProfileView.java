@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class ProfileView extends AppCompatActivity {
-    private Button back;
+    private ImageButton back;
     EditText userName, userSurname;
     TextView results;
     ArrayList <User> persons;
@@ -68,8 +69,9 @@ public class ProfileView extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileView.this, MainActivity.class);
-                startActivity(intent);
+               // Intent intent = new Intent(ProfileView.this, MainActivity.class);
+              //  startActivity(intent);
+                ProfileView.this.finish();
             }
         });
     }
