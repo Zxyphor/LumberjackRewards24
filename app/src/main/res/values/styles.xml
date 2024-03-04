@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="default_button" parent="@android:style/Widget.Button">
-        <item name="android:fontFamily">@font/arboria_bold</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textAllCaps">false</item>
-        <item name="android:textColor">#F00</item>
-        <item name="android:background">#FF0</item>
+    <!-- Define a style for the red button -->
+    <style name="buttonTemplate">
+        <item name="android:textSize">20sp</item> <!-- Set font size -->
+        <item name="android:fontFamily">@font/arboria_bold</item> <!-- Set custom font -->
+        <!-- Add any other styling properties as needed -->
     </style>
 </resources>
