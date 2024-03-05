@@ -25,14 +25,12 @@ public class BadgeItemModel {
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(long badgeID, String name, String description, String icon, int completionStatus, int redemptionType, String requirements, /*Boolean isPinned, */int steps) {
+    public BadgeItemModel(long badgeID, String name, String description, String icon, int completionStatus, String requirements, int steps) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
         this.icon = icon;
-        //this.isPinned = isPinned;
         this.completionStatus = completionStatus;
-        this.redemptionType = redemptionType;
         this.requirements = requirements;
         this.steps = steps;
     }
@@ -63,23 +61,13 @@ public class BadgeItemModel {
     }
 
     public String getIcon() {return icon;}
-
     public void setIcon(String icon) {this.icon = icon;}
 
-//    public boolean getIsPinned(){return isPinned;}
-//
-//    public void setIsPinned(boolean isPinned){this.isPinned = isPinned;}
     public int getCompletionStatus(){
         return completionStatus;
     }
     public void setCompletionStatus(int completionStatus){
         this.completionStatus = completionStatus;
-    }
-    public int getRedemptionType(){
-        return redemptionType;
-    }
-    public void setRedemptionType(int redemptionType){
-        this.redemptionType = redemptionType;
     }
     public String getRequirements(){
         return requirements;

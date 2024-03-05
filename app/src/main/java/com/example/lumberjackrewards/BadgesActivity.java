@@ -57,7 +57,7 @@ public class BadgesActivity extends AppCompatActivity {
 
         for (int i =0; i < 3; i++){
             BadgeInfo badge = new BadgeInfo(i);
-            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRedemptionType(), badge.getRequirements(), /*badge.getPinned(), */badge.getSteps());
+            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRequirements(), badge.getSteps());
             arrBadges.add(bim);
         }
 
@@ -90,7 +90,7 @@ public class BadgesActivity extends AppCompatActivity {
 //                    startActivity(intent);
 
                     //previous startActivity for testing for different branches to revert back
-                    //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
 
                     //overridePendingTransition(0,0);
