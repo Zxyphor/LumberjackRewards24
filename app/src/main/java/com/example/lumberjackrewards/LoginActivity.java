@@ -25,8 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         //mAuth = FirebaseAuth.getInstance();
+
 
         // If user is already logged in already go to homepage
         //authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -72,8 +72,6 @@ public class LoginActivity extends AppCompatActivity {
                     LoginPwd.setError("A valid password is required");
                     return;
                 }
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
 //                else{
 //
 //                    mAuth.signInWithEmailAndPassword(email, password)
@@ -81,9 +79,9 @@ public class LoginActivity extends AppCompatActivity {
 //                        @Override
 //                        public void onComplete(@NonNull Task<true> task) {
 //                            if (task.isSuccessful()){
-//                                Intent loginintent = new Intent(LoginActivity.this, MainActivity.class);
-//                                startActivity(loginintent);
-//                                finish();
+                                Intent testintent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(testintent);
+                                finish();
 //                            } else{
 //                                String error = task.getException().toString();
 //                                Toast.makeText(LoginActivity.this, "Login failed: " + error, Toast.LENGTH_SHORT).show();
