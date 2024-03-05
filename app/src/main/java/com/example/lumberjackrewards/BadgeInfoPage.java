@@ -23,8 +23,9 @@ public class BadgeInfoPage extends AppCompatActivity{
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
-                finish();
+                //startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
+                //finish();
+                BadgeInfoPage.this.finish();
             }
         });
         // Retrieve the badge name from the badge page
