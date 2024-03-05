@@ -51,9 +51,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="48dp"
         android:layout_height="match_parent"
-        android:background="@color/purple_339"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/background_gradient"
         android:orientation="vertical"
         android:padding="16dp">
 

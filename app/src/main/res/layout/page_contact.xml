@@ -57,61 +57,60 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="48dp"
             android:layout_height="match_parent"
-            android:background="@color/purple_339"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/background_gradient"
             android:orientation="vertical"
-            android:padding="16dp"
-            >
+            android:padding="16dp">
 
             <EditText
                 android:id="@+id/personName"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:textColor = "@color/black"
-                android:textSize = "18sp"
-                android:visibility="visible"
-                android:background="@drawable/custom_input"
                 android:layout_marginBottom="15dp"
+                android:background="@drawable/custom_input"
+                android:backgroundTint="@color/white"
                 android:inputType="textPersonName"
-                android:text="@string/full_name"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:backgroundTint="@color/white"
-                android:selectAllOnFocus="true"/>
+                android:selectAllOnFocus="true"
+                android:text="@string/full_name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:visibility="visible" />
 
             <EditText
                 android:id="@+id/contactEmail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:textColor = "@color/black"
-                android:textSize = "18sp"
-                android:visibility="visible"
-                android:background="@drawable/custom_input"
                 android:layout_marginBottom="15dp"
+                android:background="@drawable/custom_input"
+                android:backgroundTint="@color/white"
                 android:inputType="textEmailAddress"
-                android:selectAllOnFocus="true"
-                android:text="@string/email"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:backgroundTint="@color/white" />
+                android:selectAllOnFocus="true"
+                android:text="@string/email"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:visibility="visible" />
 
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_input"
+                android:backgroundTint="@color/white"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:padding="5dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:gravity="top"
                 android:selectAllOnFocus="true"
-                android:inputType="textMultiLine"
                 android:singleLine="false"
-                android:padding="5dp"
-                android:textColor = "@color/black"
                 android:text="@string/message_contents"
-                android:backgroundTint="@color/white" />
+                android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSubmit"
