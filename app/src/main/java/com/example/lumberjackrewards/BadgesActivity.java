@@ -7,6 +7,8 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -96,13 +98,14 @@ public class BadgesActivity extends AppCompatActivity {
                     //overridePendingTransition(0,0);
                     break;
             }
+
             return true;
         });
 
         /*ListView languageLV = findViewById(R.id.idLVLanguages);*/
-        Button addBtn = findViewById(R.id.btnBadgeAdd);
-        Button removeBtn = findViewById(R.id.btnBadgeRemove);
-        Button btnManage = findViewById(R.id.btnManageUsersAndGroups);
+        //Button addBtn = findViewById(R.id.btnBadgeAdd);
+       // Button removeBtn = findViewById(R.id.btnBadgeRemove);
+        //Button btnManage = findViewById(R.id.btnManageUsersAndGroups);
         lngList = new ArrayList<>();
 
         // on below line we are adding items to our list
@@ -122,12 +125,16 @@ public class BadgesActivity extends AppCompatActivity {
 //            finish();
 //        });
 
+        /*
         btnManage.setOnClickListener(v -> {
             Intent intent = new Intent(BadgesActivity.this, ActivityManage.class);
             startActivity(intent);
             finish();
         });
+        */
 
+
+        /*
         removeBtn.setOnClickListener(v -> {
             // on below line we are getting text from edit text
             /*String badgeName = itemEdt.getText().toString();
@@ -136,9 +143,10 @@ public class BadgesActivity extends AppCompatActivity {
             if (!badgeName.isEmpty()) {
                 deleteBadge(badgeName);
                 displayAllBadges(arrBadges);
-            }*/
+            }
 
         });
+*/
 
         //-----------------uncomment(if languageLV will still be used)---------------
         // the onItemClickListener below makes the remove button obsolete

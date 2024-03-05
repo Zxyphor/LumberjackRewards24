@@ -95,6 +95,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
 
 
 
+            /*
             //pinned badge view button
             View pinBadgeBtn = itemView.findViewById(R.id.pinBadgeButton);
             pinBadgeBtn.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +106,8 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                     arrItemBadges.get(getAdapterPosition()).setIsPinned(isPinned);
                 }
             });
+
+             */
 
 
         }
