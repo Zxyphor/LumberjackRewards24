@@ -35,15 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        move = findViewById(R.id.Move);
-        move.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,ProfileView.class);
-                startActivity(intent);
-            }
-        });
+        
 
         // Dynamically update welcome msg for current, logged-in user
 //        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
