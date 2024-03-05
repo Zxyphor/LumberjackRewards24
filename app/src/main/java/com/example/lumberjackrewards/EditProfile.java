@@ -43,7 +43,7 @@ public class EditProfile extends AppCompatActivity {
         //this Utilizes the UI elements.
 //        userName = (EditText) findViewById(R.id.etName);
 //        userSurname = (EditText) findViewById(R.id.etSurname);
-        results = (TextView) findViewById(R.id.result);
+//        results = (TextView) findViewById(R.id.result);
         back = findViewById(R.id.backBtn);
         TextView resultsTextView = findViewById(R.id.textView);
         ImageView profImage = findViewById(R.id.imageView);
