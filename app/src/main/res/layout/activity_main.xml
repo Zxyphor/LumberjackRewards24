@@ -123,9 +123,7 @@
                     app:itemTextColor="@color/dark_grey"
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/n_navbar"
-                    app:menu="@menu/bottom_nav_menu">
-
-                </com.google.android.material.bottomnavigation.BottomNavigationView>
+                    app:menu="@menu/bottom_nav_menu"/>
 
 
             </LinearLayout>
