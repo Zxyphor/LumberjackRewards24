@@ -130,27 +130,27 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                     }
                 }
             });
-
-            //pinned badge view button
-            View pinBadgeBtn = itemView.findViewById(R.id.pinBadgeButton);
-            pinBadgeBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                   isPinned = (!isPinned) ? true : false;
-                    Log.d("Pinned Value" , "Pinned is: " + isPinned);
-                    arrItemBadges.get(getAdapterPosition()).setIsPinned(isPinned);
-                }
-            });
+// Pinned badges are long term goal
+//            //pinned badge view button
+//            View pinBadgeBtn = itemView.findViewById(R.id.pinBadgeButton);
+//            pinBadgeBtn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                   isPinned = (!isPinned) ? true : false;
+//                    Log.d("Pinned Value" , "Pinned is: " + isPinned);
+//                    arrItemBadges.get(getAdapterPosition()).setIsPinned(isPinned);
+//                }
+//            });
 
 
         }
-
-        public boolean getPinned(){
-            return isPinned;
-        };
-
-        public void setPinned(boolean isPinned){
-            this.isPinned = isPinned;
-        }
+//
+//        public boolean getPinned(){
+//            return isPinned;
+//        };
+//
+//        public void setPinned(boolean isPinned){
+//            this.isPinned = isPinned;
+//        }
     }
 }
