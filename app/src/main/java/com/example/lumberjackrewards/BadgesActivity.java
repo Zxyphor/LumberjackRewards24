@@ -51,9 +51,15 @@ public class BadgesActivity extends AppCompatActivity {
         rvBadge = findViewById(R.id.rvBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
 
-        // manually create 10 badges
-        for (int i=0; i<10; i++) {
-            BadgeItemModel bim = new BadgeItemModel(i, "desc", "name", "bronze_badge.png", 0, 0, "req", 3);
+//        // manually create 10 badges
+//        for (int i=0; i<10; i++) {
+//            BadgeItemModel bim = new BadgeItemModel(i, "name", "desc", "badge_ex1.png", 0, 0, "req", 3);
+//            arrBadges.add(bim);
+//        }
+
+        for (int i =0; i < 3; i++){
+            BadgeInfo badge = new BadgeInfo(i);
+            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRequirements(), badge.getSteps());
             arrBadges.add(bim);
         }
 
@@ -69,24 +75,24 @@ public class BadgesActivity extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.navigation_home:
+    //Pinned badges are long term goal
+//                    //Sends back to main activity what badges are pinned
+//                    ArrayList<BadgeItemModel> pinnedBadges = new ArrayList<>();
+//
+//                    for(int i = 0; i < arrBadges.size(); i++){
+//                        boolean isPinned = arrBadges.get(i).getIsPinned();
+//                        if(isPinned) {
+//                            pinnedBadges.add(arrBadges.get(i));
+//                        }
+//                    }
+//                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+//                    if(!pinnedBadges.isEmpty()) {
+//                        intent.putExtra("pinnedBadges", pinnedBadges);
+//                    }
+//                    startActivity(intent);
 
-                    //Sends back to main activity what badges are pinned
-                        ArrayList<BadgeItemModel> pinnedBadges = new ArrayList<>();
-
-                       for(int i = 0; i < arrBadges.size(); i++){
-                          boolean isPinned = arrBadges.get(i).getIsPinned();
-                           if(isPinned) {
-                               pinnedBadges.add(arrBadges.get(i));
-                           }
-                       }
-                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                        if(!pinnedBadges.isEmpty()) {
-                            intent.putExtra("pinnedBadges", pinnedBadges);
-                        }
-                        startActivity(intent);
-
-                        //previous startActivity for testing for different branches to revert back
-                        //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    //previous startActivity for testing for different branches to revert back
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
 
                     //overridePendingTransition(0,0);
@@ -285,6 +291,5 @@ public class BadgesActivity extends AppCompatActivity {
 //                        }
 //                    }
 //                });
-    
 
 }

@@ -1,5 +1,6 @@
 package com.example.lumberjackrewards;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +65,21 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
             nameTextView = itemView.findViewById(R.id.badgeNameTextView);
             //descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
+            //onclick to move to the badges information page when a badge is clicked
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //https://codingwitht.com/how-to-pass-data-from-one-activity-to-another-in-android-studio/
+                    //Stores badge name
+                    String badgeName = nameTextView.getText().toString();
+                    //Intent is used to navigate from one page to another, we are sending itemView info to badge info pg
+                    Intent intent = new Intent(itemView.getContext(), BadgeInfoPage.class);
+                    //adding extra info to intent, in this case badgeName with a key 'nameTextView'
+                    intent.putExtra("nameTextView", badgeName);
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+
             progressBar = itemView.findViewById(R.id.progress_bar);
             progressTxt = itemView.findViewById(R.id.progress_txt);
 
@@ -92,32 +108,29 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
 
                 }
             });
+// Pinned badges are long term goal
+//            //pinned badge view button
+//            View pinBadgeBtn = itemView.findViewById(R.id.pinBadgeButton);
+//            pinBadgeBtn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                   isPinned = (!isPinned) ? true : false;
+//                    Log.d("Pinned Value" , "Pinned is: " + isPinned);
+//                    arrItemBadges.get(getAdapterPosition()).setIsPinned(isPinned);
+//                }
+//            });
 
 
-
-            /*
-            //pinned badge view button
-            View pinBadgeBtn = itemView.findViewById(R.id.pinBadgeButton);
-            pinBadgeBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                   isPinned = (!isPinned) ? true : false;
-                    Log.d("Pinned Value" , "Pinned is: " + isPinned);
-                    arrItemBadges.get(getAdapterPosition()).setIsPinned(isPinned);
-                }
-            });
-
-             */
 
 
         }
-
-        public boolean getPinned(){
-            return isPinned;
-        };
-
-        public void setPinned(boolean isPinned){
-            this.isPinned = isPinned;
-        }
+//
+//        public boolean getPinned(){
+//            return isPinned;
+//        };
+//
+//        public void setPinned(boolean isPinned){
+//            this.isPinned = isPinned;
+//        }
     }
 }

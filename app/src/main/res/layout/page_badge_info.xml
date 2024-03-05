@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-            <!-- Pin badge button -->
+            <!-- Pin badge button
             <ImageButton
                 android:id="@+id/pinBadgeButton"
                 android:layout_marginTop="10dp"
@@ -33,20 +33,20 @@
                 tools:ignore="TouchTargetSizeCheck" />
             <Space
                 android:layout_width="330dp"
-                android:layout_height="0dp"/>
+                android:layout_height="0dp"/> -->
 
             <!-- Button to return to the previous page -->
-            <!--ImageButton
+            <ImageButton
                 android:id="@+id/backButton"
                 android:layout_marginTop="10dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_weight="0"
                 android:background="@android:color/transparent"
-                android:contentDescription="Button for pinning badges to home page"
+                android:contentDescription="Button for going back back back"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/unpinned_badge_icon"
-                tools:ignore="TouchTargetSizeCheck" /-->
+                app:srcCompat="@drawable/back_btn"
+                tools:ignore="TouchTargetSizeCheck"></ImageButton>
 
         </LinearLayout>
 

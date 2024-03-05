@@ -19,7 +19,7 @@ public class ActivityManage extends AppCompatActivity {
         Button btnManageClasses = findViewById(R.id.btnManageGroups);
         Button btnManageStudents = findViewById(R.id.btnManageStudents);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         // Perform item selected listener for settings page (nav bar)
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
