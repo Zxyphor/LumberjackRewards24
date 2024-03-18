@@ -47,9 +47,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="48dp"
         android:layout_height="match_parent"
-        android:background="@color/purple_339"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/background_gradient"
         android:orientation="vertical"
         android:padding="16dp">
         <!-- Manage classes button -->
@@ -63,8 +63,8 @@
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:text="@string/manage_groups"
-            android:textColor="@color/black"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
         <!-- Manage students button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnManageStudents"

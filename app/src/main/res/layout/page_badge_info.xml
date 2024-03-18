@@ -5,96 +5,164 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--Overarching linear layout for the badge page-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/purple_339"
+        android:background="@color/black"
         android:orientation="vertical"
         android:padding="16dp"
+
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
-
-        <RelativeLayout
-            android:layout_width = "match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/purple_401"
-            tools:ignore="UselessParent">
-
-            <!-- app:icon="@drawable/back_btn" -->
-
-            <ImageButton
-                android:id="@+id/backButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="-10dp"
-                android:src="@drawable/back_btn"
-                android:textColor="@color/white"
-                android:visibility="visible" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:visibility="visible" />
-        </RelativeLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="50dp">
 
-            <ImageView
-                android:id="@+id/imgBadgeIcon"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/badge_ex2" />
-            <TextView
-                android:id="@+id/badgeNameTextView"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:hint="Example Badge Name"
-                android:textAlignment="textStart"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
+            <!-- Pin badge button
             <ImageButton
                 android:id="@+id/pinBadgeButton"
+                android:layout_marginTop="10dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_weight="0"
                 android:background="@android:color/transparent"
                 android:contentDescription="Button for pinning badges to home page"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/unpinned_badge_icon"
+                app:srcCompat="@drawable/back_btn"
                 tools:ignore="TouchTargetSizeCheck" />
+            <Space
+                android:layout_width="330dp"
+                android:layout_height="0dp"/> -->
+
+            <!-- Button to return to the previous page -->
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_marginTop="10dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_weight="0"
+                android:background="@android:color/transparent"
+                android:contentDescription="Button for going back back back"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/back_btn"
+                tools:ignore="TouchTargetSizeCheck"></ImageButton>
 
         </LinearLayout>
 
+        <!-- Title text view-->
+        <TextView
+            android:id="@+id/badgeNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Example Badge Name"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:fontFamily="@font/arboria_bold"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="10dp"/>
+
+        <!-- Description text view-->
         <TextView
             android:id="@+id/itemDescriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:text="This is sample text to replace with the specific badge completion requirements\n"
-            android:textColor="@color/white" />
+            android:textAlignment="center"
+            android:textColor="@color/mid_grey"
+            android:fontFamily="@font/arboria_medium"/>
 
+        <!-- Linear layout to center the badge image-->
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imgBadgeIcon"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/bronze_badge" />
+
+            </LinearLayout>
+
+        <!-- LAYOUT OF PROGRESS BAR PLACEMENT -->
+        <!-- Relative layout allows for placement of text
+            on top of the progress bar -->
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/progress_layout"
+            android:gravity="center"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="285dp"
+            android:layout_height="30dp">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="275dp"
+                android:layout_height="30dp"
+                android:progressDrawable="@drawable/n_progress_bar"
+                tools:progress="100"/>
+
+            <TextView
+                android:id="@+id/progress_txt"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="100%"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/arboria_black"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <!--Completion Requirements Header text-->
+        <TextView
+            android:id="@+id/itemCompletionHeaderTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="24dp"
+            android:textAlignment="center"
+            android:textColor="@color/mid_grey"
+            android:fontFamily="@font/arboria_bold"
+            android:text="Completion Requirements:"/>
+
+        <!--Completion Requirements body text-->
         <TextView
             android:id="@+id/itemStepsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="Steps to complete \n 1. step 1 here \n 2. step 2 here"
-            android:textColor="@color/white" />
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/mid_grey"
+            android:fontFamily="@font/arboria_medium"
+            android:text="1. sample step one info for length testin' purposes \n2. step 2 here"/>
 
+        <!--Redeem button text-->
         <Button
             android:id="@+id/redeemBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/arboria_bold"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:letterSpacing="0"
+            android:background="@drawable/n_btn_default"
             android:text="Redeem" />
 
     </LinearLayout>
