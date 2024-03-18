@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -24,12 +23,14 @@
         <activity android:name=".ActivityAddBadge" />
         <activity android:name=".EditProfile" />
         <activity android:name=".ContactUs" />
-        <activity android:name=".FAQ" />
-        <activity android:name=".ActivityManage" />
-        <activity android:name=".ManageClasses" />
-        <activity android:name=".ManageStudents" />
-        <activity android:name=".ActivityAddClass" />
-        <activity android:name=".BadgesActivity" />
+        <activity android:name=".FAQ"/>
+        <activity android:name=".ActivityManage"/>
+        <activity android:name=".ManageClasses"/>
+        <activity android:name=".ManageStudents"/>
+        <activity android:name=".ActivityAddClass"/>
+        <activity android:name=".BadgeInfo" />
+        <activity android:name=".BadgesActivity"/>
+        <activity android:name=".BadgeInfoPage"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true">

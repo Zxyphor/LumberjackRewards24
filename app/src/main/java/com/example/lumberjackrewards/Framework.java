@@ -47,9 +47,9 @@ class BadgeInfo{
     //if completionStatus = steps, the badge is complete
     //steps is immutable except by backend team, badge specific
     //completionStatus is stored per individual user
-    final String[][] BADGEDB = {{"badge1", "cool badge", "placeholder1.png", "1", "0", "do a cool thing"},
-                                {"badge2", "description 2", "placeholder2.png", "1", "0", "description?"},
-                                {"badge3", "a badge", "placeholder3.png", "1", "0", "no"}};
+    final String[][] BADGEDB = {{"badge1", "cool badge", "bronze_badge.png", "1", "0", "do a cool thing"},
+                                {"badge2", "description 2", "silver_badge.png", "1", "0", "description?"},
+                                {"badge3", "a badge", "gold_badge.png", "1", "0", "no"}};
     int id;
     String name;
     String description;
