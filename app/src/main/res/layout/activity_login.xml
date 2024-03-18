@@ -81,14 +81,6 @@
         android:background="@drawable/n_btn_default"
 
          />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Amogus"
-
-        layout="@drawable/button_template"
-        />
-    <include layout="@drawable/button_template" />
 
     <TextView
         android:id="@+id/loginPageQuestion"

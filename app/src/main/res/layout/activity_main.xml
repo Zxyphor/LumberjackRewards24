@@ -126,6 +126,5 @@
         app:itemIconTint="@color/dark_grey"
         app:itemTextColor="@color/dark_grey"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/n_navbar"
         app:menu="@menu/bottom_nav_menu"/>
 </RelativeLayout>
