@@ -118,7 +118,7 @@
         android:layout_margin="5dp"
         app:itemIconSize="50dp"
         app:itemActiveIndicatorStyle="@color/dark_grey"
-        app:itemIconTint="@color/grey"
+        app:itemIconTint="@color/dark_grey"
         app:itemTextColor="@color/dark_grey"
         android:layout_alignParentBottom="true"
         android:background="@drawable/n_navbar"
