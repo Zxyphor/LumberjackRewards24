@@ -104,25 +104,20 @@
 
                 </LinearLayout>
 
-                <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:id="@+id/bottom_navigation"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_margin="5dp"
-                    app:itemIconSize="50dp"
-                    app:itemActiveIndicatorStyle="@color/dark_grey"
-                    app:itemIconTint="@color/grey"
-                    app:itemTextColor="@color/dark_grey"
-                    android:layout_alignParentBottom="true"
-                    android:background="@drawable/n_navbar"
-                    app:menu="@menu/bottom_nav_menu">
-
-                </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        app:itemIconSize="50dp"
+        app:itemActiveIndicatorStyle="@color/dark_grey"
+        app:itemIconTint="@color/dark_grey"
+        app:itemTextColor="@color/dark_grey"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/n_navbar"
+        app:menu="@menu/bottom_nav_menu"/>
 </RelativeLayout>
