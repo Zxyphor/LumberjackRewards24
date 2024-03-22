@@ -26,6 +26,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal">
 
+            <!-- Search tabs -->
             <Button
                 android:id="@+id/badgesBtn"
                 android:layout_width="180dp"
@@ -33,12 +34,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="@font/arboria_bold"
+                android:fontFamily="@font/arboria_black"
                 android:textSize="20sp"
                 android:textAllCaps="false"
-                android:textColor="@color/black"
+                android:textColor="@color/grey"
                 android:letterSpacing="0"
-                android:background="@drawable/n_btn_default"
+                android:background="@drawable/n_btn_secondary"
+                app:backgroundTint="@null"
                 android:text="Badges" />
 
             <Button
@@ -53,30 +55,34 @@
                 android:textColor="@color/black"
                 android:letterSpacing="0"
                 android:background="@drawable/n_btn_default"
-                android:backgroundTint="@color/grey"
+                app:backgroundTint="@null"
                 android:text="Profiles" />
 
         </LinearLayout>
 
-            <EditText
-                android:id="@+id/searchEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/n_inputs"
-                android:backgroundTint="@color/dark_grey"
-                android:paddingStart="@dimen/activity_horizontal_margin"
-                android:drawableLeft="@drawable/baseline_search_24"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/arboria_bold"
-                android:hint="Search"
-                android:textColorHint="@color/mid_grey"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:padding="10dp"
-                android:textColor="@color/white" />
+        <!--Search bar-->
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/n_inputs"
+            android:backgroundTint="@color/dark_grey"
+            android:drawableLeft="@drawable/baseline_search_24"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/arboria_bold"
+            android:hint="Search"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:textColor="@color/white"
+            android:textColorHint="@color/mid_grey" />
 
                 <!--android:dropDownSelector="@color/light_grey"
                 android:background="@drawable/n_inputs"
@@ -84,6 +90,7 @@
 
 
 
+        <!-- Badges list displayed -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvBadges"
             android:layout_width="match_parent"
@@ -103,6 +110,7 @@
     <!-- Playing around with images-->
 
 
+    <!--Navbar-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
