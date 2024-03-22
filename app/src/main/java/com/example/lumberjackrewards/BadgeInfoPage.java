@@ -30,8 +30,12 @@ public class BadgeInfoPage extends AppCompatActivity{
         });
         // Retrieve the badge name from the badge page
         Intent intent = getIntent();
-        if (intent.hasExtra("nameTextView")) {
-            String badgeName = intent.getStringExtra("nameTextView");
+        if (intent.hasExtra("badgeIdTextView")) {
+            //            int badgeId = parseInt(intent.getStringExtra("badgeIdTextView"));
+//            BadgeInfo badgeInfo = new BadgeInfo(badgeId);
+//            String badgeName = badgeInfo.getName();
+//            badgeNameTextView.setText(badgeName)
+            String badgeName = intent.getStringExtra("badgeIdTextView");
             badgeNameTextView.setText(badgeName);
         }
     }

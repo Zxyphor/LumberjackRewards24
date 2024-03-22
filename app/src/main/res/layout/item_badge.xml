@@ -120,6 +120,13 @@
                 android:id="@+id/progress_layout2"
                 android:layout_width="1dp"
                 android:layout_height="1dp"/>
+            <TextView
+                android:id="@+id/badgeIdTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:visibility = "invisible"
+                android:text="Badge ID"/>
 
         </LinearLayout>
 

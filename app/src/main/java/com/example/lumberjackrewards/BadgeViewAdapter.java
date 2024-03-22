@@ -1,5 +1,7 @@
 package com.example.lumberjackrewards;
 
+import static java.lang.Integer.parseInt;
+
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,6 +39,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //set text
         holder.nameTextView.setText(arrItemBadges.get(position).getName());
+        holder.badgeIdTextView.setText(Integer.toString(arrItemBadges.get(position).getBadgeID()));
         //holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
 
     }
@@ -49,6 +52,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
+        TextView badgeIdTextView;
         TextView descriptionTextView;
 
 
@@ -63,6 +67,7 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.badgeNameTextView);
+            badgeIdTextView = itemView.findViewById(R.id.badgeIdTextView);
             //descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
             //onclick to move to the badges information page when a badge is clicked
@@ -72,10 +77,11 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
                     //https://codingwitht.com/how-to-pass-data-from-one-activity-to-another-in-android-studio/
                     //Stores badge name
                     String badgeName = nameTextView.getText().toString();
+                    String badgeId = badgeIdTextView.getText().toString();
                     //Intent is used to navigate from one page to another, we are sending itemView info to badge info pg
                     Intent intent = new Intent(itemView.getContext(), BadgeInfoPage.class);
-                    //adding extra info to intent, in this case badgeName with a key 'nameTextView'
-                    intent.putExtra("nameTextView", badgeName);
+                    //adding extra info to intent, in this case badgeId with a key 'badgeIdTextView'
+                    intent.putExtra("badgeIdTextView", badgeId);
                     itemView.getContext().startActivity(intent);
                 }
             });
