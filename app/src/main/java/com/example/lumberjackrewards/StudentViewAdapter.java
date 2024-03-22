@@ -9,23 +9,23 @@ import java.util.ArrayList;
 
 public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.ViewHolder> {
 
-    ArrayList<UserModel> arrStudents;
+    ArrayList<User> arrStudents;
 
-    public StudentViewAdapter(ArrayList<UserModel> arrStudents) {
+    public StudentViewAdapter(ArrayList<User> arrStudents) {
         this.arrStudents = arrStudents;
     }
 
     // get the index of items that have been checked in
     // activity_users.xml
-    public ArrayList<UserModel> getCheckedUsers() {
-        ArrayList<UserModel> students = new ArrayList<>();
-        for (int i = 0; i < arrStudents.size(); i++) {
-            if (arrStudents.get(i).isChecked()) {
-                students.add(arrStudents.get(i));
-            }
-        }
-        return students;
-    }
+//    public ArrayList<User> getCheckedUsers() {
+//        ArrayList<User> students = new ArrayList<>();
+//        for (int i = 0; i < arrStudents.size(); i++) {
+//            if (arrStudents.get(i).isChecked()) {
+//                students.add(arrStudents.get(i));
+//            }
+//        }
+//        return students;
+//    }
 
     // populate the recycler view
     @NonNull
@@ -43,8 +43,8 @@ public class StudentViewAdapter extends RecyclerView.Adapter<StudentViewAdapter.
     @Override
     public void onBindViewHolder(@NonNull StudentViewAdapter.ViewHolder holder, int position) {
 
-        holder.studentViewModelName.setText(arrStudents.get(position).getFullName());
-        holder.studentViewModelEmail.setText(arrStudents.get(position).geteMail());
+        holder.studentViewModelName.setText(arrStudents.get(position).getName());
+        //holder.studentViewModelEmail.setText(arrStudents.get(position).geteMail());
     }
 
     // get total number of items in the recycler view

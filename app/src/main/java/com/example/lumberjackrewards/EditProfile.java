@@ -27,7 +27,7 @@ import java.util.StringTokenizer;
 
 public class EditProfile extends AppCompatActivity {
     private ImageButton back;
-    EditText userName, userSurname;
+    EditText Name;
     TextView results;
     ArrayList <User> persons;
 
@@ -117,8 +117,7 @@ public class EditProfile extends AppCompatActivity {
 
             //This writes the users data to file
             for (int i = 0; i < persons.size(); i++){
-                outputFile.write(persons.get(i).getName() + ", "
-                        + persons.get(i).getSurname() + "\n");
+                outputFile.write(persons.get(i).getName());
             }
             outputFile.flush();
             outputFile.close();
@@ -157,32 +156,31 @@ public class EditProfile extends AppCompatActivity {
         setTextToTextView();
     }
 
-    public void btnAdd(View v){
-        String name = userName.getText().toString();
-        String surname = userSurname.getText().toString();
-
-        User person = new User(name, surname);
-        //persons.add(person);
-
-        if(!name.isEmpty() && !surname.isEmpty()){ // Check if both name and surname fields are not empty
-            // This is for saving one entry
-            this.persons.clear(); // this would clear an previous data, if any
-            User persons = new User(name, surname); // Creates a new User object
-            this.persons.add(person); // Adds the new person
-            save(); // Saves the data
-        } else {
-            Toast.makeText(this, "Please enter both name and surname", Toast.LENGTH_SHORT).show();
-        }
+//    public void btnAdd(View v){
+//        String name = Name.getText().toString();
+//
+//        User person = new User(name);
+//        //persons.add(person);
+//
+//        if(!name.isEmpty() && !surname.isEmpty()){ // Check if both name and surname fields are not empty
+//            // This is for saving one entry
+//            this.persons.clear(); // this would clear an previous data, if any
+//            User persons = new User(name, surname); // Creates a new User object
+//            this.persons.add(person); // Adds the new person
+//            save(); // Saves the data
+//        } else {
+//            Toast.makeText(this, "Please enter both name and surname", Toast.LENGTH_SHORT).show();
+//        }
 
         //calls method to set text to textView
-        setTextToTextView();
-    }
+        //setTextToTextView();
+   // }
 
     private void setTextToTextView(){
         //Display data in the results TextView
         StringBuilder text = new StringBuilder();
         for(int i = 0; i < persons.size(); i++){
-            text.append(persons.get(i).getName()).append(", ").append(persons.get(i).getSurname()).append("\n");
+            text.append(persons.get(i).getName());
         }
         TextView textView = findViewById(R.id.textView); // Get the TextView instance
         textView.setText(text.toString()); // Set the text

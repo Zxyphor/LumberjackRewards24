@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class User {
     private String name;
-    private String surname;
+    //private String surname;
 
     private int image;
-    //private long Id;
+    private int Id;
 
     private boolean pinned;
 
@@ -15,9 +15,9 @@ public class User {
 
     public User(String name, String surname){
         this.name = name;
-        this.surname = surname;
+        //this.surname = surname;
         this.image= image;
-        //this.Id = Id;
+        this.Id = Id;
         this.pinned =pinned;
 
     }
@@ -26,9 +26,9 @@ public class User {
         this.name = name;
     }
 
-    public void setSurname(String surname){
-        this.surname = surname;
-    }
+    //public void setSurname(String surname){
+    //    this.surname = surname;
+    //}
 
     public void setImage(int image){
         this.image = image;
@@ -42,9 +42,9 @@ public class User {
         return name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
+    //public String getSurname() {
+    //    return surname;
+   // }
 
     public int getImage(){
         return image;

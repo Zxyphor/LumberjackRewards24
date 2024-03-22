@@ -12,6 +12,7 @@
         android:layout_marginTop="48dp"
         android:background="@drawable/background_gradient"
         android:orientation="vertical"
+        android:hint ="name"
         android:padding="16dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
@@ -57,27 +58,12 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <EditText
-            android:id="@+id/firstName"
+            android:id="@+id/Name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/custom_input"
             android:backgroundTint="@color/white"
-            android:hint="@string/first_name"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:visibility="visible" />
-
-        <EditText
-            android:id="@+id/lastName"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/custom_input"
-            android:backgroundTint="@color/white"
-            android:hint="@string/last_name"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
