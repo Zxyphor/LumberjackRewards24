@@ -38,34 +38,9 @@
             android:layout_weight="0"
             android:orientation="vertical">
 
-            <!-- Vertically pulling pin down from top of holder -->
             <Space
                 android:layout_width="0dp"
-                android:layout_height="5dp"/>
-
-            <!-- LAYOUT OF PIN PLACEMENT -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="25dp">
-
-                <!-- Pushing pin to the right of the holder -->
-                <Space
-                    android:layout_width="245dp"
-                    android:layout_height="25dp"/>
-
-                <!-- Pin button -->
-                <!--ImageButton
-                    android:id="@+id/pinBadgeButton"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_weight="0"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="Button for pinning badges to home page"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/unpinned_badge_icon"
-                    tools:ignore="TouchTargetSizeCheck" /-->
-
-            </LinearLayout>
+                android:layout_height="20dp"/>
 
             <!-- LAYOUT OF NAME PLACEMENT -->
             <TextView
@@ -76,7 +51,7 @@
                 android:text="Example Badge Name"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <!-- LAYOUT OF PROGRESS BAR PLACEMENT -->
