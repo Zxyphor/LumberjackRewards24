@@ -17,18 +17,18 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/badge_IconContainer"
+            android:id="@+id/student_IconContainer"
             android:layout_width="100dp"
             android:layout_height="100dp">
             <!-- Image icon location -->
             <ImageView
-                android:id="@+id/imgBadgeIcon"
+                android:id="@+id/imgStudentIcon"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:paddingHorizontal="10dp"
-                android:src="@drawable/bronze_badge"
-                app:srcCompat="@drawable/bronze_badge"
-                tools:srcCompat="@drawable/bronze_badge"
+                android:src="@drawable/pfp_01"
+                app:srcCompat="@drawable/pfp_01"
+                tools:srcCompat="@drawable/pfp_01"
                 />
         </LinearLayout>
 
@@ -38,63 +38,35 @@
             android:layout_weight="0"
             android:orientation="vertical">
 
+            <!-- Vertically pulling pin down from top of holder -->
             <Space
                 android:layout_width="0dp"
                 android:layout_height="20dp"/>
 
             <!-- LAYOUT OF NAME PLACEMENT -->
             <TextView
-                android:id="@+id/badgeNameTextView"
+                android:id="@+id/studentNameTextView"
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/arboria_bold"
-                android:text="Example Badge Name"
+                android:text="Example User Name"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="24dp"
                 android:textStyle="bold" />
 
             <!-- LAYOUT OF PROGRESS BAR PLACEMENT -->
             <!-- Relative layout allows for placement of text
                 on top of the progress bar -->
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/progress_layout"
-                android:layout_width="285dp"
-                android:layout_height="30dp">
-
-                <ProgressBar
-                    android:id="@+id/progress_bar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="275dp"
-                    android:layout_height="30dp"
-                    android:progressDrawable="@drawable/n_progress_bar"
-                    tools:progress="100"/>
-
-                <TextView
-                    android:id="@+id/progress_txt"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:text="100%"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/arboria_black"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </RelativeLayout>
-            <!--<TextView
-                android:id="@+id/itemDescriptionTextView"
+            <TextView
+                android:id="@+id/studentBadgeCountView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Bazinga"
+                android:text="58 Badges"
+                android:fontFamily="@font/arboria_medium"
+                android:textSize="16dp"
                 android:textColor="@color/mid_grey"/>
-                -->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/progress_layout2"
-                android:layout_width="1dp"
-                android:layout_height="1dp"/>
 
         </LinearLayout>
 
