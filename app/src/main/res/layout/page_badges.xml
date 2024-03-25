@@ -34,14 +34,15 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="@font/arboria_black"
+                android:fontFamily="@font/arboria_medium"
                 android:textSize="20sp"
                 android:textAllCaps="false"
                 android:textColor="@color/grey"
                 android:letterSpacing="0"
                 android:background="@drawable/n_btn_secondary"
                 app:backgroundTint="@null"
-                android:text="Badges" />
+                android:text="Badges"
+                android:elevation="5dp"/>
 
             <Button
                 android:id="@+id/profilesBtn"
@@ -56,7 +57,8 @@
                 android:letterSpacing="0"
                 android:background="@drawable/n_btn_default"
                 app:backgroundTint="@null"
-                android:text="Profiles" />
+                android:text="Profiles"
+                android:elevation="5dp"/>
 
         </LinearLayout>
 
@@ -82,7 +84,8 @@
             android:padding="10dp"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:textColor="@color/white"
-            android:textColorHint="@color/mid_grey" />
+            android:textColorHint="@color/mid_grey"
+            android:elevation="5dp"/>
 
                 <!--android:dropDownSelector="@color/light_grey"
                 android:background="@drawable/n_inputs"
@@ -122,6 +125,7 @@
         app:itemTextColor="@color/dark_grey"
         android:layout_alignParentBottom="true"
         android:background="@drawable/n_navbar"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu"
+        android:elevation="5dp"/>
 
 </RelativeLayout>
