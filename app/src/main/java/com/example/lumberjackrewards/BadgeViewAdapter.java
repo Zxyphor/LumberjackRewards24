@@ -70,7 +70,6 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String badgeId = badgeIdTextView.getText().toString();
                     String badgeName = nameTextView.getText().toString();
                     String badgeId = badgeIdTextView.getText().toString();
                     //Intent is used to navigate from one page to another, we are sending itemView info to badge info pg
