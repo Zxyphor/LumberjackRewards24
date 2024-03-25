@@ -5,57 +5,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Settings">
-    <!-- Top Navigation Bar -->
-    <LinearLayout
-        android:layout_width = "match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <RelativeLayout
-            android:layout_width = "match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/purple_401"
-            >
-
-            <ImageButton
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:src="@drawable/back_btn"
-                android:id="@+id/backButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                android:textColor = "@color/white"
-                android:layout_marginStart="-10dp"
-                />
-            <!-- app:icon="@drawable/back_btn" -->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text = "@string/settings"
-                android:layout_centerInParent = "true"
-                android:textColor = "@color/white"
-                android:textStyle= "bold"
-                android:textSize = "18sp"
-                android:visibility="visible"
-                />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/purple_500"
-            android:orientation="vertical"
-            tools:context=".Settings">
-        </LinearLayout>
-    </LinearLayout>
-
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:background="@drawable/background_gradient"
         android:paddingBottom="70dp">
 
@@ -65,34 +19,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--profile icon, add android:src after layout-->
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:contentDescription="@string/profile_icon"
-                android:src="@drawable/profile_icon" />
-
-            <TextView
-                android:id="@+id/settings_nameplate"
-                android:layout_width="wrap_content"
+            <include
+                android:id="@+id/stud"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_width="fill_parent"
+                layout="@layout/item_student_profile"
                 android:layout_marginTop="10dp"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/settingsEmailDisplay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingTop="6dp"
-                android:text="@string/settings_phone_number"
-                android:textColor="#CCFFFFFF"
-                android:textSize="18sp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+            />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnEditProfile"
@@ -191,7 +126,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Delete Your Profile"
+                            android:text="Sign Out"
                             android:textColor="@color/light_grey"
                             android:fontFamily="@font/arboria_bold"
                             android:textSize="24dp"
@@ -201,7 +136,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Delete all data tied to your Lumberjack Rewards account."
+                            android:text="Sign out of your Lumberjack Rewards account."
                             android:textColor="@color/grey"
                             android:fontFamily="@font/arboria_bold"
                             android:textSize="16dp"
@@ -220,7 +155,7 @@
                             android:letterSpacing="0"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
-                            android:text="Delete Profile"
+                            android:text="Sign Out"
                             android:background="@drawable/n_btn_default"
                             app:backgroundTint="#F74D4E"
                             android:elevation="10dp"
