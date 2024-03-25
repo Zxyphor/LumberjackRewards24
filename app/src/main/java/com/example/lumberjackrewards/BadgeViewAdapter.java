@@ -40,8 +40,6 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
         //set text
         holder.nameTextView.setText(arrItemBadges.get(position).getName());
         holder.badgeIdTextView.setText(Integer.toString(arrItemBadges.get(position).getBadgeID()));
-        //holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
-
     }
 
     @Override
@@ -53,8 +51,6 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         TextView badgeIdTextView;
-        TextView descriptionTextView;
-
 
         //badge icon flip animation variable
         //private boolean isFrontIcon = true;
@@ -66,21 +62,20 @@ public class BadgeViewAdapter extends RecyclerView.Adapter<BadgeViewAdapter.View
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.badgeNameTextView);
             badgeIdTextView = itemView.findViewById(R.id.badgeIdTextView);
+            nameTextView = itemView.findViewById(R.id.badgeNameTextView);
             //descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
             //onclick to move to the badges information page when a badge is clicked
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //https://codingwitht.com/how-to-pass-data-from-one-activity-to-another-in-android-studio/
-                    //Stores badge name
+                    String badgeId = badgeIdTextView.getText().toString();
                     String badgeName = nameTextView.getText().toString();
                     String badgeId = badgeIdTextView.getText().toString();
                     //Intent is used to navigate from one page to another, we are sending itemView info to badge info pg
                     Intent intent = new Intent(itemView.getContext(), BadgeInfoPage.class);
-                    //adding extra info to intent, in this case badgeId with a key 'badgeIdTextView'
+                    //adding extra info to intent, in this case badgeName with a key 'nameTextView'
                     intent.putExtra("badgeIdTextView", badgeId);
                     itemView.getContext().startActivity(intent);
                 }
