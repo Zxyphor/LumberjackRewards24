@@ -30,6 +30,12 @@
                 app:srcCompat="@drawable/bronze_badge"
                 tools:srcCompat="@drawable/bronze_badge"
                 />
+            <TextView
+                android:id="@+id/badgeIdTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Badge ID"
+                 />
         </LinearLayout>
 
         <LinearLayout
