@@ -55,9 +55,7 @@
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
-            <!-- LAYOUT OF PROGRESS BAR PLACEMENT -->
-            <!-- Relative layout allows for placement of text
-                on top of the progress bar -->
+            <!-- Text to display number of user badges-->
             <TextView
                 android:id="@+id/studentBadgeCountView"
                 android:layout_width="match_parent"
