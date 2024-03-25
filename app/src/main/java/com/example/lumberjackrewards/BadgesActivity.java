@@ -3,6 +3,8 @@ package com.example.lumberjackrewards;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -50,6 +52,31 @@ public class BadgesActivity extends AppCompatActivity {
         // Initialize and assign variable
         rvBadge = findViewById(R.id.rvBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
+
+        EditText editText = (EditText)findViewById(R.id.searchEditText);
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                ArrayList<BadgeItemModel> searchList = new ArrayList<BadgeItemModel>();
+                for (BadgeItemModel badge :arrBadges){
+                    if (badge.getName().contains(s)){
+                        searchList.add(badge);
+                    }
+                }
+                displayAllBadges(searchList);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //not needed to work, but stub needed to run
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // not needed to work, but stub needed to run
+            }
+        });
 
 //        // manually create 10 badges
 //        for (int i=0; i<10; i++) {
@@ -195,6 +222,10 @@ public class BadgesActivity extends AppCompatActivity {
 //                    }
 
 //                });
+    }
+
+    public void search(){
+
     }
 
 }
