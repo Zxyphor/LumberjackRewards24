@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    tools:context=".BadgesActivity">
+    tools:context=".ProfileSearch">
 
     <!--on below line we are creating edit text
          for adding a new item to list-->
@@ -87,9 +87,9 @@
             android:textColorHint="@color/mid_grey"
             android:elevation="5dp"/>
 
-                <!--android:dropDownSelector="@color/light_grey"
-                android:background="@drawable/n_inputs"
-                android:backgroundTint="@color/dark_grey"-->
+        <!--android:dropDownSelector="@color/light_grey"
+        android:background="@drawable/n_inputs"
+        android:backgroundTint="@color/dark_grey"-->
 
 
 
@@ -98,7 +98,7 @@
             android:id="@+id/rvBadges"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_badge" />
+            tools:listitem="@layout/item_student" />
     </LinearLayout>
 
     <!--list view to display list of languages-->

@@ -31,18 +31,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BadgesActivity extends AppCompatActivity {
-    // Badges backend
+public class ProfileSearch extends AppCompatActivity {
     private EditText itemEdt;
     private ArrayList<BadgeItemModel> lngList;
     private ArrayAdapter<BadgeItemModel> adapter;
     private FirebaseFirestore db;
     private RecyclerView rvBadge;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_badges);
+        setContentView(R.layout.activity_profile_search);
 
         // on below line we are accessing Cloud Firestore instance
         db = FirebaseFirestore.getInstance();
@@ -50,12 +48,6 @@ public class BadgesActivity extends AppCompatActivity {
         // Initialize and assign variable
         rvBadge = findViewById(R.id.rvBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
-
-//        // manually create 10 badges
-//        for (int i=0; i<10; i++) {
-//            BadgeItemModel bim = new BadgeItemModel(i, "name", "desc", "badge_ex1.png", 0, 0, "req", 3);
-//            arrBadges.add(bim);
-//        }
 
         for (int i =0; i < 3; i++){
             BadgeInfo badge = new BadgeInfo(i);
@@ -75,7 +67,7 @@ public class BadgesActivity extends AppCompatActivity {
             switch(item.getItemId())
             {
                 case R.id.navigation_home:
-    //Pinned badges are long term goal
+                    //Pinned badges are long term goal
 //                    //Sends back to main activity what badges are pinned
 //                    ArrayList<BadgeItemModel> pinnedBadges = new ArrayList<>();
 //
@@ -108,10 +100,10 @@ public class BadgesActivity extends AppCompatActivity {
             return true;
         });
 
+        Button btnBadges = (Button) findViewById(R.id.badgesBtn);
         /*ListView languageLV = findViewById(R.id.idLVLanguages);*/
         //Button addBtn = findViewById(R.id.btnBadgeAdd);
-        Button btnProfile = (Button) findViewById(R.id.profilesBtn);
-       // Button removeBtn = findViewById(R.id.btnBadgeRemove);
+        // Button removeBtn = findViewById(R.id.btnBadgeRemove);
         //Button btnManage = findViewById(R.id.btnManageUsersAndGroups);
         lngList = new ArrayList<>();
 
@@ -123,14 +115,14 @@ public class BadgesActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lngList);
 
         // on below line we are setting adapter for our list view.
-       /* languageLV.setAdapter(adapter);*/
+        /* languageLV.setAdapter(adapter);*/
 
         // on below line we are adding click listener for our button.
-        btnProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(BadgesActivity.this, ProfileSearch.class);
+        btnBadges.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileSearch.this, BadgesActivity.class);
             startActivity(intent);
             //finish();
-        });
+       });
 
         /*
         btnManage.setOnClickListener(v -> {
@@ -167,6 +159,7 @@ public class BadgesActivity extends AppCompatActivity {
             }
         });*/
     }
+
     private void displayAllBadges(ArrayList<BadgeItemModel> arrBadges) {
         //arrBadges.clear();
 //        db.collection("badges")
@@ -181,14 +174,14 @@ public class BadgesActivity extends AppCompatActivity {
 //                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
 //
 
-                        //layout manager for badge test
-                        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
+        //layout manager for badge test
+        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
 
-                        //set layout manager
-                        rvBadge.setLayoutManager(layoutManager);
+        //set layout manager
+        rvBadge.setLayoutManager(layoutManager);
 
-                        //set adapter
-                        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
+        //set adapter
+        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
 //                    }
 
 //                });
@@ -294,3 +287,4 @@ public class BadgesActivity extends AppCompatActivity {
 //                });
 
 }
+
