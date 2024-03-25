@@ -1,8 +1,10 @@
 package com.example.lumberjackrewards;
-import android.content.Intent;
+import android.content.Intent;;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -10,9 +12,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 
 public class BadgeInfoPage extends AppCompatActivity{
     private ImageButton returnButton;
@@ -47,14 +46,13 @@ public class BadgeInfoPage extends AppCompatActivity{
         Intent intent = getIntent();
         if (intent.hasExtra("badgeIdTextView")) {
             String badgeId = intent.getStringExtra("badgeIdTextView");
-
-
             BadgeInfo badgeInfo = new BadgeInfo(Integer.parseInt(badgeId));
-
+            /*Resources res = getResources();
+            int resourceId = res.getIdentifier(badgeInfo.getIcon(), "drawable", getPackageName());
+            imgBadgeIcon.setImageResource(resourceId);*/
             badgeNameTextView.setText(badgeInfo.getName());
             itemDescriptionTextView.setText(badgeInfo.getDescription());
-            //imgBadgeIcon.setImageIcon(badgeInfo.getIcon());
-            //progress_bar.setProgress(badgeInfo.getCompletionStatus());
+            progress_bar.setProgress(badgeInfo.getCompletionStatus() / badgeInfo.getSteps());
             itemStepsTextView.setText(badgeInfo.getRequirements());
         }
     }
