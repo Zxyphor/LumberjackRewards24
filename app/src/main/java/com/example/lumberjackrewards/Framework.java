@@ -19,9 +19,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 //structure for storing profile information from DB
 class ProfileInfo{
 
-    String stream(int id, String arg) {
+    static String stream(int id, String arg) {
         try {
-            String urlString = "cs.sfasu.edu/csci4267-00101/BackFrontEndStrikesBack/access/api/"+"getUser.php?userID="+id;
+            String urlString = "cs.sfasu.edu/csci4267-00101/BackFrontEndStrikesBack/access/api/"+arg+id;
             URL url = new URL(urlString);
             InputStream input = url.openStream();
             InputStreamReader isr = new InputStreamReader(input);
@@ -42,8 +42,8 @@ class ProfileInfo{
     public static int getID(){
         return 0;
     }
-    public static String getName(){
-
+    public static String getName(int id){
+        String output = stream(id, "getUser.php?userID=");
         return "";
     }
     public static int getProfilepic(){
@@ -64,75 +64,35 @@ class ProfileInfo{
 }
 
 class BadgeInfo{
-    //faux-DB
-    //same as above, though completionStatus and steps are user and badge specific
-    //if completionStatus = steps, the badge is complete
-    //steps is immutable except by backend team, badge specific
-    //completionStatus is stored per individual user
-
-    //Remove when API is implemented
-    final String[][] BADGEDB = {{"badge1", "cool badge", "bronze_badge.png", "1", "0", "do a cool thing"},
-                                {"badge2", "description 2", "silver_badge.png", "1", "0", "description?"},
-                                {"badge3", "a badge", "gold_badge.png", "1", "0", "no"}};
-
-    //Remove when API is implemented
-    int id;
-    String name;
-    String description;
-    String icon;
-    int completionStatus;   //user-specific current completion
-    int steps;              //badge requirements of completion
-    String requirements;
-
-    //Remove when API is implemented
-    public BadgeInfo(int id){
-
-        /*
+    static String stream(int id, String arg) {
         try {
-            String getInfoURL = "";
-            URL url = new URL(getInfoURL);
-            HttpURLConnection dbConn = (HttpURLConnection)url.openConnection();
-            InputStream inS = dbConn.getInputStream();
-            InputStreamReader inSR = new InputStreamReader(inS, "ISO-8859-1"); //charsetname may change
-            BufferedReader bufRead = new BufferedReader(inSR);
-            //add API calls and stuff here*/
+            String urlString = "cs.sfasu.edu/csci4267-00101/BackFrontEndStrikesBack/access/api/"+arg+id;
+            URL url = new URL(urlString);
+            InputStream input = url.openStream();
+            InputStreamReader isr = new InputStreamReader(input);
+            BufferedReader reader = new BufferedReader(isr);
+            StringBuilder json = new StringBuilder();
+            int c;
+            while ((c = reader.read()) != -1) {
+                json.append((char) c);
+            }
+            return json.toString();
+        } catch (Exception e) {
+            System.out.println("Failed try/catch stream fn in profileInfo.");
+        }
+        return "Failed after try/catch stream fn in profileInfo.";
 
-
-            this.id = id;
-            this.name = BADGEDB[id][0];
-            this.description = BADGEDB[id][1];
-            this.icon = BADGEDB[id][2];
-            this.steps = Integer.parseInt(BADGEDB[id][3]);
-            this.completionStatus = Integer.parseInt(BADGEDB[id][4]);
-            this.requirements = BADGEDB[id][5];
-
-            /*
-        } catch (IOException e) {
-            Log.d("ERROR", "Failed to load URL");
-            throw new RuntimeException(e);
-        }*/
     }
 
-    public int getID(){
-        return this.id;
+    public static int getID(){
+        return 0;
     }
-    public String getDescription(){
-        return this.description;
+    public static String getName(int id){
+        String output = stream(id, "getUser.php?badgeID=");
+        return output;
     }
-    public String getName(){
-        return this.name;
-    }
-    public String getIcon(){
-        return this.icon;
-    }
-    public int getCompletionStatus(){
-        return this.completionStatus;
-    }
-    public int getSteps(){
-        return this.steps;
-    }
-    public String getRequirements(){
-        return this.requirements;
+    public static int getProfilepic(){
+        return 0;
     }
 
     /* When API is complete replace above with below
