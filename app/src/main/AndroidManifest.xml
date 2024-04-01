@@ -31,6 +31,7 @@
         <activity android:name=".BadgeInfo" />
         <activity android:name=".BadgesActivity"/>
         <activity android:name=".BadgeInfoPage"/>
+        <activity android:name=".ProfileSearch"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true">

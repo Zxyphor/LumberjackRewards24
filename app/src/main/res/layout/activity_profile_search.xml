@@ -43,6 +43,8 @@
                 app:backgroundTint="@null"
                 android:text="Badges"
                 android:elevation="5dp"/>
+            />
+
 
             <Button
                 android:id="@+id/profilesBtn"
