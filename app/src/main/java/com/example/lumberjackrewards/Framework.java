@@ -18,44 +18,36 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 //pseudo-DB
 //structure for storing profile information from DB
 class ProfileInfo{
-    //faux-DB should have matching params to array entries
-    final String[][] PROFILEDB = {{"john doe", "0"}, {"joe momma", "3"}, {"julienne doe", "15"}};
-    int id;
-    String name;
-    int profilepic;
 
-    //array of badges (completed and pinned)
-    BadgeInfo[] badges;
-
-    public ProfileInfo(int id){
-        /*
+    String stream(int id, String arg) {
         try {
-            String getInfoURL = "";
-            URL url = new URL(getInfoURL);
-            HttpURLConnection dbConn = (HttpURLConnection)url.openConnection();
-            InputStream inS = dbConn.getInputStream();
-            InputStreamReader inSR = new InputStreamReader(inS, "ISO-8859-1"); //charsetname may change
-            BufferedReader bufRead = new BufferedReader(inSR);
-            //add API calls and stuff here */
+            String urlString = "cs.sfasu.edu/csci4267-00101/BackFrontEndStrikesBack/access/api/"+"getUser.php?userID="+id;
+            URL url = new URL(urlString);
+            InputStream input = url.openStream();
+            InputStreamReader isr = new InputStreamReader(input);
+            BufferedReader reader = new BufferedReader(isr);
+            StringBuilder json = new StringBuilder();
+            int c;
+            while ((c = reader.read()) != -1) {
+                json.append((char) c);
+            }
+            return json.toString();
+        } catch (Exception e) {
+            System.out.println("Failed try/catch stream fn in profileInfo.");
+        }
+        return "Failed after try/catch stream fn in profileInfo.";
 
-            this.id = id;
-            this.name = PROFILEDB[id][0];
-            this.profilepic = Integer.parseInt(PROFILEDB[id][1]);
-            /*
-        } catch (IOException e) {
-            Log.d("ERROR", "Failed to load URL");
-            throw new RuntimeException(e);
-        }*/
     }
 
-    public int getID(){
-        return this.id;
+    public static int getID(){
+        return 0;
     }
-    public String getName(){
-        return this.name;
+    public static String getName(){
+
+        return "";
     }
-    public int getProfilepic(){
-        return this.profilepic;
+    public static int getProfilepic(){
+        return 0;
     }
 
     /*
