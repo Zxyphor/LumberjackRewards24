@@ -97,7 +97,7 @@
 
         <!-- Badges list displayed -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvBadges"
+            android:id="@+id/profBadges"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/item_student" />

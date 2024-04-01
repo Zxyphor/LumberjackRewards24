@@ -36,7 +36,7 @@ public class ProfileSearch extends AppCompatActivity {
     private ArrayList<BadgeItemModel> lngList;
     private ArrayAdapter<BadgeItemModel> adapter;
     private FirebaseFirestore db;
-    private RecyclerView rvBadge;
+    private RecyclerView profBadge;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +46,7 @@ public class ProfileSearch extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         // Initialize and assign variable
-        rvBadge = findViewById(R.id.rvBadges);
+        profBadge = findViewById(R.id.profBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
 
         for (int i =0; i < 3; i++){
@@ -124,167 +124,17 @@ public class ProfileSearch extends AppCompatActivity {
             //finish();
        });
 
-        /*
-        btnManage.setOnClickListener(v -> {
-            Intent intent = new Intent(BadgesActivity.this, ActivityManage.class);
-            startActivity(intent);
-            finish();
-        });
-        */
-
-
-        /*
-        removeBtn.setOnClickListener(v -> {
-            // on below line we are getting text from edit text
-            /*String badgeName = itemEdt.getText().toString();
-
-            // on below line we are checking if item is not empty
-            if (!badgeName.isEmpty()) {
-                deleteBadge(badgeName);
-                displayAllBadges(arrBadges);
-            }
-
-        });
-*/
-
-        //-----------------uncomment(if languageLV will still be used)---------------
-        // the onItemClickListener below makes the remove button obsolete
-       /* languageLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                BadgeItemModel item = adapter.getItem(position);
-                item.deleteBadgeItem(db);
-                lngList.remove(position);
-                adapter.notifyDataSetChanged();
-            }
-        });*/
     }
 
     private void displayAllBadges(ArrayList<BadgeItemModel> arrBadges) {
-        //arrBadges.clear();
-//        db.collection("badges")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        for (QueryDocumentSnapshot document : task.getResult()) {
-//                            BadgeItemModel badge = document.toObject(BadgeItemModel.class);
-//                            arrBadges.add(badge);
-//                        }
-//                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
-//
-
         //layout manager for badge test
         GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
 
         //set layout manager
-        rvBadge.setLayoutManager(layoutManager);
+        profBadge.setLayoutManager(layoutManager);
 
         //set adapter
-        rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
-//                    }
-
-//                });
+        profBadge.setAdapter(new BadgeViewAdapter(arrBadges));
     }
-//
-//    private void deleteBadge(String badgeName){
-//        db.collection("badges").whereEqualTo("name", badgeName)
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            AlertDialog.Builder builder = new AlertDialog.Builder(BadgesActivity.this);
-//                            builder.setMessage("You are about to remove this badge.");
-//                            builder.setTitle("Notice");
-//                            builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-//                            });
-//                            builder.setNegativeButton("No",(DialogInterface.OnClickListener)(dialog, which) -> {
-//                                dialog.cancel();
-//                            });
-//                            AlertDialog alertDialog = builder.create();
-//                            alertDialog.show();
-//                            for (QueryDocumentSnapshot document : task.getResult()) {
-//
-//                                db.collection("badges").document(document.getId())
-//                                        .delete()
-//                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                            @Override
-//                                            public void onSuccess(Void aVoid) {
-//                                                Log.d("DELETED", "DocumentSnapshot successfully deleted!");
-//                                            }
-//                                        })
-//                                        .addOnFailureListener(new OnFailureListener() {
-//                                            @Override
-//                                            public void onFailure(@NonNull Exception e) {
-//                                                Log.w("ERROR", "Error deleting document", e);
-//                                            }
-//                                        });
-//
-//                            }
-//                        } else {
-//                            Log.d("ERROR", "Error getting documents: ", task.getException());
-//                        }
-//                    }
-//                });
-//    }
-//
-//
-//    public void AssignBadge(String userID, String badgeId) {
-//        // Get the collection reference
-//        CollectionReference badgesRef = db.collection("badges");
-//
-//        // Create a query to search for the document with the unique field value
-//        Query query = badgesRef.whereEqualTo("badgeID", badgeId);
-//
-//        // Execute the query asynchronously
-//        query.get().addOnCompleteListener(task -> {
-//            if (task.isSuccessful()) {
-//                for (QueryDocumentSnapshot document : task.getResult()) {
-//                    String documentId = document.getId();
-//                    String badgeName = document.getString("name");
-//                    Map<String, Object> docData = new HashMap<>();
-//                    docData.put("name", badgeName);
-//                    docData.put("badgeID", badgeId);
-//
-//                    db.collection("users").document(userID).collection("badges").document(documentId)
-//                            .set(docData);
-//                }
-//            }
-//        });
-//
-//    }
-//
-//    public void DeleteBadgeFromUser(String userID, String badgeID) {
-//        db.collection("users").document(userID).collection("badges").whereEqualTo("badgeID", badgeID)
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            for (QueryDocumentSnapshot document : task.getResult()) {
-//
-//                                db.collection("users").document(userID).collection("badges").document(document.getId())
-//                                        .delete()
-//                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                            @Override
-//                                            public void onSuccess(Void aVoid) {
-//                                                Log.d("DELETED", "DocumentSnapshot successfully deleted!");
-//                                            }
-//                                        })
-//                                        .addOnFailureListener(new OnFailureListener() {
-//                                            @Override
-//                                            public void onFailure(@NonNull Exception e) {
-//                                                Log.w("ERROR", "Error deleting document", e);
-//                                            }
-//                                        });
-//
-//                            }
-//                        } else {
-//                            Log.d("ERROR", "Error getting documents: ", task.getException());
-//                        }
-//                    }
-//                });
-
 }
 
