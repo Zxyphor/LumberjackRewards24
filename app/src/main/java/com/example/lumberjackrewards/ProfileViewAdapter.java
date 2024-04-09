@@ -54,10 +54,10 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
 
         //badge icon flip animation variable
         //private boolean isFrontIcon = true;
-        ProgressBar progressBar;
-        TextView progressTxt;
+        //ProgressBar progressBar;
+        //TextView progressTxt;
 
-        public boolean isPinned = false;
+        //public boolean isPinned = false;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -80,8 +80,8 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
                 }
             });
 
-            progressBar = itemView.findViewById(R.id.progress_bar);
-            progressTxt = itemView.findViewById(R.id.progress_txt);
+            //progressBar = itemView.findViewById(R.id.progress_bar);
+            //progressTxt = itemView.findViewById(R.id.progress_txt);
 
 
             //modifies the camera scale for flip animation
@@ -102,7 +102,7 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
                 @Override
                 public void onClick(View v){
 
-                    progressBar.setProgress(progressBar.getProgress()+(int)(Math.random()*10));
+                 //   progressBar.setProgress(progressBar.getProgress()+(int)(Math.random()*10));
                     front_animation.setTarget(frontIconDisplay);
                     front_animation.start();
 

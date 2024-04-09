@@ -30,7 +30,7 @@ public class ProfileSearch extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         // Initialize and assign variable
-        profBadge = findViewById(R.id.profBadges);
+        profBadge = findViewById(R.id.profBadge);
         ArrayList<ProfileItemModel> arrUsers = new ArrayList<>();
 
         for (int i =0; i < 3; i++){
