@@ -69,7 +69,7 @@ public class EditProfile extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 Intent intent = new Intent(EditProfile.this, Settings.class);
+                 Intent intent = new Intent(EditProfile.this, ProfileSearch.class);
                  startActivity(intent);
 
             }

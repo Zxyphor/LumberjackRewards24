@@ -10,6 +10,7 @@ public class User {
     private int Id;
 
     private boolean pinned;
+    private ArrayList<User> arrUsers;
 
    //g   private Badges object[] //(pinned and completed)
 
