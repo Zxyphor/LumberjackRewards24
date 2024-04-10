@@ -27,7 +27,7 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_badge, parent, false);
+                .inflate(R.layout.item_student, parent, false);
 
         return new ViewHolder(view);
     }
@@ -62,7 +62,7 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.badgeNameTextView);
+            nameTextView = itemView.findViewById(R.id.studentNameTextView);
             //descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
             //onclick to move to the badges information page when a badge is clicked
@@ -87,7 +87,7 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
             //modifies the camera scale for flip animation
             float scale = itemView.getContext().getResources().getDisplayMetrics().density;
 
-            ImageView frontIconDisplay = itemView.findViewById(R.id.imgBadgeIcon);
+            ImageView frontIconDisplay = itemView.findViewById(R.id.imgStudentIcon);
 
             frontIconDisplay.setCameraDistance( 8000 * scale);
 
@@ -96,7 +96,7 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
 
             // onclick event listener for the container that holds the
             // the badge image and progress circle
-            View containerView = itemView.findViewById(R.id.badge_IconContainer);
+            View containerView = itemView.findViewById(R.id.student_IconContainer);
 
             containerView.setOnClickListener(new View.OnClickListener() {
                 @Override
