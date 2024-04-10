@@ -2,6 +2,8 @@ package com.example.lumberjackrewards;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +34,31 @@ public class ProfileSearch extends AppCompatActivity {
         // Initialize and assign variable
         profBadge = findViewById(R.id.profBadge);
         ArrayList<ProfileItemModel> arrUsers = new ArrayList<>();
+
+        EditText editText = (EditText)findViewById(R.id.searchEditText);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                ArrayList<ProfileItemModel> searchList = new ArrayList<ProfileItemModel>();
+                for (ProfileItemModel badge :arrUsers){
+                    if (badge.getName().contains(s)){
+                        searchList.add(badge);
+                    }
+                }
+                displayAllProfiles(searchList);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //not needed to work, but stub needed to run
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // not needed to work, but stub needed to run
+            }
+        });
+
 
         for (int i =0; i < 3; i++){
             ProfileInfo Profile = new ProfileInfo(i);
@@ -119,6 +146,10 @@ public class ProfileSearch extends AppCompatActivity {
 
         //set adapter
         profBadge.setAdapter(new ProfileViewAdapter(arrprof));
+    }
+
+    public void search(){
+
     }
 }
 
