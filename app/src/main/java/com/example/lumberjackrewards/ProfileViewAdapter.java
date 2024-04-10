@@ -49,7 +49,7 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
-        TextView descriptionTextView;
+        //TextView descriptionTextView;
 
 
         //badge icon flip animation variable
