@@ -89,8 +89,7 @@ public class BadgesActivity extends AppCompatActivity {
         // make method in BadgeInfo to get number of badges to create
         // make getter methods in BadgeInfo static so they can be accessed without object
         for (int i =0; i < 3; i++){
-            BadgeInfo badge = new BadgeInfo(i);
-            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRequirements(), badge.getSteps());
+            BadgeItemModel bim = new BadgeItemModel(i, BadgeInfo.getName(i), BadgeInfo.getDescription(i), BadgeInfo.getIcon(i), 1 /*TODO fix once API finished to have completino status*/, BadgeInfo.getCriteria(i), 1 /*TODO fix once API finished to have steps (number to complete)*/);
             arrBadges.add(bim);
         }
 
