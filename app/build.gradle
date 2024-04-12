@@ -5,6 +5,7 @@ plugins {
 
 android {
     compileSdk 33
+
     defaultConfig {
         applicationId "com.example.lumberjackrewards"
         minSdk 33

@@ -57,7 +57,8 @@ public class EditProfile extends AppCompatActivity {
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
 
         for (int i =0; i < 3; i++){
-            BadgeItemModel bim = new BadgeItemModel(i, BadgeInfo.getName(i), BadgeInfo.getDescription(i), BadgeInfo.getIcon(i), 1 /*TODO fix once API finished to have completino status*/, BadgeInfo.getCriteria(i), 1 /*TODO fix once API finished to have steps (number to complete)*/);
+            BadgeInfo badge = new BadgeInfo(i);
+            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRequirements(), badge.getSteps());
             arrBadges.add(bim);
         }
 
