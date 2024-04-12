@@ -30,9 +30,14 @@ public class BadgeInfoPage extends AppCompatActivity{
         });
         // Retrieve the badge name from the badge page
         Intent intent = getIntent();
-        if (intent.hasExtra("nameTextView")) {
-            String badgeName = intent.getStringExtra("nameTextView");
-            badgeNameTextView.setText(badgeName);
+        if (intent.hasExtra("badgeIdTextView")) {
+            String badgeId = intent.getStringExtra("badgeIdTextView");
+
+            badgeNameTextView.setText(BadgeInfo.getName(Integer.parseInt(badgeId)));
+            badgeNameTextView.setText(BadgeInfo.getDescription(Integer.parseInt(badgeId)));
+            //imgBadgeIcon.setImageIcon(badgeInfo.getIcon());
+            //progress_bar.setProgress(badgeInfo.getCompletionStatus());
+            badgeNameTextView.setText(BadgeInfo.getCriteria(Integer.parseInt(badgeId)));
         }
     }
 }
