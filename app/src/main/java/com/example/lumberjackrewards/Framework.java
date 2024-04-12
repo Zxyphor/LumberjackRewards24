@@ -87,30 +87,30 @@ class ProfileInfo extends APICaller{
 //Set of commands for pulling a single badge's info
 class BadgeInfo extends APICaller{
 
-    public int getID(int id){
+    public static int getID(int id){
         return id;
     }
-    public String getName(int id){
+    public static String getName(int id){
         String in =  stream(id, "getBadge.php?badgeID=");
         String[] outAry = in.split("\"");
         return outAry[9];
     }
-    public String getDescription(int id){
+    public static String getDescription(int id){
         String in =  stream(id, "getBadge.php?badgeID=");
         String[] outAry = in.split("\"");
         return outAry[13];
     }
-    public String getCriteria(int id){
+    public static String getCriteria(int id){
         String in =  stream(id, "getBadge.php?badgeID=");
         String[] outAry = in.split("\"");
         return outAry[17];
     }
-    public int getIcon(int id){
+    public static int getIcon(int id){
         String in =  stream(id, "getBadge.php?badgeID=");
         String[] outAry = in.split("\"");
         return Integer.parseInt(outAry[21]);
     }
-    public String getCreationDate(int id){
+    public static String getCreationDate(int id){
         String in =  stream(id, "getBadge.php?badgeID=");
         String[] outAry = in.split("\"");
         return outAry[25];
