@@ -1,6 +1,7 @@
 package com.example.lumberjackrewards;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,16 +16,31 @@ import java.net.URL;
 import java.sql.Blob;
 import java.lang.Object;
 import java.io.*;
+import java.util.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.AsyncTaskLoader;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-class APICaller{
+class APICaller extends AsyncTask{
 
+    @Override
+    static String doInBackground(int id, String arg){
+        return stream(id,  arg);
+    }
+    @Override
+    static String doInBackground(int id, String arg, int id2, String arg2){
+        return stream(id, arg, id2, arg2);
+    }
     //Function to use API calls
     //single arg
     static String stream(int id, String arg) {
         try {
-            String urlString = "cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg+id;
+            String urlString = "https://cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg+id;
             Log.i("API Call", "Start of Call for: " + urlString);
             URL url = new URL(urlString);
             Log.i("API Call", "String Build");
@@ -41,7 +57,7 @@ class APICaller{
             Log.i("API Call", json.toString());
             return json.toString();
         } catch (Exception e) {
-            Log.e("API Call", "Failed try/catch stream fn in profileInfo.");
+            Log.e("API Call", "Failed try/catch stream fn in profileInfo.\n" + e.toString());
         }
         return "Failed after try/catch stream fn in profileInfo.";
     }
@@ -50,7 +66,7 @@ class APICaller{
     static String stream(int id, String arg, int id2, String arg2) {
         try {
             Log.i("API Call", "Start of Call");
-            String urlString = "cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg+id+arg2+id2;
+            String urlString = "https://cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg+id+arg2+id2;
             Log.i("API Call", "String Build");
             URL url = new URL(urlString);
             Log.i("API Call", "URL Build");
@@ -108,14 +124,9 @@ class BadgeInfo extends APICaller{
         return id;
     }
     public static String getName(int id){
-        try {
-            String in = stream(id, "getBadge.php?badgeID=");
-            String[] outAry = in.split("\"");
-            return outAry[9];
-        } catch (Exception E) {
-            Log.e("API Call", "Failed getName fn in badgeInfo.");
-        }
-        return "";
+        String in = stream(id, "getBadge.php?badgeID=");
+        String[] outAry = in.split("\"");
+        return outAry[9];
     }
     public static String getDescription(int id){
         String in =  stream(id, "getBadge.php?badgeID=");
