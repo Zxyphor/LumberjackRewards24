@@ -57,7 +57,7 @@ public class BadgesActivity extends AppCompatActivity {
 //            arrBadges.add(bim);
 //        }
 
-        for (int i =0; i < 3; i++){
+        for (int i =1; i < 3; i++){
             BadgeItemModel bim = new BadgeItemModel(i, BadgeInfo.getName(i), BadgeInfo.getDescription(i), BadgeInfo.getIcon(i), 1 /*TODO fix once API finished to have completino status*/, BadgeInfo.getCriteria(i), 1 /*TODO fix once API finished to have steps (number to complete)*/);
             arrBadges.add(bim);
         }

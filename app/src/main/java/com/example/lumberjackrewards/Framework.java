@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -18,23 +19,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 class APICaller{
+
     //Function to use API calls
     //single arg
     static String stream(int id, String arg) {
         try {
-            String urlString = "cs.sfasu.edu/csci4267-00101/BackFrontEndStrikesBack/access/api/"+arg+id;
+            String urlString = "cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg+id;
+            Log.i("API Call", "Start of Call for: " + urlString);
             URL url = new URL(urlString);
+            Log.i("API Call", "String Build");
             InputStream input = url.openStream();
+            Log.i("API Call", "URL Build");
             InputStreamReader isr = new InputStreamReader(input);
+            Log.i("API Call", "openStream Build");
             BufferedReader reader = new BufferedReader(isr);
             StringBuilder json = new StringBuilder();
             int c;
             while ((c = reader.read()) != -1) {
                 json.append((char) c);
             }
+            Log.i("API Call", json.toString());
             return json.toString();
         } catch (Exception e) {
-            System.out.println("Failed try/catch stream fn in profileInfo.");
+            Log.e("API Call", "Failed try/catch stream fn in profileInfo.");
         }
         return "Failed after try/catch stream fn in profileInfo.";
     }
@@ -42,9 +49,13 @@ class APICaller{
     //double arg
     static String stream(int id, String arg, int id2, String arg2) {
         try {
-            String urlString = "cs.sfasu.edu/csci4267-00101/BackFrontEndStrikesBack/access/api/"+arg+id+arg2+id2;
+            Log.i("API Call", "Start of Call");
+            String urlString = "cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg+id+arg2+id2;
+            Log.i("API Call", "String Build");
             URL url = new URL(urlString);
+            Log.i("API Call", "URL Build");
             InputStream input = url.openStream();
+            Log.i("API Call", "openStream Build");
             InputStreamReader isr = new InputStreamReader(input);
             BufferedReader reader = new BufferedReader(isr);
             StringBuilder json = new StringBuilder();
@@ -52,9 +63,10 @@ class APICaller{
             while ((c = reader.read()) != -1) {
                 json.append((char) c);
             }
+            Log.i("API Call", json.toString());
             return json.toString();
         } catch (Exception e) {
-            System.out.println("Failed try/catch stream fn in profileInfo.");
+            Log.e("API Call", "Failed try/catch stream fn in profileInfo.");
         }
         return "Failed after try/catch stream fn in profileInfo.";
     }
@@ -68,9 +80,14 @@ class ProfileInfo extends APICaller{
         return id;
     }
     public static String getName(int id){
-        String in =  stream(id, "getUser.php?userID=");
-        String[] outAry = in.split("\"");
-        return outAry[5];
+        try {
+            String in = stream(id, "getUser.php?userID=");
+            String[] outAry = in.split("\"");
+            return outAry[5];
+        } catch (Exception e) {
+            Log.e("API Call", "Failed getName in profileInfo.");
+        }
+        return "";
     }
     public static String getLastLogin(int id){
         String in =  stream(id, "getUser.php?userID=");
@@ -91,9 +108,14 @@ class BadgeInfo extends APICaller{
         return id;
     }
     public static String getName(int id){
-        String in =  stream(id, "getBadge.php?badgeID=");
-        String[] outAry = in.split("\"");
-        return outAry[9];
+        try {
+            String in = stream(id, "getBadge.php?badgeID=");
+            String[] outAry = in.split("\"");
+            return outAry[9];
+        } catch (Exception E) {
+            Log.e("API Call", "Failed getName fn in badgeInfo.");
+        }
+        return "";
     }
     public static String getDescription(int id){
         String in =  stream(id, "getBadge.php?badgeID=");
