@@ -47,7 +47,7 @@ class BadgeInfo{
     //if completionStatus = steps, the badge is complete
     //steps is immutable except by backend team, badge specific
     //completionStatus is stored per individual user
-    final String[][] BADGEDB = {{"badge1", "cool badge", "bronze_badge.png", "1", "0", "do a cool thing"},
+    static final String[][] BADGEDB = {{"badge1", "cool badge", "bronze_badge.png", "1", "0", "do a cool thing"},
                                 {"badge2", "description 2", "silver_badge.png", "1", "0", "description?"},
                                 {"badge3", "a badge", "gold_badge.png", "1", "0", "no"}};
     int id;
@@ -67,27 +67,27 @@ class BadgeInfo{
         this.completionStatus = Integer.parseInt(BADGEDB[id][4]);
         this.requirements = BADGEDB[id][5];
     }
-
-    public int getID(){
-        return this.id;
+//
+//    public int getID(){
+//        return this.id;
+//    }
+    public static String getDescription(int id){
+        return BADGEDB[id][1];
     }
-    public String getDescription(){
-        return this.description;
+    public static String getName(int id){
+        return BADGEDB[id][0];
     }
-    public String getName(){
-        return this.name;
+    public static String getIcon(int id){
+        return BADGEDB[id][2];
     }
-    public String getIcon(){
-        return this.icon;
+    public static int getCompletionStatus(int id){
+        return Integer.parseInt(BADGEDB[id][4]);
     }
-    public int getCompletionStatus(){
-        return this.completionStatus;
+    public static int getSteps(int id){
+        return Integer.parseInt(BADGEDB[id][3]);
     }
-    public int getSteps(){
-        return this.steps;
-    }
-    public String getRequirements(){
-        return this.requirements;
+    public static String getRequirements(int id){
+        return BADGEDB[id][5];
     }
 
 

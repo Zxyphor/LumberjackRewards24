@@ -90,7 +90,7 @@ public class BadgesActivity extends AppCompatActivity {
         // make getter methods in BadgeInfo static so they can be accessed without object
         for (int i =0; i < 3; i++){
             BadgeInfo badge = new BadgeInfo(i);
-            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRequirements(), badge.getSteps());
+            BadgeItemModel bim = new BadgeItemModel(i, BadgeInfo.getName(i), BadgeInfo.getDescription(i), BadgeInfo.getIcon(i), BadgeInfo.getCompletionStatus(i), BadgeInfo.getRequirements(i), BadgeInfo.getSteps(i));
             arrBadges.add(bim);
         }
 
