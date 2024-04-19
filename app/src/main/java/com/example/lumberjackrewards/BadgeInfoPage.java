@@ -48,14 +48,11 @@ public class BadgeInfoPage extends AppCompatActivity{
         if (intent.hasExtra("badgeIdTextView")) {
             String badgeId = intent.getStringExtra("badgeIdTextView");
 
-
-            //BadgeInfo badgeInfo = new BadgeInfo(Integer.parseInt(badgeId));
-
             badgeNameTextView.setText(BadgeInfo.getName(Integer.parseInt(badgeId)));
-            itemDescriptionTextView.setText(BadgeInfo.getDescription(Integer.parseInt(badgeId)));
+            badgeNameTextView.setText(BadgeInfo.getDescription(Integer.parseInt(badgeId)));
             //imgBadgeIcon.setImageIcon(badgeInfo.getIcon());
             //progress_bar.setProgress(badgeInfo.getCompletionStatus());
-            itemStepsTextView.setText(BadgeInfo.getRequirements(Integer.parseInt(badgeId)));
+            badgeNameTextView.setText(BadgeInfo.getCriteria(Integer.parseInt(badgeId)));
         }
     }
 }
