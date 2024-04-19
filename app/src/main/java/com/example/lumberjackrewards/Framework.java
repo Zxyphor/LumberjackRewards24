@@ -1,5 +1,7 @@
 package com.example.lumberjackrewards;
 
+import static java.lang.Thread.sleep;
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,16 +28,8 @@ import androidx.loader.content.AsyncTaskLoader;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-class APICaller extends AsyncTask{
+class APICaller extends AppCompatActivity{
 
-    @Override
-    static String doInBackground(int id, String arg){
-        return stream(id,  arg);
-    }
-    @Override
-    static String doInBackground(int id, String arg, int id2, String arg2){
-        return stream(id, arg, id2, arg2);
-    }
     //Function to use API calls
     //single arg
     static String stream(int id, String arg) {
@@ -87,7 +81,6 @@ class APICaller extends AsyncTask{
         return "Failed after try/catch stream fn in profileInfo.";
     }
 
-
 }
 
 //Set of commands for pulling a single user's information
@@ -95,15 +88,22 @@ class ProfileInfo extends APICaller{
     public static int getID(int id){
         return id;
     }
-    public static String getName(int id){
-        try {
-            String in = stream(id, "getUser.php?userID=");
-            String[] outAry = in.split("\"");
-            return outAry[5];
-        } catch (Exception e) {
-            Log.e("API Call", "Failed getName in profileInfo.");
-        }
-        return "";
+    public static String getName(int id) throws InterruptedException {
+        final String[] out = {""};
+        Thread threadProfileID = new Thread() {
+            @Override
+            public void run() {
+                    String in = stream(id, "getUser.php?userID=");
+                    String[] outAry = in.split("\"");
+                    Log.i("ProfileInfo.getName in thread", Arrays.toString(outAry));
+                    out[0] = outAry[5];
+                    Log.i("ProfileInfo.getName in thread", out[0]);
+            }
+        };
+        threadProfileID.start();
+        sleep(100);
+        Log.i("ProfileInfo.getName returns", out[0]);
+        return out[0];
     }
     public static String getLastLogin(int id){
         String in =  stream(id, "getUser.php?userID=");
@@ -123,10 +123,22 @@ class BadgeInfo extends APICaller{
     public static int getID(int id){
         return id;
     }
-    public static String getName(int id){
-        String in = stream(id, "getBadge.php?badgeID=");
-        String[] outAry = in.split("\"");
-        return outAry[9];
+    public static String getName(int id) throws InterruptedException {
+        final String[] out = {"idea"};
+        Thread threadBadgeName = new Thread() {
+            @Override
+            public void run(){
+                String in = stream(id, "getBadge.php?badgeID=");
+                String[] outAry = in.split("\"");
+                Log.i("Badgeinfo.getName in thread", Arrays.toString(outAry));
+                out[0] = outAry[9];
+                Log.i("Badgeinfo.getName in thread", out[0]);
+            }
+        };
+        threadBadgeName.start();
+        sleep(100);
+        Log.i("Badgeinfo.getName returns", out[0]);
+        return out[0];
     }
     public static String getDescription(int id){
         String in =  stream(id, "getBadge.php?badgeID=");
