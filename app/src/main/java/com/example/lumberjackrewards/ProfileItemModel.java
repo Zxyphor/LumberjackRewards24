@@ -34,8 +34,8 @@ public class ProfileItemModel {
         return this.Profilepic;
     }
 
-    public void setProfilepic(int Profiler) {
-        this.Profilepic = Profiler;
+    public void setProfilepic(int Profilepic) {
+        this.Profilepic = Profilepic;
     }
 
     public String toString() {

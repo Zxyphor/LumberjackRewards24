@@ -53,32 +53,17 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="105dp"
-            android:layout_height="105dp"
+            android:layout_width="107dp"
+            android:layout_height="115dp"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <EditText
+        <TextView
             android:id="@+id/Name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/custom_input"
             android:backgroundTint="@color/white"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:visibility="visible" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/custom_input"
-            android:backgroundTint="@color/white"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
