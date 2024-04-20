@@ -69,10 +69,10 @@ public class BadgeItemModel {
     public void setCompletionStatus(int completionStatus){
         this.completionStatus = completionStatus;
     }
-    public String getRequirements(){
+    public String getCriteria(){
         return requirements;
     }
-    public void setRequirements(String requirements){
+    public void setCriteria(String requirements){
         this.requirements = requirements;
     }
     public int getSteps(){

@@ -1,10 +1,12 @@
 package com.example.lumberjackrewards;
 
+import static com.example.lumberjackrewards.APICaller.stream;
 import static java.lang.Thread.sleep;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -149,7 +151,7 @@ class BadgeInfo{
             }
         };
         threadBadgeName.start();
-        sleep(100);
+        sleep(1000);
         Log.i("Badgeinfo.getName returns", out[0]);
         return out[0];
     }
@@ -158,22 +160,22 @@ class BadgeInfo{
 //        return this.id;
 //    }
     public static String getDescription(int id){
-        return BADGEDB[id][1];
-    }
-    public static String getName(int id){
-        return BADGEDB[id][0];
+        return "desc";
     }
     public static String getIcon(int id){
-        return BADGEDB[id][2];
+        return "icon";
     }
     public static int getCompletionStatus(int id){
-        return Integer.parseInt(BADGEDB[id][4]);
+        return 4;
     }
     public static int getSteps(int id){
-        return Integer.parseInt(BADGEDB[id][3]);
+        return 2;
     }
     public static String getRequirements(int id){
-        return BADGEDB[id][5];
+        return "req";
+    }
+    public static String getCriteria(int id){
+        return "testcriteria";
     }
 
 
