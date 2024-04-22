@@ -37,7 +37,7 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //set text
         holder.nameTextView.setText(arrItemProfiles.get(position).getName());
-        //holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
+        holder.profileIdTextView.setText(Integer.toString(arrItemProfiles.get(position).getProfileID()));
 
     }
 

@@ -91,7 +91,7 @@ public class EditProfile extends AppCompatActivity {
             ProfileInfo profInfo = new ProfileInfo(Integer.parseInt(profId));
 
             Name.setText(profInfo.getName());
-            imageView.setImageResource(profInfo.getProfilepic());
+            //imageView.setImageResource(profInfo.getProfilepic());
             //itemDescriptionTextView.setText(badgeInfo.getDescription());
 
         }
