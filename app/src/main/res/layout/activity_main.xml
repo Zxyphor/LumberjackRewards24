@@ -9,7 +9,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +59,6 @@
                 android:layout_height="200dp"
                 android:background="#401C73"
                 android:visibility="gone"
-
                 >
 
                 <TextView
@@ -68,15 +69,21 @@
                     android:textColor="@color/white"
                     android:textSize="24sp" />
             </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPinnedBadges"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="355dp"
-                tools:itemCount="3"
-                tools:listitem="@layout/item_badge">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/n_back">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPinnedBadges"
+                    android:layout_width="wrap_content"
+                    android:layout_height="326dp"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_badge">
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
 
-            </androidx.recyclerview.widget.RecyclerView>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

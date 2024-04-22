@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/newsItemView"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="130dp"
     android:layout_marginLeft="5dp"
     app:cardBackgroundColor="@color/black"
     app:cardCornerRadius="30dp">
@@ -16,34 +16,35 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/student_IconContainer"
-            android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_width="130dp"
+            android:layout_height="130dp">
             <!-- Image icon location -->
             <ImageView
                 android:id="@+id/imgStudentIcon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:paddingHorizontal="10dp"
-                android:src="@drawable/pfp_01"
-                app:srcCompat="@drawable/pfp_01"
-                tools:srcCompat="@drawable/pfp_01"
+                android:src="@drawable/pfp_02"
+                app:srcCompat="@drawable/pfp_02"
+                tools:srcCompat="@drawable/pfp_02"
                 />
-            <TextView
-                android:id="@+id/profileIdTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility = "invisible"
-                android:text="Profile ID"
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/faq_icon"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="90dp"
                 />
-        </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
             <!-- Vertically pulling pin down from top of holder -->
             <Space
@@ -59,7 +60,7 @@
                 android:text="Example User Name"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="24dp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <!-- Text to display number of user badges-->
@@ -67,9 +68,9 @@
                 android:id="@+id/studentBadgeCountView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="58 Badges"
+                android:text="120 Badges Earned"
                 android:fontFamily="@font/arboria_medium"
-                android:textSize="16dp"
+                android:textSize="24dp"
                 android:textColor="@color/mid_grey"/>
 
 

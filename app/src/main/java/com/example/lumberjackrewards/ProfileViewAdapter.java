@@ -37,7 +37,7 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //set text
         holder.nameTextView.setText(arrItemProfiles.get(position).getName());
-        //holder.descriptionTextView.setText(arrItemBadges.get(position).getDescription());
+        holder.profileIdTextView.setText(Integer.toString(arrItemProfiles.get(position).getProfileID()));
 
     }
 
@@ -50,18 +50,11 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         //TextView descriptionTextView;
-
-
-        //badge icon flip animation variable
-        //private boolean isFrontIcon = true;
-        //ProgressBar progressBar;
-        //TextView progressTxt;
-
-        //public boolean isPinned = false;
-
+        TextView profileIdTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            profileIdTextView = itemView.findViewById(R.id.profileIdTextView);
             nameTextView = itemView.findViewById(R.id.studentNameTextView);
             //descriptionTextView = itemView.findViewById(R.id.itemDescriptionTextView);
 
@@ -72,10 +65,17 @@ public class ProfileViewAdapter extends RecyclerView.Adapter<ProfileViewAdapter.
                     //https://codingwitht.com/how-to-pass-data-from-one-activity-to-another-in-android-studio/
                     //Stores badge name
                     String badgeName = nameTextView.getText().toString();
+                    String profileId = profileIdTextView.getText().toString();
                     //Intent is used to navigate from one page to another, we are sending itemView info to badge info pg
-                    Intent intent = new Intent(itemView.getContext(), EditProfile.class);
+                    //Intent intent = new Intent(itemView.getContext(), EditProfile.class);
+                    //String profileId = profileIdTextView != null ? profileIdTextView.getText().toString() : "profileIdTextView is null";
+//                    Log.d("ProfileViewAdapter", "Badge Name: " + badgeName);
+//                    Log.d("ProfileViewAdapter", "Profile ID: " + profileId);
+//                    Log.d("ProfileViewAdapter", "Profile ID TextView: " + profileIdTextView);
+
                     //adding extra info to intent, in this case badgeName with a key 'nameTextView'
-                    intent.putExtra("nameTextView", badgeName);
+                    Intent intent = new Intent(itemView.getContext(), EditProfile.class);
+                    intent.putExtra("profileIdTextView", profileId);
                     itemView.getContext().startActivity(intent);
                 }
             });
