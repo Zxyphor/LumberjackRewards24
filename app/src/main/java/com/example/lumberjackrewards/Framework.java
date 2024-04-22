@@ -63,10 +63,10 @@ class APICaller extends AppCompatActivity{
     }
 
     //double arg
-    static String stream(int id, String arg, int id2, String arg2) {
+    static String stream(int id1, String arg1, int id2, String arg2) {
         try {
             Log.i("API Call", "Start of Call");
-            String urlString = "https://cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg+id+arg2+id2;
+            String urlString = "https://cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg1+id1+arg2+id2;
             Log.i("API Call", "String Build");
             URL url = new URL(urlString);
             Log.i("API Call", "URL Build");
@@ -315,13 +315,30 @@ class UserBadgeInfo extends APICaller {
     }
 }
 
-//Set of commands for changing user info
-class ChangeUserInfo extends APICaller{
+//Set of commands for updating badges for a user
+class UpdateUserBadge extends APICaller{
+    //requires userID and badgeID in that order, returns a boolean if the badge was updated
+    //does not check for badges that don't exist
+    public static boolean updateBadge(int id1, int id2) throws InterruptedException {
+        String in = "";
+        Thread threadUpdateBadge = new Thread() {
+            @Override
+            public void run() {
+                String in = stream(id1, "postStepComplete.php?userID=", id2, "&badgeID=");
+            }
+        };
+        threadUpdateBadge.start();
+        sleep(TIMER);
 
+        //throw error if the badge is already redeemed
+        if (in.contains("error"))
+            return false;
+        return true;
+    }
 }
 
-//Set of commands for updating
-class UpdateUserBadge extends APICaller{
+//Set of commands for changing user info
+class ChangeUserInfo extends APICaller{
 
 }
 
