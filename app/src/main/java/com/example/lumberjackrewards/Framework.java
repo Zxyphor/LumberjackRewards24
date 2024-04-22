@@ -255,7 +255,13 @@ class UserBadgeInfo extends APICaller {
     //HANDLE THESE FUNCTIONS
     //They will not work if there is no user badge data!
     public static String[][] getCompleteUserBadges(int id) throws InterruptedException{
-        String in =  stream(id, "getUserBadges.php?userID=");
+        String in = "";
+        Thread threadCreationDate = new Thread() {
+            @Override
+            public void run() {
+                String in = stream(id, "getUserBadges.php?userID=");
+            }
+        };
 
         //splits given JSON dictionary into parsable string array
         String[] workingAry = in.substring(in.indexOf("completed_badges"), in.indexOf("in_progress")).split("\"");
@@ -273,13 +279,20 @@ class UserBadgeInfo extends APICaller {
             outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
             badgeInfoIterator++;
         }
+        Log.i("getComplete returns", Arrays.toString(outAry));
         return outAry;
     }
     
     //HANDLE THESE FUNCTIONS
     //They will not work if there is no user badge data!
     public static String[][] getInprogUserBadges(int id){
-        String in =  stream(id, "getUserBadges.php?userID=");
+        String in = "";
+        Thread threadCreationDate = new Thread() {
+            @Override
+            public void run() {
+                String in = stream(id, "getUserBadges.php?userID=");
+            }
+        };
 
         //splits given JSON dictionary into parsable string array
         String[] workingAry = in.substring(in.indexOf("in_progress")).split("\"");
@@ -297,6 +310,7 @@ class UserBadgeInfo extends APICaller {
             outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
             badgeInfoIterator++;
         }
+        Log.i("getInprog returns", Arrays.toString(outAry));
         return outAry;
     }
 }
