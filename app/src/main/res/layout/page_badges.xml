@@ -99,6 +99,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/item_badge" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="500dp"/>
     </LinearLayout>
 
     <!--list view to display list of languages-->
