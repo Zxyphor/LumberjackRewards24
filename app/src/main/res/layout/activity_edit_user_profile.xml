@@ -51,8 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="326dp"
             tools:itemCount="3"
-            tools:listitem="@layout/item_badge">
-        </androidx.recyclerview.widget.RecyclerView>
+            tools:listitem="@layout/item_badge"></androidx.recyclerview.widget.RecyclerView>
 
         <ImageView
             android:id="@+id/imageView"
