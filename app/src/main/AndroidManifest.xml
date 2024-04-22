@@ -15,7 +15,7 @@
         <activity
             android:name=".ProfileView"
             android:exported="false" />
-        <activity android:name=".MainActivity" /> <!-- <activity android:name=".LoginActivity"/> -->
+        <activity android:name=".MainActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".Settings" />
         <activity android:name=".Settings_Text_Size" />
