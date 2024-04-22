@@ -169,6 +169,7 @@ class BadgeInfo{
     int completionStatus;   //user-specific current completion
     int steps;              //badge requirements of completion
     String requirements;
+    static final int TIMER = 100;
 
     public static int getID(int id){
         return id;
@@ -264,68 +265,68 @@ class BadgeInfo{
 }
 
 
-    //HANDLE THESE FUNCTIONS
-    //They will not work if there is no user badge data!
-    public static String[][] getCompleteUserBadges(int id) throws InterruptedException{
-        String in = "";
-        Thread threadCreationDate = new Thread() {
-            @Override
-            public void run() {
-                String in = stream(id, "getUserBadges.php?userID=");
-            }
-        };
-
-        //splits given JSON dictionary into parsable string array
-        String[] workingAry = in.substring(in.indexOf("completed_badges"), in.indexOf("in_progress")).split("\"");
-        String[][] outAry = new String[workingAry.length/32][8];
-
-        //split array has 4 pieces "JSON punctuation", "nameofcolumn", ":", "the data" per required entry
-        //So we're taking every 4th entry, and starting at entry 4 since the 0 entry is "completed badges"
-        int badgeIterator = 0;
-        int badgeInfoIterator = 0;
-        for (int i = 4; i < workingAry.length; i = i+4){
-            if (badgeInfoIterator == 7){
-                badgeIterator++;
-                badgeInfoIterator = 0;
-            }
-            outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
-            badgeInfoIterator++;
-        }
-        Log.i("getComplete returns", Arrays.toString(outAry));
-        return outAry;
-    }
-    
-    //HANDLE THESE FUNCTIONS
-    //They will not work if there is no user badge data!
-    public static String[][] getInprogUserBadges(int id){
-        String in = "";
-        Thread threadCreationDate = new Thread() {
-            @Override
-            public void run() {
-                String in = stream(id, "getUserBadges.php?userID=");
-            }
-        };
-
-        //splits given JSON dictionary into parsable string array
-        String[] workingAry = in.substring(in.indexOf("in_progress")).split("\"");
-        String[][] outAry = new String[workingAry.length/32][8];
-
-        //split array has 4 pieces "JSON punctuation", "nameofcolumn", ":", "the data" per required entry
-        //So we're taking every 4th entry, and starting at entry 4 since the 0 entry is "completed badges"
-        int badgeIterator = 0;
-        int badgeInfoIterator = 0;
-        for (int i = 4; i < workingAry.length; i = i+4){
-            if (badgeInfoIterator == 7){
-                badgeIterator++;
-                badgeInfoIterator = 0;
-            }
-            outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
-            badgeInfoIterator++;
-        }
-        Log.i("getInprog returns", Arrays.toString(outAry));
-        return outAry;
-    }
-}
+//    //HANDLE THESE FUNCTIONS
+//    //They will not work if there is no user badge data!
+//    public static String[][] getCompleteUserBadges(int id) throws InterruptedException{
+//        String in = "";
+//        Thread threadCreationDate = new Thread() {
+//            @Override
+//            public void run() {
+//                String in = stream(id, "getUserBadges.php?userID=");
+//            }
+//        };
+//
+//        //splits given JSON dictionary into parsable string array
+//        String[] workingAry = in.substring(in.indexOf("completed_badges"), in.indexOf("in_progress")).split("\"");
+//        String[][] outAry = new String[workingAry.length/32][8];
+//
+//        //split array has 4 pieces "JSON punctuation", "nameofcolumn", ":", "the data" per required entry
+//        //So we're taking every 4th entry, and starting at entry 4 since the 0 entry is "completed badges"
+//        int badgeIterator = 0;
+//        int badgeInfoIterator = 0;
+//        for (int i = 4; i < workingAry.length; i = i+4){
+//            if (badgeInfoIterator == 7){
+//                badgeIterator++;
+//                badgeInfoIterator = 0;
+//            }
+//            outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
+//            badgeInfoIterator++;
+//        }
+//        Log.i("getComplete returns", Arrays.toString(outAry));
+//        return outAry;
+//    }
+//
+//    //HANDLE THESE FUNCTIONS
+//    //They will not work if there is no user badge data!
+//    public static String[][] getInprogUserBadges(int id){
+//        String in = "";
+//        Thread threadCreationDate = new Thread() {
+//            @Override
+//            public void run() {
+//                String in = stream(id, "getUserBadges.php?userID=");
+//            }
+//        };
+//
+//        //splits given JSON dictionary into parsable string array
+//        String[] workingAry = in.substring(in.indexOf("in_progress")).split("\"");
+//        String[][] outAry = new String[workingAry.length/32][8];
+//
+//        //split array has 4 pieces "JSON punctuation", "nameofcolumn", ":", "the data" per required entry
+//        //So we're taking every 4th entry, and starting at entry 4 since the 0 entry is "completed badges"
+//        int badgeIterator = 0;
+//        int badgeInfoIterator = 0;
+//        for (int i = 4; i < workingAry.length; i = i+4){
+//            if (badgeInfoIterator == 7){
+//                badgeIterator++;
+//                badgeInfoIterator = 0;
+//            }
+//            outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
+//            badgeInfoIterator++;
+//        }
+//        Log.i("getInprog returns", Arrays.toString(outAry));
+//        return outAry;
+//    }
+//}
 
 
 
