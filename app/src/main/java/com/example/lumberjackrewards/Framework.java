@@ -218,6 +218,8 @@ class BadgeInfo extends APICaller{
         sleep(100);
         threadIcon.start();
         Log.i("BadgeInfo.Icon returns", out[0]);
+        if (out[0] == "") //last minute bug fixing
+            out[0] = "1";
         return Integer.parseInt(out[0]);
     }
     public static String getCreationDate(int id) throws InterruptedException {
