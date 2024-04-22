@@ -27,7 +27,6 @@
                 android:textColor = "@color/white"
                 android:layout_marginStart="-10dp"
                 />
-            <!-- app:icon="@drawable/back_btn" -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -314,39 +313,6 @@
                         android:src="@drawable/right_arrow_icon" />
                 </RelativeLayout>
 
-                <!-- About Us-->
-                <!--
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/about_us_icon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_back_security"
-                        android:padding="12dp"
-                        android:src="@drawable/about_us_icon" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@+id/about_us_icon"
-                        android:text="About Us"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/right_arrow_icon" />
-                </RelativeLayout>
-                !-->
                 <!-- FAQs-->
                 <RelativeLayout
                     android:layout_width="match_parent"

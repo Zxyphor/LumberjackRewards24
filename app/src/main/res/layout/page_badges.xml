@@ -84,12 +84,6 @@
             android:textColor="@color/white"
             android:textColorHint="@color/mid_grey" />
 
-                <!--android:dropDownSelector="@color/light_grey"
-                android:background="@drawable/n_inputs"
-                android:backgroundTint="@color/dark_grey"-->
-
-
-
         <!-- Badges list displayed -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvBadges"
@@ -97,18 +91,6 @@
             android:layout_height="wrap_content"
             tools:listitem="@layout/item_badge" />
     </LinearLayout>
-
-    <!--list view to display list of languages-->
-    <!--
-    <ListView
-        android:id="@+id/idLVLanguages"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_below="@id/idEdtItemName" />
-    -->
-
-    <!-- Playing around with images-->
-
 
     <!--Navbar-->
     <com.google.android.material.bottomnavigation.BottomNavigationView

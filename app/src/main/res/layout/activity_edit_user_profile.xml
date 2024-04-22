@@ -21,8 +21,6 @@
             android:background="@color/purple_401"
             tools:ignore="UselessParent">
 
-            <!-- app:icon="@drawable/back_btn" -->
-
             <ImageButton
                 android:id="@+id/backBtn"
                 style="@style/Widget.AppCompat.Button.Borderless"
@@ -55,11 +53,6 @@
             tools:itemCount="3"
             tools:listitem="@layout/item_badge">
         </androidx.recyclerview.widget.RecyclerView>
-        <!--        <Button-->
-        <!--            android:id="@+id/backBtn"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Back" />-->
 
         <ImageView
             android:id="@+id/imageView"

@@ -53,18 +53,6 @@
                     android:layout_width="245dp"
                     android:layout_height="25dp"/>
 
-                <!-- Pin button -->
-                <!--ImageButton
-                    android:id="@+id/pinBadgeButton"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_weight="0"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="Button for pinning badges to home page"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/unpinned_badge_icon"
-                    tools:ignore="TouchTargetSizeCheck" /-->
-
             </LinearLayout>
 
             <!-- LAYOUT OF NAME PLACEMENT -->
@@ -108,13 +96,6 @@
                     android:textSize="20sp" />
 
             </RelativeLayout>
-            <!--<TextView
-                android:id="@+id/itemDescriptionTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Bazinga"
-                android:textColor="@color/mid_grey"/>
-                -->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/progress_layout2"

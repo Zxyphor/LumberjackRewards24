@@ -45,15 +45,6 @@
 
     </LinearLayout>
 
-    <!--list view to display list of languages-->
-    <!--
-    <ListView
-        android:id="@+id/idLVLanguages"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_below="@id/idEdtItemName" />
-    -->
-
     <!-- Playing around with images-->
 
 
