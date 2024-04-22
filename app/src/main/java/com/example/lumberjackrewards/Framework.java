@@ -29,7 +29,11 @@ import androidx.loader.content.AsyncTaskLoader;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
+
 class APICaller extends AppCompatActivity{
+    //edit this to speed or slow threading
+    static final int TIMER = 100;
 
     //Function to use API calls
     //single arg
@@ -87,7 +91,6 @@ class APICaller extends AppCompatActivity{
 
 //Set of commands for pulling a single user's information
 class ProfileInfo extends APICaller{
-    //
 
     public static int getID(int id){
         return id;
@@ -104,8 +107,9 @@ class ProfileInfo extends APICaller{
                     Log.i("ProfileInfo.getName in thread", out[0]);
             }
         };
-        sleep(100);
+
         threadProfileID.start();
+        sleep(TIMER);
         Log.i("ProfileInfo.getName returns", out[0]);
         return out[0];
     }
@@ -121,8 +125,9 @@ class ProfileInfo extends APICaller{
                 Log.i("ProfileInfo.LastLogin in thread", out[0]);
             }
         };
-        sleep(100);
+
         threadLastLogin.start();
+        sleep(TIMER);
         Log.i("ProfileInfo.LastLogin returns", out[0]);
         return out[0];
     }
@@ -138,9 +143,12 @@ class ProfileInfo extends APICaller{
                 Log.i("ProfileInfo.ProfilePic in thread", out[0]);
             }
         };
-        sleep(100);
         threadProfilePic.start();
+        sleep(TIMER);
+
         Log.i("ProfileInfo.ProfilePic returns", out[0]);
+        if (out[0] == "") //last minute bug fixing
+            out[0] = "1";
         return Integer.parseInt(out[0]);
     }
 }
@@ -152,59 +160,59 @@ class BadgeInfo extends APICaller{
         return id;
     }
     public static String getName(int id) throws InterruptedException {
-        final String[] out = {"idea"};
+        String[] out = {"Error"};
         Thread threadBadgeName = new Thread() {
             @Override
             public void run(){
                 String in = stream(id, "getBadge.php?badgeID=");
                 String[] outAry = in.split("\"");
-                Log.i("BadgeInfo.getName in thread", Arrays.toString(outAry));
+                Log.i("1BadgeInfo.getName in thread", Arrays.toString(outAry));
                 out[0] = outAry[9];
-                Log.i("BadgeInfo.getName in thread", out[0]);
+                Log.i("2BadgeInfo.getName in thread", out[0]);
             }
         };
-        sleep(100);
         threadBadgeName.start();
-        Log.i("BadgeInfo.getName returns", out[0]);
+        sleep(TIMER);
+        Log.i("3BadgeInfo.getName returns", out[0]);
         return out[0];
     }
     public static String getDescription(int id) throws InterruptedException {
-        final String[] out = {""};
+        String[] out = {""};
         Thread threadDescription = new Thread() {
             @Override
             public void run() {
                 String in = stream(id, "getBadge.php?badgeID=");
                 String[] outAry = in.split("\"");
-                Log.i("BadgeInfo.Description in thread", Arrays.toString(outAry));
+                Log.i("1BadgeInfo.Description in thread", Arrays.toString(outAry));
                 out[0] = outAry[13];
-                Log.i("BadgeInfo.Description in thread", out[0]);
+                Log.i("2BadgeInfo.Description in thread", out[0]);
             }
         };
-        sleep(100);
         threadDescription.start();
-        Log.i("BadgeInfo.Description returns", out[0]);
+        sleep(TIMER);
+        Log.i("3BadgeInfo.Description returns", out[0]);
         return out[0];
     }
 
     public static String getCriteria(int id) throws InterruptedException {
-        final String[] out = {""};
+        String[] out = {""};
         Thread threadCriteria = new Thread() {
             @Override
             public void run() {
                 String in = stream(id, "getBadge.php?badgeID=");
                 String[] outAry = in.split("\"");
-                Log.i("BadgeInfo.Criteria in thread", Arrays.toString(outAry));
+                Log.i("1BadgeInfo.Criteria in thread", Arrays.toString(outAry));
                 out[0] = outAry[17];
-                Log.i("BadgeInfo.Criteria in thread", out[0]);
+                Log.i("2BadgeInfo.Criteria in thread", out[0]);
             }
         };
-        sleep(100);
         threadCriteria.start();
-        Log.i("BadgeInfo.Criteria returns", out[0]);
+        sleep(TIMER);
+        Log.i("3BadgeInfo.Criteria returns", out[0]);
         return out[0];
     }
     public static int getIcon(int id) throws InterruptedException {
-        final String[] out = {""};
+        String[] out = {""};
         Thread threadIcon = new Thread() {
             @Override
             public void run() {
@@ -215,15 +223,15 @@ class BadgeInfo extends APICaller{
                 Log.i("BadgeInfo.Icon in thread", out[0]);
             }
         };
-        sleep(100);
         threadIcon.start();
+        sleep(TIMER);
         Log.i("BadgeInfo.Icon returns", out[0]);
         if (out[0] == "") //last minute bug fixing
             out[0] = "1";
         return Integer.parseInt(out[0]);
     }
     public static String getCreationDate(int id) throws InterruptedException {
-        final String[] out = {""};
+        String[] out = {""};
         Thread threadCreationDate = new Thread() {
             @Override
             public void run() {
@@ -234,8 +242,8 @@ class BadgeInfo extends APICaller{
                 Log.i("BadgeInfo.CreationDate in thread", out[0]);
             }
         };
-        sleep(100);
         threadCreationDate.start();
+        sleep(TIMER);
         Log.i("BadgeInfo.CreationDate returns", out[0]);
         return out[0];
     }
