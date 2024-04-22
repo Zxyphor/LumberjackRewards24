@@ -33,6 +33,7 @@ class APICaller extends AppCompatActivity{
 
     //Function to use API calls
     //single arg
+    //returns a JSON string
     static String stream(int id, String arg) {
         try {
             String urlString = "https://cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg+id;
@@ -86,6 +87,8 @@ class APICaller extends AppCompatActivity{
 
 //Set of commands for pulling a single user's information
 class ProfileInfo extends APICaller{
+    //
+
     public static int getID(int id){
         return id;
     }
@@ -101,8 +104,8 @@ class ProfileInfo extends APICaller{
                     Log.i("ProfileInfo.getName in thread", out[0]);
             }
         };
+        sleep(100);
         threadProfileID.start();
-        threadProfileID.join();
         Log.i("ProfileInfo.getName returns", out[0]);
         return out[0];
     }
@@ -118,8 +121,8 @@ class ProfileInfo extends APICaller{
                 Log.i("ProfileInfo.LastLogin in thread", out[0]);
             }
         };
+        sleep(100);
         threadLastLogin.start();
-        threadLastLogin.join();
         Log.i("ProfileInfo.LastLogin returns", out[0]);
         return out[0];
     }
@@ -135,8 +138,8 @@ class ProfileInfo extends APICaller{
                 Log.i("ProfileInfo.ProfilePic in thread", out[0]);
             }
         };
+        sleep(100);
         threadProfilePic.start();
-        threadProfilePic.join();
         Log.i("ProfileInfo.ProfilePic returns", out[0]);
         return Integer.parseInt(out[0]);
     }
@@ -160,8 +163,8 @@ class BadgeInfo extends APICaller{
                 Log.i("BadgeInfo.getName in thread", out[0]);
             }
         };
-        threadBadgeName.start();
         sleep(100);
+        threadBadgeName.start();
         Log.i("BadgeInfo.getName returns", out[0]);
         return out[0];
     }
@@ -177,8 +180,8 @@ class BadgeInfo extends APICaller{
                 Log.i("BadgeInfo.Description in thread", out[0]);
             }
         };
+        sleep(100);
         threadDescription.start();
-        threadDescription.join();
         Log.i("BadgeInfo.Description returns", out[0]);
         return out[0];
     }
@@ -195,8 +198,8 @@ class BadgeInfo extends APICaller{
                 Log.i("BadgeInfo.Criteria in thread", out[0]);
             }
         };
+        sleep(100);
         threadCriteria.start();
-        threadCriteria.join();
         Log.i("BadgeInfo.Criteria returns", out[0]);
         return out[0];
     }
@@ -212,8 +215,8 @@ class BadgeInfo extends APICaller{
                 Log.i("BadgeInfo.Icon in thread", out[0]);
             }
         };
+        sleep(100);
         threadIcon.start();
-        threadIcon.join();
         Log.i("BadgeInfo.Icon returns", out[0]);
         return Integer.parseInt(out[0]);
     }
@@ -229,8 +232,8 @@ class BadgeInfo extends APICaller{
                 Log.i("BadgeInfo.CreationDate in thread", out[0]);
             }
         };
+        sleep(100);
         threadCreationDate.start();
-        threadCreationDate.join();
         Log.i("BadgeInfo.CreationDate returns", out[0]);
         return out[0];
     }
