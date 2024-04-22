@@ -23,7 +23,6 @@ public class BadgeInfoPage extends AppCompatActivity{
     private ProgressBar progress_bar;
     private TextView itemStepsTextView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +34,10 @@ public class BadgeInfoPage extends AppCompatActivity{
         itemStepsTextView = findViewById(R.id.itemStepsTextView);
 
         returnButton = findViewById(R.id.backButton);
+        itemDescriptionTextView = findViewById(R.id.itemDescriptionTextView);
+        imgBadgeIcon = findViewById(R.id.imgBadgeIcon);
+        progress_bar = findViewById(R.id.progress_bar);
+        itemStepsTextView = findViewById(R.id.itemStepsTextView);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,10 +56,18 @@ public class BadgeInfoPage extends AppCompatActivity{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            itemDescriptionTextView.setText(BadgeInfo.getDescription(Integer.parseInt(badgeId)));
+            try {
+                itemDescriptionTextView.setText(BadgeInfo.getDescription(Integer.parseInt(badgeId)));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             //imgBadgeIcon.setImageIcon(badgeInfo.getIcon());
             //progress_bar.setProgress(badgeInfo.getCompletionStatus());
-            itemStepsTextView.setText(BadgeInfo.getCriteria(Integer.parseInt(badgeId)));
+            try {
+                itemStepsTextView.setText(BadgeInfo.getCriteria(Integer.parseInt(badgeId)));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
