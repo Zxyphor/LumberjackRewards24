@@ -1,5 +1,5 @@
 package com.example.lumberjackrewards;
-import static com.example.lumberjackrewards.APICaller.stream;
+
 import static java.lang.Thread.onSpinWait;
 import static java.lang.Thread.sleep;
 
@@ -63,10 +63,10 @@ class APICaller extends AppCompatActivity{
     }
 
     //double arg
-    static String stream(int id, String arg, int id2, String arg2) {
+    static String stream(int userID, String arg1, int badgeID, String arg2) {
         try {
             Log.i("API Call", "Start of Call");
-            String urlString = "https://cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg+id+arg2+id2;
+            String urlString = "https://cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg1+userID+arg2+badgeID;
             Log.i("API Call", "String Build");
             URL url = new URL(urlString);
             Log.i("API Call", "URL Build");
@@ -100,11 +100,11 @@ class ProfileInfo extends APICaller{
         Thread threadProfileID = new Thread() {
             @Override
             public void run() {
-                    String in = stream(id, "getUser.php?userID=");
-                    String[] outAry = in.split("\"");
-                    Log.i("ProfileInfo.getName in thread", Arrays.toString(outAry));
-                    out[0] = outAry[5];
-                    Log.i("ProfileInfo.getName in thread", out[0]);
+                String in = stream(id, "getUser.php?userID=");
+                String[] outAry = in.split("\"");
+                Log.i("ProfileInfo.getName in thread", Arrays.toString(outAry));
+                out[0] = outAry[5];
+                Log.i("ProfileInfo.getName in thread", out[0]);
             }
         };
 
@@ -153,23 +153,8 @@ class ProfileInfo extends APICaller{
     }
 }
 
-class BadgeInfo{
-    //faux-DB
-    //same as above, though completionStatus and steps are user and badge specific
-    //if completionStatus = steps, the badge is complete
-    //steps is immutable except by backend team, badge specific
-    //completionStatus is stored per individual user
-    static final String[][] BADGEDB = {{"badge1", "cool badge", "bronze_badge.png", "1", "0", "do a cool thing"},
-                                {"badge2", "description 2", "silver_badge.png", "1", "0", "description?"},
-                                {"badge3", "a badge", "gold_badge.png", "1", "0", "no"}};
-    int id;
-    String name;
-    String description;
-    String icon;
-    int completionStatus;   //user-specific current completion
-    int steps;              //badge requirements of completion
-    String requirements;
-    static final int TIMER = 100;
+//Set of commands for pulling a single badge's info
+class BadgeInfo extends APICaller{
 
     public static int getID(int id){
         return id;
@@ -264,71 +249,98 @@ class BadgeInfo{
     }
 }
 
+//Set of commands for pulling a set of a user's associated badges
+class UserBadgeInfo extends APICaller {
 
-//    //HANDLE THESE FUNCTIONS
-//    //They will not work if there is no user badge data!
-//    public static String[][] getCompleteUserBadges(int id) throws InterruptedException{
-//        String in = "";
-//        Thread threadCreationDate = new Thread() {
-//            @Override
-//            public void run() {
-//                String in = stream(id, "getUserBadges.php?userID=");
-//            }
-//        };
-//
-//        //splits given JSON dictionary into parsable string array
-//        String[] workingAry = in.substring(in.indexOf("completed_badges"), in.indexOf("in_progress")).split("\"");
-//        String[][] outAry = new String[workingAry.length/32][8];
-//
-//        //split array has 4 pieces "JSON punctuation", "nameofcolumn", ":", "the data" per required entry
-//        //So we're taking every 4th entry, and starting at entry 4 since the 0 entry is "completed badges"
-//        int badgeIterator = 0;
-//        int badgeInfoIterator = 0;
-//        for (int i = 4; i < workingAry.length; i = i+4){
-//            if (badgeInfoIterator == 7){
-//                badgeIterator++;
-//                badgeInfoIterator = 0;
-//            }
-//            outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
-//            badgeInfoIterator++;
-//        }
-//        Log.i("getComplete returns", Arrays.toString(outAry));
-//        return outAry;
-//    }
-//
-//    //HANDLE THESE FUNCTIONS
-//    //They will not work if there is no user badge data!
-//    public static String[][] getInprogUserBadges(int id){
-//        String in = "";
-//        Thread threadCreationDate = new Thread() {
-//            @Override
-//            public void run() {
-//                String in = stream(id, "getUserBadges.php?userID=");
-//            }
-//        };
-//
-//        //splits given JSON dictionary into parsable string array
-//        String[] workingAry = in.substring(in.indexOf("in_progress")).split("\"");
-//        String[][] outAry = new String[workingAry.length/32][8];
-//
-//        //split array has 4 pieces "JSON punctuation", "nameofcolumn", ":", "the data" per required entry
-//        //So we're taking every 4th entry, and starting at entry 4 since the 0 entry is "completed badges"
-//        int badgeIterator = 0;
-//        int badgeInfoIterator = 0;
-//        for (int i = 4; i < workingAry.length; i = i+4){
-//            if (badgeInfoIterator == 7){
-//                badgeIterator++;
-//                badgeInfoIterator = 0;
-//            }
-//            outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
-//            badgeInfoIterator++;
-//        }
-//        Log.i("getInprog returns", Arrays.toString(outAry));
-//        return outAry;
-//    }
-//}
+    //HANDLE THESE FUNCTIONS
+    //They will not work if there is no user badge data!
+    public static String[][] getCompleteUserBadges(int id) throws InterruptedException{
+        String in = "";
+        Thread threadCreationDate = new Thread() {
+            @Override
+            public void run() {
+                String in = stream(id, "getUserBadges.php?userID=");
+            }
+        };
 
+        //splits given JSON dictionary into parsable string array
+        String[] workingAry = in.substring(in.indexOf("completed_badges"), in.indexOf("in_progress")).split("\"");
+        String[][] outAry = new String[workingAry.length/32][8];
 
+        //split array has 4 pieces "JSON punctuation", "nameofcolumn", ":", "the data" per required entry
+        //So we're taking every 4th entry, and starting at entry 4 since the 0 entry is "completed badges"
+        int badgeIterator = 0;
+        int badgeInfoIterator = 0;
+        for (int i = 4; i < workingAry.length; i = i+4){
+            if (badgeInfoIterator == 7){
+                badgeIterator++;
+                badgeInfoIterator = 0;
+            }
+            outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
+            badgeInfoIterator++;
+        }
+        Log.i("getComplete returns", Arrays.toString(outAry));
+        return outAry;
+    }
+
+    //HANDLE THESE FUNCTIONS
+    //They will not work if there is no user badge data!
+    public static String[][] getInprogUserBadges(int id){
+        String in = "";
+        Thread threadCreationDate = new Thread() {
+            @Override
+            public void run() {
+                String in = stream(id, "getUserBadges.php?userID=");
+            }
+        };
+
+        //splits given JSON dictionary into parsable string array
+        String[] workingAry = in.substring(in.indexOf("in_progress")).split("\"");
+        String[][] outAry = new String[workingAry.length/32][8];
+
+        //split array has 4 pieces "JSON punctuation", "nameofcolumn", ":", "the data" per required entry
+        //So we're taking every 4th entry, and starting at entry 4 since the 0 entry is "completed badges"
+        int badgeIterator = 0;
+        int badgeInfoIterator = 0;
+        for (int i = 4; i < workingAry.length; i = i+4){
+            if (badgeInfoIterator == 7){
+                badgeIterator++;
+                badgeInfoIterator = 0;
+            }
+            outAry[badgeIterator][badgeInfoIterator] = workingAry[i];
+            badgeInfoIterator++;
+        }
+        Log.i("getInprog returns", Arrays.toString(outAry));
+        return outAry;
+    }
+}
+
+//Set of commands for updating badges for a user
+class UpdateUserBadge extends APICaller{
+    //requires userID and badgeID in that order, returns a boolean if the badge was updated
+    //does not check for badges that don't exist
+    public static boolean updateBadge(int userID, int badgeID) throws InterruptedException {
+        String in = "";
+        Thread threadUpdateBadge = new Thread() {
+            @Override
+            public void run() {
+                String in = stream(userID, "postStepComplete.php?userID=", badgeID, "&badgeID=");
+            }
+        };
+        threadUpdateBadge.start();
+        sleep(TIMER);
+
+        //throw error if the badge is already redeemed
+        if (in.contains("error"))
+            return false;
+        return true;
+    }
+}
+
+//Set of commands for changing user info
+class ChangeUserInfo extends APICaller{
+
+}
 
 public class Framework extends AppCompatActivity {
 

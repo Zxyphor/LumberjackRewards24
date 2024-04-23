@@ -24,6 +24,7 @@ public class BadgeInfoPage extends AppCompatActivity{
     private ProgressBar progress_bar;
     private TextView itemStepsTextView;
     private Button redeemButton;
+    private int badgeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,36 +45,42 @@ public class BadgeInfoPage extends AppCompatActivity{
                 BadgeInfoPage.this.finish();
             }
         });
-        redeemButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
-                //finish();
 
-            }
-        });
         // Retrieve the badge name from the badge page
         Intent intent = getIntent();
         if (intent.hasExtra("badgeIdTextView")) {
-            String badgeId = intent.getStringExtra("badgeIdTextView");
+            badgeId = Integer.parseInt(intent.getStringExtra("badgeIdTextView"));
 
             try {
-                badgeNameTextView.setText(BadgeInfo.getName(Integer.parseInt(badgeId)));
+                badgeNameTextView.setText(BadgeInfo.getName(badgeId));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
             try {
-                itemDescriptionTextView.setText(BadgeInfo.getDescription(Integer.parseInt(badgeId)));
+                itemDescriptionTextView.setText(BadgeInfo.getDescription(badgeId));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
             //imgBadgeIcon.setImageIcon(badgeInfo.getIcon());
             //progress_bar.setProgress(badgeInfo.getCompletionStatus());
             try {
-                itemStepsTextView.setText(BadgeInfo.getCriteria(Integer.parseInt(badgeId)));
+                itemStepsTextView.setText(BadgeInfo.getCriteria(badgeId));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
+        redeemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
+                //finish();
+                try {
+                    UpdateUserBadge.updateBadge(2,badgeId);
+                    redeemButton.setText("Redeemed");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 }
