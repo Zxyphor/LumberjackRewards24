@@ -100,7 +100,11 @@ public class EditProfile extends AppCompatActivity {
 
             ProfileInfo profInfo = new ProfileInfo(Integer.parseInt(profId));
 
-            Name.setText(profInfo.getName(profInfo.getID()));
+            try {
+                Name.setText(profInfo.getName(Integer.parseInt(profId)));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             //imageView.setImageResource(profInfo.getProfilepic());
             //itemDescriptionTextView.setText(badgeInfo.getDescription());
 
