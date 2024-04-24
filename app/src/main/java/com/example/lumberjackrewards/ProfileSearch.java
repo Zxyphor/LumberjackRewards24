@@ -60,9 +60,13 @@ public class ProfileSearch extends AppCompatActivity {
         });
 
 
-        for (int i =0; i < 3; i++){
-            ProfileInfo Profile = new ProfileInfo(i);
-            ProfileItemModel bim = new ProfileItemModel(Profile.getID(), Profile.getName(), Profile.getProfilepic());
+        for (int i =1; i < 5; i++){
+            ProfileItemModel bim = null;
+            try{
+                bim = new ProfileItemModel(i, ProfileInfo.getName(i), ProfileInfo.getProfilepic(i));
+            } catch (InterruptedException e){
+                throw new RuntimeException(e);
+            }
             arrUsers.add(bim);
         }
 

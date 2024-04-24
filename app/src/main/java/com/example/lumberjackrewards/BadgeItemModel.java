@@ -10,7 +10,7 @@ public class BadgeItemModel {
     private int badgeID;
     private String description;
     private String name;
-    private String icon;
+    private int icon;
     private int completionStatus;
     // keeps track of steps completed so far per user
     // referenced for progress bar
@@ -25,7 +25,7 @@ public class BadgeItemModel {
     // on below line are the class constructors
     public BadgeItemModel(){}
 
-    public BadgeItemModel(int badgeID, String name, String description, String icon, int completionStatus, String requirements, int steps) {
+    public BadgeItemModel(int badgeID, String name, String description, int icon, int completionStatus, String requirements, int steps) {
         this.badgeID = badgeID;
         this.description = description;
         this.name = name;
@@ -60,8 +60,8 @@ public class BadgeItemModel {
         this.name = name;
     }
 
-    public String getIcon() {return icon;}
-    public void setIcon(String icon) {this.icon = icon;}
+    public int getIcon() {return icon;}
+    public void setIcon(int icon) {this.icon = icon;}
 
     public int getCompletionStatus(){
         return completionStatus;
@@ -69,10 +69,10 @@ public class BadgeItemModel {
     public void setCompletionStatus(int completionStatus){
         this.completionStatus = completionStatus;
     }
-    public String getRequirements(){
+    public String getCriteria(){
         return requirements;
     }
-    public void setRequirements(String requirements){
+    public void setCriteria(String requirements){
         this.requirements = requirements;
     }
     public int getSteps(){

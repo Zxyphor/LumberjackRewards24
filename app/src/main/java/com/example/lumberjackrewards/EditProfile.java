@@ -34,7 +34,7 @@ public class EditProfile extends AppCompatActivity {
     private RecyclerView rvBadge;
     private ArrayAdapter<ProfileItemModel> adapter;
     // Define an array to hold profile picture resource IDs
-    private int[] profilePics = {R.drawable.pfp_01, R.drawable.pfp_02, R.drawable.pfp_purple /* add more profile pics as needed */};
+    //private int[] profilePics = {R.drawable.pfp_01, R.drawable.pfp_02, R.drawable.pfp_purple /* add more profile pics as needed */};
     ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,11 @@ public class EditProfile extends AppCompatActivity {
 //        userName = (EditText) findViewById(R.id.etName);
 //        userSurname = (EditText) findViewById(R.id.etSurname);
 //        results = (TextView) findViewById(R.id.result);
+       // int userId = getCurrentUserId();
+
+        // Create a ProfileInfo object for the current user
+        //ProfileInfo profileInfo = new ProfileInfo(userId);
+
         back = findViewById(R.id.backBtn);
         Name = findViewById(R.id.Name);
         imageView = findViewById(R.id.imageView);
@@ -64,11 +69,16 @@ public class EditProfile extends AppCompatActivity {
         rvBadge = findViewById(R.id.rvPinnedBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
 
-        for (int i = 0; i < 3; i++) {
-            BadgeInfo badge = new BadgeInfo(i);
-            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRequirements(), badge.getSteps());
+        for (int i =0; i < 3; i++){
+            BadgeItemModel bim = null;
+            try {
+                bim = new BadgeItemModel(i, BadgeInfo.getName(i), BadgeInfo.getDescription(i), BadgeInfo.getIcon(i), 1 /*TODO fix once API finished to have completino status*/, /*BadgeInfo.getCriteria(i)*/"test", 1 /*TODO fix once API finished to have steps (number to complete)*/);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             arrBadges.add(bim);
         }
+
 
         displayAllBadges(arrBadges);
 
@@ -90,12 +100,18 @@ public class EditProfile extends AppCompatActivity {
 
             ProfileInfo profInfo = new ProfileInfo(Integer.parseInt(profId));
 
-            Name.setText(profInfo.getName());
+            Name.setText(profInfo.getName(profInfo.getID()));
             //imageView.setImageResource(profInfo.getProfilepic());
             //itemDescriptionTextView.setText(badgeInfo.getDescription());
 
         }
     }
+
+    //private int getCurrentUserId() {
+        // Implementation to retrieve the user ID
+        // This might involve accessing shared preferences, database, or any other method
+        // Return the user ID
+   // }
 
     // Method to set profile picture for imageView
 //    private void setProfilePicForImageView(int profilePicIndex) {
