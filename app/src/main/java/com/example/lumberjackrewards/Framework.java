@@ -98,9 +98,7 @@ class ProfileInfo extends APICaller{
    //     this.userId = userId;
     //}
 
-    public static int getID(int id){
-        return id;
-    }
+
     public static String getName(int id) throws InterruptedException {
         final String[] out = {""};
         Thread threadProfileID = new Thread() {

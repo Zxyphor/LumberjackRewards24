@@ -34,7 +34,7 @@ public class EditProfile extends AppCompatActivity {
     private RecyclerView rvBadge;
     private ArrayAdapter<ProfileItemModel> adapter;
     // Define an array to hold profile picture resource IDs
-    private int[] profilePics = {R.drawable.pfp_01, R.drawable.pfp_02, R.drawable.pfp_purple /* add more profile pics as needed */};
+    //private int[] profilePics = {R.drawable.pfp_01, R.drawable.pfp_02, R.drawable.pfp_purple /* add more profile pics as needed */};
     ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class EditProfile extends AppCompatActivity {
        // int userId = getCurrentUserId();
 
         // Create a ProfileInfo object for the current user
-        ProfileInfo profileInfo = new ProfileInfo(userId);
+        //ProfileInfo profileInfo = new ProfileInfo(userId);
 
         back = findViewById(R.id.backBtn);
         Name = findViewById(R.id.Name);
@@ -100,7 +100,7 @@ public class EditProfile extends AppCompatActivity {
 
             ProfileInfo profInfo = new ProfileInfo(Integer.parseInt(profId));
 
-            Name.setText(profInfo.getName());
+            Name.setText(profInfo.getName(profInfo.getID()));
             //imageView.setImageResource(profInfo.getProfilepic());
             //itemDescriptionTextView.setText(badgeInfo.getDescription());
 
