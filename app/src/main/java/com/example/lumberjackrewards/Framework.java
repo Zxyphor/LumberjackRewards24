@@ -63,10 +63,10 @@ class APICaller extends AppCompatActivity{
     }
 
     //double arg
-    static String stream(int id1, String arg1, int id2, String arg2) {
+    static String stream(int userID, String arg1, int badgeID, String arg2) {
         try {
             Log.i("API Call", "Start of Call");
-            String urlString = "https://cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg1+id1+arg2+id2;
+            String urlString = "https://cs.sfasu.edu/csci4267-00104/BackFrontEndStrikesBack/access/api/"+arg1+userID+arg2+badgeID;
             Log.i("API Call", "String Build");
             URL url = new URL(urlString);
             Log.i("API Call", "URL Build");
@@ -319,12 +319,12 @@ class UserBadgeInfo extends APICaller {
 class UpdateUserBadge extends APICaller{
     //requires userID and badgeID in that order, returns a boolean if the badge was updated
     //does not check for badges that don't exist
-    public static boolean updateBadge(int id1, int id2) throws InterruptedException {
+    public static boolean updateBadge(int userID, int badgeID) throws InterruptedException {
         String in = "";
         Thread threadUpdateBadge = new Thread() {
             @Override
             public void run() {
-                String in = stream(id1, "postStepComplete.php?userID=", id2, "&badgeID=");
+                String in = stream(userID, "postStepComplete.php?userID=", badgeID, "&badgeID=");
             }
         };
         threadUpdateBadge.start();

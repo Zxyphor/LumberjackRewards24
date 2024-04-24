@@ -84,10 +84,6 @@ public class BadgesActivity extends AppCompatActivity {
 //            arrBadges.add(bim);
 //        }
 
-        // TODO:
-        // 3 from how many badges in static array, will be some length function
-        // make method in BadgeInfo to get number of badges to create
-        // make getter methods in BadgeInfo static so they can be accessed without object
         for (int i =1; i < 11; i++){
             BadgeItemModel bim = null;
             try {
