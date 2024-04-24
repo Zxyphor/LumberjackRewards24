@@ -46,6 +46,11 @@ public class EditProfile extends AppCompatActivity {
 //        userName = (EditText) findViewById(R.id.etName);
 //        userSurname = (EditText) findViewById(R.id.etSurname);
 //        results = (TextView) findViewById(R.id.result);
+       // int userId = getCurrentUserId();
+
+        // Create a ProfileInfo object for the current user
+        ProfileInfo profileInfo = new ProfileInfo(userId);
+
         back = findViewById(R.id.backBtn);
         Name = findViewById(R.id.Name);
         imageView = findViewById(R.id.imageView);
@@ -101,6 +106,12 @@ public class EditProfile extends AppCompatActivity {
 
         }
     }
+
+    //private int getCurrentUserId() {
+        // Implementation to retrieve the user ID
+        // This might involve accessing shared preferences, database, or any other method
+        // Return the user ID
+   // }
 
     // Method to set profile picture for imageView
 //    private void setProfilePicForImageView(int profilePicIndex) {

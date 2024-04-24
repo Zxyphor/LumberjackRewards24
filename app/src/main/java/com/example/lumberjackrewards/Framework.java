@@ -91,6 +91,12 @@ class APICaller extends AppCompatActivity{
 
 //Set of commands for pulling a single user's information
 class ProfileInfo extends APICaller{
+   // private int userId;
+
+    //public ProfileInfo(int userId) {
+    //    super();
+   //     this.userId = userId;
+    //}
 
     public static int getID(int id){
         return id;
