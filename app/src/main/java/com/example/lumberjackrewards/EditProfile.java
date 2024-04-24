@@ -95,12 +95,16 @@ public class EditProfile extends AppCompatActivity {
         // Retrieve the profile name from the profile page
         Intent intent = getIntent();
         if (intent.hasExtra("profileIdTextView")) {
-            String profId = intent.getStringExtra("profileIdTextView");
+            int profId = Integer.parseInt(intent.getStringExtra("profileIdTextView"));
 
 
-            ProfileInfo profInfo = new ProfileInfo(Integer.parseInt(profId));
+            //ProfileInfo profInfo = new ProfileInfo(Integer.parseInt(profId));
 
-            Name.setText(profInfo.getName(profInfo.getID()));
+            try {
+                Name.setText(ProfileInfo.getName(profId));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             //imageView.setImageResource(profInfo.getProfilepic());
             //itemDescriptionTextView.setText(badgeInfo.getDescription());
 
