@@ -64,11 +64,16 @@ public class EditProfile extends AppCompatActivity {
         rvBadge = findViewById(R.id.rvPinnedBadges);
         ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
 
-        for (int i = 0; i < 3; i++) {
-            BadgeInfo badge = new BadgeInfo(i);
-            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRequirements(), badge.getSteps());
+        for (int i =1; i < 11; i++){
+            BadgeItemModel bim = null;
+            try {
+                bim = new BadgeItemModel(i, BadgeInfo.getName(i), BadgeInfo.getDescription(i), BadgeInfo.getIcon(i), 1 /*TODO fix once API finished to have completino status*/, BadgeInfo.getCriteria(i), 1 /*TODO fix once API finished to have steps (number to complete)*/);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             arrBadges.add(bim);
         }
+
 
         displayAllBadges(arrBadges);
 
