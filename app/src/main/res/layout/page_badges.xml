@@ -92,7 +92,8 @@
             android:id="@+id/rvBadges"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_badge" />
+            tools:listitem="@layout/item_badge"
+            android:layout_marginBottom="80dp"/>
 
         <Space
             android:layout_width="match_parent"
