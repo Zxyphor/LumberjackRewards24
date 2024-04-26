@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,6 +24,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class EditProfile extends AppCompatActivity {
@@ -67,20 +69,6 @@ public class EditProfile extends AppCompatActivity {
 
         // Initialize and assign variable
         rvBadge = findViewById(R.id.rvPinnedBadges);
-        ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
-
-        for (int i =0; i < 3; i++){
-            BadgeItemModel bim = null;
-            try {
-                bim = new BadgeItemModel(i, BadgeInfo.getName(i), BadgeInfo.getDescription(i), BadgeInfo.getIcon(i), 1 /*TODO fix once API finished to have completino status*/, /*BadgeInfo.getCriteria(i)*/"test", 1 /*TODO fix once API finished to have steps (number to complete)*/);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            arrBadges.add(bim);
-        }
-
-
-        displayAllBadges(arrBadges);
 
         //this is the onClickListener for the button in the profileView page,
         // to move back to the home page.
@@ -107,7 +95,22 @@ public class EditProfile extends AppCompatActivity {
             }
             //imageView.setImageResource(profInfo.getProfilepic());
             //itemDescriptionTextView.setText(badgeInfo.getDescription());
+            ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
 
+            try {
+                String[][] tempBadgeArray = UserBadgeInfo.getCompleteUserBadges(Integer.parseInt(profId));
+                Log.i("TEMP BADGE INFO completion status", " " + tempBadgeArray[0][7]);
+                for (int i = 0; i < tempBadgeArray.length; i++) {
+                    Log.i("TEMP BADGE INFO", Arrays.toString(tempBadgeArray[i]));
+                    BadgeItemModel bim = new BadgeItemModel(Integer.parseInt(tempBadgeArray[i][0]), tempBadgeArray[i][1], tempBadgeArray[i][2], Integer.parseInt(tempBadgeArray[i][4]), Integer.parseInt(tempBadgeArray[i][7]), tempBadgeArray[i][3], Integer.parseInt(tempBadgeArray[i][6]));
+                    arrBadges.add(bim);
+                }
+
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            displayAllBadges(arrBadges);
         }
     }
 
