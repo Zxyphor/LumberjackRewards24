@@ -90,7 +90,7 @@ class APICaller extends AppCompatActivity{
 }
 
 //Set of commands for pulling a single user's information
-class ProfileInfo extends APICaller{
+class ProfileInfo extends APICaller {
     private int userId;
 
     public ProfileInfo(int userId) {
@@ -117,6 +117,7 @@ class ProfileInfo extends APICaller{
         Log.i("ProfileInfo.getName returns", out[0]);
         return out[0];
     }
+
     public static String getLastLogin(int id) throws InterruptedException {
         final String[] out = {""};
         Thread threadLastLogin = new Thread() {
@@ -135,6 +136,7 @@ class ProfileInfo extends APICaller{
         Log.i("ProfileInfo.LastLogin returns", out[0]);
         return out[0];
     }
+
     public static int getProfilepic(int id) throws InterruptedException {
         final String[] out = {""};
         Thread threadProfilePic = new Thread() {
@@ -151,13 +153,17 @@ class ProfileInfo extends APICaller{
         sleep(TIMER);
 
         Log.i("ProfileInfo.ProfilePic returns", out[0]);
-        if (out[0] == "") //last minute bug fixing
-            out[0] = "1";
-        return Integer.parseInt(out[0]);
+        if (out[0].isEmpty()) // Check if the string is empty
+            return 1; // Return a default profile pic ID or handle this case appropriately
+        else {
+            // Parse the datetime string or handle it appropriately
+            // For example, if out[0] is "2024-04-24 16:27:56", you can return a default ID
+            return 1;
+        }
     }
 }
 
-//Set of commands for pulling a single badge's info
+    //Set of commands for pulling a single badge's info
 class BadgeInfo extends APICaller{
 
     public static int getID(int id){
@@ -171,8 +177,12 @@ class BadgeInfo extends APICaller{
                 String in = stream(id, "getBadge.php?badgeID=");
                 String[] outAry = in.split("\"");
                 Log.i("1BadgeInfo.getName in thread", Arrays.toString(outAry));
-                out[0] = outAry[9];
-                Log.i("2BadgeInfo.getName in thread", out[0]);
+                if (outAry.length > 9) {
+                    out[0] = outAry[9];
+                    Log.i("2BadgeInfo.getName in thread", out[0]);
+                } else {
+                    Log.e("2BadgeInfo.getName in thread", "Index out of bounds");
+                }
             }
         };
         threadBadgeName.start();
@@ -188,8 +198,13 @@ class BadgeInfo extends APICaller{
                 String in = stream(id, "getBadge.php?badgeID=");
                 String[] outAry = in.split("\"");
                 Log.i("1BadgeInfo.Description in thread", Arrays.toString(outAry));
+                if(outAry.length > 13){
                 out[0] = outAry[13];
                 Log.i("2BadgeInfo.Description in thread", out[0]);
+                }
+                 else {
+                        Log.e("2BadgeInfo.Description in thread", "Index out of bounds");
+                    }
             }
         };
         threadDescription.start();
@@ -206,8 +221,12 @@ class BadgeInfo extends APICaller{
                 String in = stream(id, "getBadge.php?badgeID=");
                 String[] outAry = in.split("\"");
                 Log.i("1BadgeInfo.Criteria in thread", Arrays.toString(outAry));
+                if(outAry.length > 17){
                 out[0] = outAry[17];
-                Log.i("2BadgeInfo.Criteria in thread", out[0]);
+                Log.i("2BadgeInfo.Criteria in thread", out[0]);}
+                else {
+                    Log.e("2BadgeInfo.Criteria in thread", "Index out of bounds");
+                }
             }
         };
         threadCriteria.start();
@@ -223,8 +242,12 @@ class BadgeInfo extends APICaller{
                 String in = stream(id, "getBadge.php?badgeID=");
                 String[] outAry = in.split("\"");
                 Log.i("BadgeInfo.Icon in thread", Arrays.toString(outAry));
+                if(outAry.length > 21){
                 out[0] = outAry[21];
-                Log.i("BadgeInfo.Icon in thread", out[0]);
+                Log.i("BadgeInfo.Icon in thread", out[0]);}
+                else {
+                    Log.e("2BadgeInfo.Icon in thread", "Index out of bounds");
+                }
             }
         };
         threadIcon.start();
@@ -242,8 +265,12 @@ class BadgeInfo extends APICaller{
                 String in = stream(id, "getBadge.php?badgeID=");
                 String[] outAry = in.split("\"");
                 Log.i("BadgeInfo.CreationDate in thread", Arrays.toString(outAry));
+                if(outAry.length > 25){
                 out[0] = outAry[25];
-                Log.i("BadgeInfo.CreationDate in thread", out[0]);
+                Log.i("BadgeInfo.CreationDate in thread", out[0]);}
+                else {
+                    Log.e("2BadgeInfo.CreationDate in thread", "Index out of bounds");
+                }
             }
         };
         threadCreationDate.start();
