@@ -61,7 +61,7 @@ public class EditProfile extends AppCompatActivity {
        // setProfilePicForImageView(0); // Set the default profile picture
 
 // Now you can set the profile picture for the imageView
-        imageView.setImageResource(profileItem.getProfilepic());
+        //imageView.setImageResource(profileItem.getProfilepic());
         //ImageView profImage = findViewById(R.id.imageView);
         // profImage.setImageResource(R.drawable.blank_user);
         persons = new ArrayList<User>();
@@ -99,14 +99,15 @@ public class EditProfile extends AppCompatActivity {
 
             try {
                 String[][] tempBadgeArray = UserBadgeInfo.getCompleteUserBadges(Integer.parseInt(profId));
-                Log.i("TEMP BADGE INFO completion status", " " + tempBadgeArray[0][7]);
+                Log.i("TEMP BADGE LENGTH", String.valueOf(tempBadgeArray.length));
+
                 for (int i = 0; i < tempBadgeArray.length; i++) {
                     Log.i("TEMP BADGE INFO", Arrays.toString(tempBadgeArray[i]));
                     BadgeItemModel bim = new BadgeItemModel(Integer.parseInt(tempBadgeArray[i][0]), tempBadgeArray[i][1], tempBadgeArray[i][2], Integer.parseInt(tempBadgeArray[i][4]), Integer.parseInt(tempBadgeArray[i][7]), tempBadgeArray[i][3], Integer.parseInt(tempBadgeArray[i][6]));
                     arrBadges.add(bim);
                 }
-
             } catch (InterruptedException e) {
+                Log.i("TEMP BADGE EXCEPTION", "oops");
                 throw new RuntimeException(e);
             }
 
