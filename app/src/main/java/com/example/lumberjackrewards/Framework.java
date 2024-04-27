@@ -255,16 +255,19 @@ class UserBadgeInfo extends APICaller {
     //HANDLE THESE FUNCTIONS
     //They will not work if there is no user badge data!
     public static String[][] getCompleteUserBadges(int id) throws InterruptedException{
-        String in = "";
-        Thread threadCreationDate = new Thread() {
+        String[] in = {""};
+        Thread threadCompleteBadges = new Thread() {
             @Override
             public void run() {
-                String in = stream(id, "getUserBadges.php?userID=");
+                in[0] = stream(id, "getUserBadges.php?userID=");
             }
         };
 
+        threadCompleteBadges.start();
+        sleep(TIMER);
+
         //splits given JSON dictionary into parsable string array
-        String[] workingAry = in.substring(in.indexOf("completed_badges"), in.indexOf("in_progress")).split("\"");
+        String[] workingAry = in[0].substring(in[0].indexOf("completed_badges"), in[0].indexOf("in_progress")).split("\"");
         String[][] outAry = new String[workingAry.length/32][8];
 
         //split array has 4 pieces "JSON punctuation", "nameofcolumn", ":", "the data" per required entry
@@ -287,7 +290,7 @@ class UserBadgeInfo extends APICaller {
     //They will not work if there is no user badge data!
     public static String[][] getInprogUserBadges(int id){
         String in = "";
-        Thread threadCreationDate = new Thread() {
+        Thread threadInprogBadges = new Thread() {
             @Override
             public void run() {
                 String in = stream(id, "getUserBadges.php?userID=");
