@@ -75,7 +75,7 @@ public class BadgeInfoPage extends AppCompatActivity{
                 //startActivity(new Intent(getApplicationContext(),BadgesActivity.class));
                 //finish();
                 try {
-                    UpdateUserBadge.updateBadge(2,badgeId);
+                    UpdateUserBadge.updateBadge(4,badgeId);
                     redeemButton.setText("Redeemed");
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);

@@ -133,9 +133,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void updateTextView(String newText) {
-        String welcomeMessage = "Welcome " + newText;
-        TextView textView = (TextView) findViewById(R.id.welcomeNameTextView);
-        textView.setText(newText);
-    }
 }

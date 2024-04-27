@@ -58,7 +58,7 @@
                         android:id="@+id/welcomeTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/welcome"
+                        android:text="In progress badges:"
                         android:textAlignment="textStart"
                         android:textColor="@color/white"
                         android:fontFamily="@font/arboria_black"
@@ -68,17 +68,6 @@
                         android:layout_width="3dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0" />
-
-                    <TextView
-                        android:id="@+id/welcomeNameTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:text="John."
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/arboria_black"
-
-                        android:textSize="24sp" />
 
                 </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
@@ -106,15 +95,6 @@
                         android:layout_width="10dp"
                         android:layout_height="32dp"
                         android:layout_weight="0" />
-
-                    <TextView
-                        android:id="@+id/newsTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:text="@string/NewsAndUpdates"
-                        android:textColor="@color/white"
-                        android:textSize="24sp" />
 
                 </LinearLayout>
 
