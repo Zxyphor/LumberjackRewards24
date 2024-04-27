@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    tools:context=".BadgesActivity">
+    tools:context=".ProfileSearch">
 
     <!--on below line we are creating edit text
          for adding a new item to list-->
@@ -43,6 +43,8 @@
                 app:backgroundTint="@null"
                 android:text="Badges"
                 android:elevation="5dp"/>
+            />
+
 
             <Button
                 android:id="@+id/profilesBtn"
@@ -87,18 +89,31 @@
             android:textColorHint="@color/mid_grey"
             android:elevation="5dp"/>
 
+        <!--android:dropDownSelector="@color/light_grey"
+        android:background="@drawable/n_inputs"
+        android:backgroundTint="@color/dark_grey"-->
+
+
+
         <!-- Badges list displayed -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvBadges"
+            android:id="@+id/profBadge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_badge"
-            android:layout_marginBottom="80dp"/>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="500dp"/>
+            tools:listitem="@layout/item_student" />
     </LinearLayout>
+
+    <!--list view to display list of languages-->
+    <!--
+    <ListView
+        android:id="@+id/idLVLanguages"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_below="@id/idEdtItemName" />
+    -->
+
+    <!-- Playing around with images-->
+
 
     <!--Navbar-->
     <com.google.android.material.bottomnavigation.BottomNavigationView

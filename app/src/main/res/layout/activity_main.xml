@@ -9,47 +9,16 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="32dp"
-                    android:layout_weight="0" />
-
-                <TextView
-                    android:id="@+id/welcomeTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/welcome"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-                    android:textSize="24sp" />
-
-                <Space
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0" />
-
-                <TextView
-                    android:id="@+id/welcomeNameTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:text="John."
-                    android:textColor="@color/white"
-                    android:textSize="24sp" />
-
-            </LinearLayout>
             <!-- NO pinned badges layout -->
             <LinearLayout
                 android:id="@+id/tvNoPinnedBadges"
@@ -57,7 +26,6 @@
                 android:layout_height="200dp"
                 android:background="#401C73"
                 android:visibility="gone"
-
                 >
 
                 <TextView
@@ -68,15 +36,50 @@
                     android:textColor="@color/white"
                     android:textSize="24sp" />
             </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPinnedBadges"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="355dp"
-                tools:itemCount="3"
-                tools:listitem="@layout/item_badge">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/n_back">
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            </androidx.recyclerview.widget.RecyclerView>
+                    <Space
+                        android:layout_width="20dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="0" />
+
+                    <TextView
+                        android:id="@+id/welcomeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="In progress badges:"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/arboria_black"
+                        android:textSize="24sp" />
+
+                    <Space
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0" />
+
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPinnedBadges"
+                    android:layout_width="wrap_content"
+                    android:layout_height="326dp"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_badge">
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -92,15 +95,6 @@
                         android:layout_width="10dp"
                         android:layout_height="32dp"
                         android:layout_weight="0" />
-
-                    <TextView
-                        android:id="@+id/newsTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:text="@string/NewsAndUpdates"
-                        android:textColor="@color/white"
-                        android:textSize="24sp" />
 
                 </LinearLayout>
 

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,17 +24,20 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class EditProfile extends AppCompatActivity {
     private ImageButton back;
-    EditText userName, userSurname;
-    TextView results;
+    TextView Name;
+    private TextView profileIdTextView;
     ArrayList <User> persons;
 
-    ImageView image;
     private RecyclerView rvBadge;
-    private ArrayAdapter<BadgeItemModel> adapter;
+    private ArrayAdapter<ProfileItemModel> adapter;
+    // Define an array to hold profile picture resource IDs
+    //private int[] profilePics = {R.drawable.pfp_01, R.drawable.pfp_02, R.drawable.pfp_purple /* add more profile pics as needed */};
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,51 +48,90 @@ public class EditProfile extends AppCompatActivity {
 //        userName = (EditText) findViewById(R.id.etName);
 //        userSurname = (EditText) findViewById(R.id.etSurname);
 //        results = (TextView) findViewById(R.id.result);
+       // int userId = getCurrentUserId();
+
+        // Create a ProfileInfo object for the current user
+        //ProfileInfo profileInfo = new ProfileInfo(userId);
+
         back = findViewById(R.id.backBtn);
-        TextView resultsTextView = findViewById(R.id.textView);
-        ImageView profImage = findViewById(R.id.imageView);
-        profImage.setImageResource(R.drawable.blank_user);
+        Name = findViewById(R.id.Name);
+        imageView = findViewById(R.id.imageView);
+        ProfileItemModel profileItem = new ProfileItemModel();
+// Assuming getProfilepic() returns the resource ID of the profile picture
+       // setProfilePicForImageView(0); // Set the default profile picture
+
+// Now you can set the profile picture for the imageView
+        //imageView.setImageResource(profileItem.getProfilepic());
+        //ImageView profImage = findViewById(R.id.imageView);
+        // profImage.setImageResource(R.drawable.blank_user);
         persons = new ArrayList<User>();
-        loadData(); // this load existing data when the activity starts.
-        setTextToTextView();
+        //loadData(); // this load existing data when the activity starts.
 
         // Initialize and assign variable
         rvBadge = findViewById(R.id.rvPinnedBadges);
-        ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
-
-        for (int i =0; i < 3; i++){
-            BadgeInfo badge = new BadgeInfo(i);
-            BadgeItemModel bim = new BadgeItemModel(i, badge.getName(), badge.getDescription(), badge.getIcon(), badge.getCompletionStatus(), badge.getRequirements(), badge.getSteps());
-            arrBadges.add(bim);
-        }
-
-        displayAllBadges(arrBadges);
 
         //this is the onClickListener for the button in the profileView page,
         // to move back to the home page.
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 Intent intent = new Intent(EditProfile.this, Settings.class);
-                 startActivity(intent);
-
+                //Intent intent = new Intent(EditProfile.this, ProfileSearch.class);
+                // startActivity(intent);
+                EditProfile.this.finish();
             }
         });
+        // Retrieve the profile name from the profile page
+        Intent intent = getIntent();
+        if (intent.hasExtra("profileIdTextView")) {
+            String profId = intent.getStringExtra("profileIdTextView");
+
+
+            ProfileInfo profInfo = new ProfileInfo(Integer.parseInt(profId));
+
+            try {
+                Name.setText(profInfo.getName(Integer.parseInt(profId)));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            //imageView.setImageResource(profInfo.getProfilepic());
+            //itemDescriptionTextView.setText(badgeInfo.getDescription());
+            ArrayList<BadgeItemModel> arrBadges = new ArrayList<>();
+
+            try {
+                String[][] tempBadgeArray = UserBadgeInfo.getCompleteUserBadges(Integer.parseInt(profId));
+                Log.i("TEMP BADGE LENGTH", String.valueOf(tempBadgeArray.length));
+
+                for (int i = 0; i < tempBadgeArray.length; i++) {
+                    Log.i("TEMP BADGE INFO", Arrays.toString(tempBadgeArray[i]));
+                    BadgeItemModel bim = new BadgeItemModel(Integer.parseInt(tempBadgeArray[i][0]), tempBadgeArray[i][1], tempBadgeArray[i][2], Integer.parseInt(tempBadgeArray[i][4]), Integer.parseInt(tempBadgeArray[i][7]), tempBadgeArray[i][3], Integer.parseInt(tempBadgeArray[i][6]));
+                    arrBadges.add(bim);
+                }
+            } catch (InterruptedException e) {
+                Log.i("TEMP BADGE EXCEPTION", "oops");
+                throw new RuntimeException(e);
+            }
+
+            displayAllBadges(arrBadges);
+        }
     }
 
-    private void displayAllBadges(ArrayList<BadgeItemModel> arrBadges) {
-        //arrBadges.clear();
-//        db.collection("badges")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        for (QueryDocumentSnapshot document : task.getResult()) {
-//                            BadgeItemModel badge = document.toObject(BadgeItemModel.class);
-//                            arrBadges.add(badge);
-//                        }
-//                        Log.d("PRINT_ARRAY", arrBadges.get(0).toString());
+    //private int getCurrentUserId() {
+        // Implementation to retrieve the user ID
+        // This might involve accessing shared preferences, database, or any other method
+        // Return the user ID
+   // }
+
+    // Method to set profile picture for imageView
+//    private void setProfilePicForImageView(int profilePicIndex) {
+//        if (profilePicIndex >= 0 && profilePicIndex < profilePics.length) {
+//            int profilePicResourceId = profilePics[profilePicIndex];
+//            imageView.setImageResource(profilePicResourceId);
+//        } else {
 //
+//        }
+//    }
+
+    private void displayAllBadges(ArrayList<BadgeItemModel> arrBadges) {
 
         //layout manager for badge test
         GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
@@ -98,94 +141,8 @@ public class EditProfile extends AppCompatActivity {
 
         //set adapter
         rvBadge.setAdapter(new BadgeViewAdapter(arrBadges));
-//                    }
-
-//                });
     }
 
-    //This method calls the save method when it is clicked.
-    public void btnSave(View v){
-        //this would save the data to its internal storage.
-        save();
-    }
-
-    //This method saves the data to internal storage.
-    private void save(){
-        try{
-            FileOutputStream file = openFileOutput("data.txt", MODE_PRIVATE);
-            OutputStreamWriter outputFile = new OutputStreamWriter(file);
-
-            //This writes the users data to file
-            for (int i = 0; i < persons.size(); i++){
-                outputFile.write(persons.get(i).getName() + ", "
-                        + persons.get(i).getSurname() + "\n");
-            }
-            outputFile.flush();
-            outputFile.close();
-            Toast.makeText(EditProfile.this, "Success", Toast.LENGTH_SHORT).show();
-        }
-        catch (IOException e){
-            Toast.makeText(EditProfile.this, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }
-    //This method will load existing data from file
-    public void loadData(){
-        persons.clear();
-        File file = getApplicationContext().getFileStreamPath("data.txt");
-        String lineFromFile;
-
-        //This checks if the file does exist.
-        if (file.exists()){
-            try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput("data.txt")));
-                // Reads data from file and populate ArrayList
-                while ((lineFromFile = reader.readLine()) != null) {
-                    StringTokenizer tokens = new StringTokenizer(lineFromFile, ", ");
-                    User person = new User(tokens.nextToken(), tokens.nextToken());
-                    persons.add(person);
-                }
-                reader.close();
-            }
-            catch(IOException e) {
-                Toast.makeText(EditProfile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }
-        else {
-            Toast.makeText(EditProfile.this, "File not found", Toast.LENGTH_SHORT).show();
-        }
-        //calls method to set text to textView
-        setTextToTextView();
-    }
-
-    public void btnAdd(View v){
-        String name = userName.getText().toString();
-        String surname = userSurname.getText().toString();
-
-        User person = new User(name, surname);
-        //persons.add(person);
-
-        if(!name.isEmpty() && !surname.isEmpty()){ // Check if both name and surname fields are not empty
-            // This is for saving one entry
-            this.persons.clear(); // this would clear an previous data, if any
-            User persons = new User(name, surname); // Creates a new User object
-            this.persons.add(person); // Adds the new person
-            save(); // Saves the data
-        } else {
-            Toast.makeText(this, "Please enter both name and surname", Toast.LENGTH_SHORT).show();
-        }
-
-        //calls method to set text to textView
-        setTextToTextView();
-    }
-
-    private void setTextToTextView(){
-        //Display data in the results TextView
-        StringBuilder text = new StringBuilder();
-        for(int i = 0; i < persons.size(); i++){
-            text.append(persons.get(i).getName()).append(", ").append(persons.get(i).getSurname()).append("\n");
-        }
-        TextView textView = findViewById(R.id.textView); // Get the TextView instance
-        textView.setText(text.toString()); // Set the text
-    }
 
 }
+

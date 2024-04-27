@@ -22,7 +22,6 @@ public class Settings extends AppCompatActivity {
 
         ImageView logoutBtn = (ImageView) findViewById(R.id.logoutButton);
         ImageButton backBtn = (ImageButton) findViewById(R.id.backButton);
-        Button btnEditProfile = (Button) findViewById(R.id.btnEditProfile);
         ImageButton btnTextSize = (ImageButton) findViewById(R.id.textSizeButton);
         ImageButton btnSecurity_Privacy = (ImageButton) findViewById(R.id.securityPrivacyButton);
         ImageButton btnContactUs = (ImageButton) findViewById(R.id.contactUsButton);
@@ -64,13 +63,6 @@ public class Settings extends AppCompatActivity {
                 return true;
             });
 
-            btnEditProfile.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(Settings.this, EditProfile.class));
-                    finish();
-                }
-            });
             backBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

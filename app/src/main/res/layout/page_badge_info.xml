@@ -19,22 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-            <!-- Pin badge button
-            <ImageButton
-                android:id="@+id/pinBadgeButton"
-                android:layout_marginTop="10dp"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_weight="0"
-                android:background="@android:color/transparent"
-                android:contentDescription="Button for pinning badges to home page"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/back_btn"
-                tools:ignore="TouchTargetSizeCheck" />
-            <Space
-                android:layout_width="330dp"
-                android:layout_height="0dp"/> -->
-
             <!-- Button to return to the previous page -->
             <ImageButton
                 android:id="@+id/backButton"

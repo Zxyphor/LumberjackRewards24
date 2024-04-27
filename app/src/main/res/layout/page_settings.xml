@@ -5,58 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Settings">
-    <!-- Top Navigation Bar -->
+
     <LinearLayout
-        android:layout_width = "match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <RelativeLayout
-            android:layout_width = "match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/purple_401"
-            >
-
-            <ImageButton
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:src="@drawable/back_btn"
-                android:id="@+id/backButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                android:textColor = "@color/white"
-                android:layout_marginStart="-10dp"
-                />
-            <!-- app:icon="@drawable/back_btn" -->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text = "@string/settings"
-                android:layout_centerInParent = "true"
-                android:textColor = "@color/white"
-                android:textStyle= "bold"
-                android:textSize = "18sp"
-                android:visibility="visible"
-                />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/purple_500"
-            android:orientation="vertical"
-            tools:context=".Settings">
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:background="@drawable/background_gradient"
+        android:orientation="vertical"
         android:paddingBottom="70dp">
 
 
@@ -65,125 +20,139 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--profile icon, add android:src after layout-->
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:contentDescription="@string/profile_icon"
-                android:src="@drawable/profile_icon" />
-
-            <TextView
-                android:id="@+id/settings_nameplate"
-                android:layout_width="wrap_content"
+            <include
+                android:id="@+id/stud"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_width="fill_parent"
+                layout="@layout/item_student_profile"
                 android:layout_marginTop="10dp"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/settingsEmailDisplay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingTop="6dp"
-                android:text="@string/settings_phone_number"
-                android:textColor="#CCFFFFFF"
-                android:textSize="18sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnEditProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/round_back_secondary_100"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:text="@string/edit_profile"
-                android:textAllCaps="false"
-                android:textColor="@color/black" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+            />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/round_back_white10_20"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/n_back"
+                android:elevation="5dp"
                 android:orientation="vertical"
                 android:padding="15dp">
 
-                <!--Dark Mode / Night Mode-->
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp">
-                    <!--night mode-->
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_back_night_mode"
-                        android:contentDescription="@string/night_mode"
-                        android:padding="12dp"
-                        android:src="@drawable/night_mode_icon" />
+                    android:layout_height="30dp"
+                    android:fontFamily="@font/arboria_bold"
+                    android:text="User Settings"
+                    android:textColor="@color/light_grey"
+                    android:textSize="24dp" />
 
-                    <TextView
+                <!-- Hide your profile section-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/n_back"
+                    android:backgroundTint="@color/dark_grey"
+                    android:elevation="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="60dp"
-                        android:text="@string/night_mode"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/arboria_bold"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="15dp"
+                            android:text="Hide Your Profile"
+                            android:textColor="@color/light_grey"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/arboria_bold"
+                            android:paddingLeft="15dp"
+                            android:text="Prevent other users from finding your profile."
+                            android:textColor="@color/grey"
+                            android:textSize="16dp" />
+                    </LinearLayout>
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
+                        android:elevation="5dp"
+                        android:padding="50dp"
                         android:switchMinWidth="50dp"
                         android:theme="@style/nightModeSwitch" />
-                </RelativeLayout>
 
-                <!--Notifications-->
-                <RelativeLayout
+                </LinearLayout>
+
+                <!--Delete Account Section-->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp">
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/n_back"
+                    android:backgroundTint="@color/dark_grey"
+                    android:elevation="5dp"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/notificationIcon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_back_notifications"
-                        android:contentDescription="@string/notification_icon"
-                        android:padding="12dp"
-                        android:src="@drawable/notifications_icon" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@+id/notificationIcon"
-                        android:text="@string/title_notifications"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="   Sign Out"
+                            android:textColor="@color/light_grey"
+                            android:textSize="24dp" />
 
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp"
-                        android:theme="@style/notificationsSwitch" />
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="     Sign out of your Lumberjack Rewards account."
+                            android:textColor="@color/grey"
+                            android:textSize="16dp" />
+
+                        <Button
+                            android:id="@+id/loginButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="36dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="36dp"
+                            android:layout_marginBottom="10dp"
+                            android:elevation="10dp"
+                            android:fontFamily="@font/arboria_bold"
+                            android:letterSpacing="0"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:text="Sign Out"
+                            android:background="@drawable/n_btn_default"
+                            app:backgroundTint="#F74D4E"
+
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+
+
             </LinearLayout>
 
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="1080dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -434,7 +403,19 @@
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/settings_nameplate"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/settingsEmailDisplay"></TextView>
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/backButton"/>
+    </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -446,5 +427,6 @@
         app:itemTextColor="@color/dark_grey"
         android:layout_alignParentBottom="true"
         android:background="@drawable/n_navbar"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu"
+        android:elevation="5dp"/>
 </RelativeLayout>
